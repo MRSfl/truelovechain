@@ -938,7 +938,8 @@ body,html{
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
-    padding-top: 190px
+    padding-top: 190px;
+    min-height:850px
 }
 .updates_detail_title{
     text-align: center;
