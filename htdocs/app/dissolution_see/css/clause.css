@@ -1,0 +1,67 @@
+.shadow-box{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,31,31,0.50);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    overflow-y: scroll
+}
+.clause-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+.clause-box{
+    width: 8.666667rem;
+    background: #fff;
+    text-align: center;
+    border: 1px solid #E8E5EC;
+    border-radius: .266667rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    margin-top: -1.333333rem
+}
+.clause-text{
+    font-size: .32rem;
+    width: 7.866667rem;
+    margin: 0 auto;
+    text-align: left;
+    line-height: .48rem;
+    padding: .933333rem 0
+}
+.title{
+    font-size: .426667rem;
+    font-weight: bold;
+    height: 1.466667rem;
+    line-height: 1.466667rem;
+    width: 7.866667rem;
+    margin: 0 auto;
+    border-bottom: 1px solid #e8e5ec;
+    box-sizing: border-box
+}
+.bottom{
+    font-size: .426667rem;
+    font-weight: bold;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-top: 1px solid #e8e5ec;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+}
+.bottom div{
+    width: 50%;
+    height: 1.333333rem;
+    line-height: 1.333333rem
+}
+.bottom p{
+    height: .8rem;
+    border-left: 1px solid #e8e5ec
+}

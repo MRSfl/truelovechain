@@ -1,0 +1,145 @@
+
+html {
+    height: 100%;
+    max-width: 640px;
+    margin: 0 auto
+}
+
+body {
+    height: 100%;
+    max-width: 640px;
+    background: #ffffff;
+    margin: 0 auto
+}
+.swiper-container {
+    width: 100%;
+    padding: 15px 0;
+    max-width: 640px;
+}
+
+
+
+.swiper-slide {
+    width: 80%;
+    -webkit-transform-style:preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style:preserve-3d
+}
+
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+    bottom: 15px
+}
+.swiper-pagination-bullet{
+    width: 13px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 1px
+}
+.swiper-pagination-bullet-active{
+    background: #ffdfdf;
+}
+.swiper-slide .main-img {
+    width: 100%;
+    border-radius:20px; 
+    margin: 0 auto;
+    display: block;
+}
+
+/* game-center */
+.game-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #ffffff;
+    display: none
+}
+.game-center p{
+    width: 41.3%;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7px
+}
+.game-center p:nth-child(1){
+    background: url(../img/game.png) no-repeat center center;
+    background-size:100% 100% 
+}
+.game-center p:nth-child(2){
+    background: url(../img/test.png) no-repeat center center;
+    background-size:100% 100% 
+}
+/* 文章列表 */
+.article-list-par{
+    overflow: hidden;
+}
+.article-list{
+    width: 84%;
+    margin: 25px auto 0
+}
+.article-list li{
+    display: flex;
+    flex-direction: row
+}
+.article-list li:last-child .article-img{
+    padding: 10px 0 0 0
+}
+.article-list li:last-child .article-bg p:nth-child(3){
+    width: 5px;
+    height: 5px;
+    background: #ffdfdf;
+    border-radius: 50%
+}
+.article-bg{
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+.article-bg p:nth-child(1){
+    width: 17px;
+    height: 17px;
+    flex-shrink:0;
+    background: url(../img/Group2.png) top center no-repeat;
+    background-size:100% ; 
+}
+.article-bg p:nth-child(2){
+    border-left: 1px solid #ffdfdf;
+    /* flex-shrink:0; */
+    flex: 1
+}
+.article-detail{
+    min-width: 240px;
+    margin-left: 10px
+}
+.article-title{
+    font-size: 14px;
+    font-weight: bold;
+    color: #e54370
+}
+.article-time{
+    font-size: 12px;
+    color: #9490a3;
+    padding: 7px 0  10px 0
+}
+.article-desc{
+    font-size: 12px;
+    line-height: 18px;
+    color: #1f1f1f
+}
+.article-img{
+    padding: 10px 0 40px 0
+}
+.article-img img{
+    width: 100%
+}
+/*  */
+.see-more{
+    font-size: 12px;
+    color: #9490a3;
+    padding: 40px 0 25px 0;
+    text-align: center;
+    display: none
+}

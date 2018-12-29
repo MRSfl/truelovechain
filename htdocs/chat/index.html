@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css?v=20181226">
+    <link rel="stylesheet" type="text/css" href="css/chatdear.css?v=201812261158">
+    <script src="../config/config.js"></script>
+    <script type="text/javascript" src="http://tlcimg.quanxiankaibo.com/h5/chat/js/jquery.min.js"></script>
+    <script type="text/javascript" src="http://tlcimg.quanxiankaibo.com/h5/chat/js/socket.io.min.js"></script>
+    <script type="text/javascript" src="http://tlcimg.quanxiankaibo.com/h5/chat/js/exif.js"></script>
+    <script type="text/javascript" src="http://tlcimg.quanxiankaibo.com/h5/chat/js/iscroll.js"></script>
+    <title>蜜语</title>
+</head>
+<body >
+   <div class="chat-container">
+    <div class="skin defaultSkin"></div>
+      <div class="preview_con">
+          <div class="preview_con_t">
+            <div class="preview_con_inner">
+               <img >
+            </div>
+          </div>
+        
+      </div>
+       <div class="header">
+        <div class="chatback"></div>
+         <span>蜜语</span>
+         <div class="change_skin">
+            <form id="fileForm2">
+                <input id="submitBtn2" type="submit" hidden>
+                <div>
+                   <input id="file2" class="file" type="file" name="file" accept="image/*" onchange="submitImg2()">
+                </div>
+            </form>
+         </div>
+       </div>
+       <div class="chat-list-con" id="wrapper">
+         <div class="chat-list" id="chat-list">
+           	<div class="chat_first">
+           		<p class="chat_first_text">耳鬓厮磨 甜蜜情话 快开始吧</p>
+           		<p class="chat_first_img">
+           			<img src="http://tlcimg.quanxiankaibo.com/h5/chat/img/chat.png">
+           		</p>
+           	</div>
+         </div>
+        </div>
+       <div class="footer">
+            <div class="chat_toolbar">
+                <textarea placeholder="请输入..." class="chat_textarea"></textarea>
+                <div class="chat_more"></div>
+                <div class="send_chat_btn"></div>   
+                
+            </div>
+       </div>
+       <div class="choose_model">
+           <div class="choose_action">
+              <div class="choose_btn_con">
+                <form id="fileForm" >
+                  <input id="submitBtn" type="submit" hidden>
+                  <div class="file_">
+                    <div class="file_img">
+                       <img src="http://tlcimg.quanxiankaibo.com/h5/chat/img/pic.png">
+                        <p>图片</p>
+                    </div>
+                    <div class="input_container">
+                      <input class="file" id="file" type="file" name="file" accept="image/*" onchange="submitImg()">
+                    </div>
+                  </div>
+                </form>
+               </div>
+               <div class="choose_btn_con">
+                <form id="fileForm1" >
+                  <input id="submitBtn1" type="submit" hidden>
+                  <div class="file_">
+                    <div class="file_img">
+                       <img src="http://tlcimg.quanxiankaibo.com/h5/chat/img/camera.png">
+                        <p>相机</p>
+                    </div>
+                    <div class="input_container">
+                      <input class="file" id="file1" type="file" name="file" capture="camera" accept="image/*" onchange="submitImg1()">
+                    </div>
+                  </div>
+                </form>
+               </div>
+              <div class="face_btn choose_btn_con">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/chat/img/bq.png">
+                <p>表情</p>
+              </div>  
+           </div>
+           <div class="pull_down"></div>
+       </div>
+       <div class="face_model">
+           <div class="face_action">
+                <div class="face_default">默认</div>
+                <ul class="face_conatiner">
+                    
+                </ul>
+                <div class="face_pull_down"></div>
+           </div>
+       </div>
+   </div>
+   <script type="text/javascript" src="http://tlcimg.quanxiankaibo.com/h5/chat/js/emotion.js?v=20181222"></script>
+   <script type="text/javascript" src="http://tlcimg.quanxiankaibo.com/h5/chat/js/commend.js?v=201812271115"></script>
+   <script type="text/javascript">
+        //http://tlcimg.quanxiankaibo.com
+        var height = $(window).height();
+        var flag = true;
+        var ugid = '';
+        var currentId = '';
+        var token = getQueryString('token');
+        var firstOpen = true;
+        var baseUrl = url;
+        var imgUrl = 'http://tlcimg.quanxiankaibo.com';
+        var url = baseUrl+'/tlc/im/chart';        //get wss ugid 地址
+        var sendUrl = baseUrl+'/tlc/im/comment';  //发送聊天地址
+        var myscroll;
+        
+       $(function(){
+            var skinBg = getLocalstorage('skin');
+            if (!!skinBg) {
+              setSkin(skinBg)
+            }else{
+              $('.skin').addClass('defaultSkin')
+            }
+           getAjax(url,{'token':token},getUgid)   //获取聊天list
+           initHeight($('body,html'),height)      //初始花窗口高度
+           initHeight($('.skin'),height);
+           $('.chat_more').click(function(){
+                $('.choose_model').css({'bottom':0})
+           })
+           $('.pull_down').click(function(){
+                $('.choose_model').css({'bottom':'-110px'})
+           })
+            $('.face_btn').click(function(){
+                if (flag) {
+                  initEmotions();
+                  flag = false
+                }
+                
+                $('.face_model').css({'bottom':'0'})
+                $('.choose_model').css({'bottom':'-110px'})
+           })
+            $('.face_pull_down').click(function(){
+                $('.face_model').css({'bottom':'-160px'});
+                $('.choose_model').css({'bottom':'-110px'})
+            })
+            $('.face_conatiner').on('click','li',function(){
+                var _title = $(this).attr('title');
+                var _this_val = $('.chat_textarea').val();
+                $('.chat_textarea').val(_this_val+_title);
+                $('.face_model').css({'bottom':'-160px'});
+                // $('.chat_textarea').focus()
+            });
+            $('.chatback').click(function(){
+              try{
+                  window.android.chatBack()
+              }catch(e){
+                  console.log(e)
+              }
+              try{
+                window.webkit.messageHandlers.chatBack.postMessage(null)
+              }catch(e){
+                console.log(e)
+              }
+            })
+            $('.send_chat_btn').click(function(){
+                // $('.chat_textarea').focus()
+                var message = $('.chat_textarea').val();
+                message = message.replace(/\n/g,'<br/>')
+                if (!$.trim(message)||!ugid||!currentId) {
+                  return
+                }
+                var data = {
+                    token:token,
+                    ugid:ugid,
+                    type:'text',
+                    content:message
+                }
+                getAjax(sendUrl,data)  //发送消息
+                sendSuccess()
+            })
+            $('.chat_textarea').click(function(){
+                setTimeout(function(){
+                  initRefresh()
+                },300)
+            })
+            $('.chat-list').on('touchstart',function(){  //监听滑动事件
+                if ($('.chat_textarea').is(':focus')) {
+                    loseFocus($('.chat_textarea'));
+                    return
+                }
+            })
+            
+            $('.preview_con').click(function(e){
+                preview_con_hide()
+            })
+            $('.chat-list').on('click','.previewImg',function(){
+              var src = $(this).attr('src');
+
+              try{
+                var src = src.split('?')[0]+'?x-oss-process=image/resize,w_1000/auto-orient,1';
+              }catch(e){
+                console.log(e)
+              }
+              try{
+                window.android.previewImg()
+              }catch(e){
+                console.log(e)
+              }
+              try{
+                window.webkit.messageHandlers.previewImg.postMessage(null)
+              }catch(e){
+                console.log(e)
+              }
+              $('.preview_con').find('img').attr('src',src);
+              $('.preview_con').show();
+              setTimeout(function(){
+                $('.preview_con').css({'width':'100%',"height":'100%'});
+              },20)
+              
+            })
+       })
+       function preview_con_hide(){
+            $('.preview_con').hide();
+            $('.preview_con').find('img').attr('src','');
+             setTimeout(function(){
+                $('.preview_con').css({'width':'0',"height":'0'});
+              },20)
+              try{
+                window.android.noPreviewImg()
+              }catch(e){
+                console.log(e)
+              }
+              try{
+                window.webkit.messageHandlers.noPreviewImg.postMessage(null)
+              }catch(e){
+                console.log(e)
+              }
+          }
+       function sendSuccess(e){
+       		$('.chat_textarea').val('');
+       }
+       function submitImg(){
+	        var fileObj = document.getElementById("file").files[0];
+	        UpladFile(fileObj,ajaxForm,baseUrl);
+          $('.choose_model').css({'bottom':'-110px'});
+
+       }
+       function submitImg1(){
+          var fileObj = document.getElementById("file1").files[0];
+          UpladFile(fileObj,ajaxForm,baseUrl);
+          $('.choose_model').css({'bottom':'-110px'});
+
+       }
+       function submitImg2(){
+         	var fileObj = document.getElementById("file2").files[0];
+        	UpladFile(fileObj,ajaxForm2,baseUrl);
+
+       }
+       function ajaxForm(res){
+       	var data = {
+              token:token,
+              type:'image',
+              attachment:JSON.parse(res.target.responseText).attachment,
+              ugid:ugid,
+              content:''
+	        }
+            getAjax(sendUrl,data)
+       }
+       
+       function ajaxForm2(res){
+       		setLocalstorage('skin',JSON.parse(res.target.responseText).path);
+          var bgurl = imgUrl+JSON.parse(res.target.responseText).path;
+          var image = new Image();
+          image.src = bgurl;
+          image.onload = function(){
+              setSkin(bgurl)
+          }
+       }
+       
+       function getUgid(res){   //获取用户的ugid
+          if (res.status == 200) {
+              wsConnect(res.groupurl);
+              if (res.chatList.length>0) {
+              	var str = "<div class='chat_last'></div>";
+                var html = initBuildHistotyList(res.chatList)+str;
+                //console.log(html)
+                $('.chat-list').append(html);
+                ugid = res.ugid;
+                currentId = res.cuid;
+                myscroll = new IScroll('#wrapper',{
+                  click:true
+                })
+                // refreshScroll($('body,html'))
+              }else{
+                ugid = res.ugid;
+                currentId = res.cuid;
+              	$('.chat_first').show()
+              }
+          }else{
+          	$('.chat_first').show()
+          }
+       }
+
+       function wsConnect(websocketUrl){
+        //var  websocketUrl = "ws://tlcim.quanxiankaibo.com";
+        var connectionOpts =  {
+            forceNew : true,
+            reconnection: true,
+            reconnectionDelay: 2000,                  //starts with 2 secs delay, then 4, 6, 8, until 60 where it stays forever until it reconnects
+            reconnectionDelayMax : 60000,             //1 minute maximum delay between connections
+            reconnectionAttempts: "Infinity",         //to prevent dead clients, having the user to having to manually reconnect after a server restart.
+            timeout: 10000,                           //before connect_error and connect_timeout are emitted. 10000
+            // transports: ['polling']                //forces the transport to be only websocket. Server needs to be setup as well/
+            "transports" : ['websocket', 'polling']               //forces the transport to be only websocket. Server needs to be setup as well/
+        }
+        var webSocket =  io.connect(websocketUrl,connectionOpts);
+
+        webSocket.on('error', function(event) {
+            console.log("error:"+event);
+        });
+
+        webSocket.on('connect', function(event) {
+            console.log("connect:"+ event);
+        });
+
+        webSocket.on('disconnect', function(event) {
+            console.log("disconnect:"+ event);
+        });
+
+        webSocket.on('connect_error', function(event) {
+            console.log("connect_error:"+event);
+        });
+
+        webSocket.on('connect_timeout', function(event) {
+            console.log("connect_timeout:"+event);
+        });
+
+        webSocket.on('reconnect', function(event) {
+            console.log("reconnect:"+event);
+        });
+
+        webSocket.on('message', function(data) {
+            if(data==null){
+                return false;
+            }
+            var $ret={};
+            $ret = JSON.parse(data);
+            // console.log($ret)
+            if ($ret.type == 'activityChat') {
+            	var lasttime = getSessionstorage('time');
+            	if (!!lasttime) {
+            		var currentTime = new Date().getTime();
+            		var isshow = setTime(currentTime,lasttime,5*60*1000);
+            		if (isshow) {
+            			var str = "<div class='chat-time'><span>"+getNowFormatDate()+"</span></div>"
+            		}else{
+            			var str=''
+            		}
+            		
+            	}
+            	if (firstOpen) {
+            		var str = "<div class='chat-time'><span>"+getNowFormatDate()+"</span></div>";
+            		firstOpen = false
+            	}
+   				     setSessionstorage('time',new Date())	
+                var html = str + buildHtmlItem($ret.data,currentId)
+                $('.chat-list').append(html);
+                setTimeout(function(){ initRefresh()},20)
+                // refreshScroll($('body,html'));
+                try{
+                  window.android.haveNewMessage()
+                }catch(e){
+                  console.log(e)
+                }
+                try{
+                   window.webkit.messageHandlers.haveNewMessage.postMessage(null)
+                }catch(e){
+                  console.log(e)
+                }
+            }
+          });
+        }
+        
+   </script>
+</body>
+
+</html>

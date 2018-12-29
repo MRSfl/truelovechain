@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            } 
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+    <title>“区块链+爱情”：真爱链APP正式上线</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="market-text">
+            真爱链是基于区块链和智能合约技术建设的全球爱情共识社区，为全人类打造围绕爱情的寻爱平台、存证平台、娱乐平台和商业平台。
+        </div>
+        <div class="main-content">
+            <h5>寻爱平台</h5>
+            <div class="market-text">
+                帮助渴望爱情的单身青年寻找真爱。
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>存证平台</h5>
+            <div class="market-text">
+                帮助情侣证明爱情和守护爱情，让所有的真爱都有保障，让所有的真爱都有价值。
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>娱乐平台</h5>
+            <div class="market-text">
+                帮助情侣丰富感情生活，让感情保持温度。
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>商业平台</h5>
+            <div class="market-text">
+                帮助商家进入社区，为情侣提供实物或数字化服务，用户也可以用真爱币兑换实物或数字化服务。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/online-report/img/1.jpg" />
+            </div>
+            <div class="market-text">
+                真爱链，秉承“爱情关系唯一”原则，坚持“珍惜爱情，忠于爱情”的价值观，以真身份、真上链方式向社区证明自己的爱情，可以在极大程度上对恋爱双方进行忠诚监督，并凭借独有的“爱情保险”，对坚守爱情的人予以奖励，对背叛爱情的人予以惩戒。
+            </div>
+            <div class="market-text">
+                真爱链（Truelovechain）已于2018年8月17日上线知名数字资产交易平台BCEX。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/online-report/img/2.jpg" />
+            </div>
+            <div class="market-text">
+                真爱链将区块链、爱情、保险等时下热门的技术概念结合起来，运用于全球范围的真爱情侣们，志做保护爱情价值链，实现了真爱链的三大亮点：真爱上链、真爱见证和真爱保险。
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>真爱上链</h5>
+            <div class="market-text">
+                真爱情侣可以将自己的爱情关系和爱情誓言记录在区块链上，作为对心爱之人的永恒承诺。
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>真爱见证</h5>
+            <div class="market-text">
+                情侣在链上公开爱情关系，亲朋好友可以用打币祝福的方式来见证爱情，参与见证的人越多，情侣获得的社区激励越多。
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>真爱保险</h5>
+            <div class="market-text">
+                参与真爱保险，获得真爱保障，只要双方坚持不分手，保险就会持续增值。如果被对方抛弃，被抛弃的一方将会获得真爱保险的全部资产，而抛弃爱情的一方将“净身出户”。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/online-report/img/3.png" />
+            </div>
+            <div class="market-text">
+                经过研发团队5个月的努力，真爱链APP于2018年11月30日正式发布上线。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/online-report/img/4.gif" />
+            </div>
+            <div class="market-text">
+                在真爱链app里，您可以与另一半匹配恋爱关系，并将此段关系进行“真爱上链”操作，将你们的恋爱信息记录在不可篡改永久保存的区块链上，还可以免费领取真爱链基金会赠送的1314TLC真爱保险。只要真爱关系有效，每天都可获得真爱链爱情社区的社区激励。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/online-report/img/5.png" />
+            </div>
+            <div class="market-text">
+                官网链接：<span class="undeline">www.truelovechain.com</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

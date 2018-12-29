@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/message.css?v=20181222">
+    <script src="http://tlcimg.quanxiankaibo.com/h5/system_message_detail/js/jquery.js"></script>
+    <script src="../config/config.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+            setRemUnit()
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>系统消息</title>
+</head>
+
+<body>
+    <div class="system-message-container">
+        <div class="title-container">
+        </div>
+        <div class="main-content">
+            <div class="warn">正在加载中...</div>
+        </div>
+    </div>
+    <script>
+        var token = getQueryString('token');
+        var id = getQueryString('id');
+        var getUrl = url;
+        function get() {
+            $.ajax({
+                url: getUrl + '/api/notification/cleanOneReadNotification',
+                type: 'get',
+                data: {
+                    token: token,
+                    id: id
+                },
+                success: function (data) {
+                    if (data.status == 200) {
+                        // window.history.go(-1)
+                        $('.main-content').html('<div style="font-size:16px;text-align:center;width:100%">删除成功</div>')
+                    }
+                }
+            })
+        }
+        function steRightCorner() {
+            var methods = {
+                "mothed": "get()",
+                "btnType": 101,
+                "colorType": 3
+            }
+            try {
+                window.android.SetUpperMethod('get()', '101', '3')
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(methods)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        $(function () {
+            steRightCorner()
+            $.ajax({
+                url: getUrl + '/api/notification/findOneNotification',
+                type: 'get',
+                data: {
+                    token: token,
+                    id: id
+                },
+                success: function (data) {
+                    if (data.status == 200) {
+                        var str = '';
+                        str = "<div class='message-title'>\
+                                <div class='message-title-text'>"+ data.data.title + "</div>\
+                                <div class='message-title-date'>"+ data.data.created + "</div>\
+                            </div>\
+                            <div class='message-content'>"+ data.data.content + "</div>"
+                        $('.main-content').html(str)
+                    } else {
+                        $('.warn').html(data.message)
+                    }
+                },
+                error: function (e) {
+                    $('.warn').html('请求失败，请稍后再试')
+                }
+            })
+            var flag = true;
+            var bgStyle = {
+                "bgColor": '#ffffff'
+            }
+            var bgStylenone = {
+                'bgColor': ''
+            }
+            $(window).scroll(function () {
+                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                if (scrollTop >= 44 && flag == true) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = false;
+                    return false
+                } else if (scrollTop < 44 && flag == false) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = true;
+                    return false;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

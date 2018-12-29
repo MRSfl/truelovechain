@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181220">
+    <title>邀请注册</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="main-content">
+            <h5 id="one">邀请注册</h5>
+            <div class="market-text">
+                1、查看邀请码<br>在“我的”中，点击“我的邀请”，进入该邀请目录后，点击右上角的“我的邀请码”，就会显示自己的邀请码；<br>注：实名认证通过后，方可查看个人邀请码。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/invited.png">
+            </div>
+            <div class="market-text">
+                2、邀请注册<br>在自己的邀请码页面中，可通过“微信分享”或者“邮件分享”的方式分享自己的邀请码，来邀请朋友进行注册、实名和上链等操作。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/invited2.png">
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

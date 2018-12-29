@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/certificate_ins.css?v=21081128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/js/jquery.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/js/qrcode.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/js/clipboard.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/js/exif.js"></script>
+    <title>真爱证书</title>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+            setRemUnit()
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+</head>
+
+<body>
+    <div class="love-cer-container">
+        <div class="love-box-bg">
+            <div class="top-image"></div>
+            <div class="user-info">
+                <div class="user-header">
+                    <div class="boy-header">
+                        <img src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/boy.png" />
+                    </div>
+                    <div class="girl-header">
+                        <img src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/girl.png" />
+                    </div>
+                </div>
+                <div class="jb-message">
+                    <div class="a-basic-message">
+                        <p class="a-name"></p>
+                        <p class="a-sex"></p>
+                        <p class="a-birth"></p>
+                    </div>
+                    <div class="basic-message">
+                        <p>姓名</p>
+                        <p>性别</p>
+                        <p>出生日期</p>
+                    </div>
+                    <div class="b-basic-message">
+                        <p class="b-name"></p>
+                        <p class="b-sex"></p>
+                        <p class="b-birth"></p>
+                    </div>
+                </div>
+                <div class="sy-message">
+                    <div class="love-oath">真爱誓言</div>
+                    <div class="love-oath-text">
+                        <div class="boy-oath">
+                            <span class="a-name"></span>
+                            <span>：</span>
+                            <span class="a-oath"></span>
+                        </div>
+                        <div class="girl-oath">
+                            <span class="b-name"></span>
+                            <span>：</span>
+                            <span class="b-oath"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sy-message">
+                    <div class="love-oath">真爱纪念日</div>
+                    <div class="love-oath-text jn-day">
+                       
+                    </div>
+                </div>
+                <div class="mark-date-intro">
+                    <span class="ourChainTime">时间</span>
+                    ，我们已经在真爱链上记录了爱情关系，整个爱情社区都为我们见证！
+                </div>
+                <div class="contract-address">
+                    <div class="address-img to-copy">
+                        <div id="qrcode"></div>
+                    </div>
+                    <div class="address-text">点击二维码真爱关系合约地址</div>
+                    <div class="zs-address"></div>
+                </div>
+                <div class="line"></div>
+                <div class="check-line-message"></div>
+                <div class="love-card-logo"></div>
+            </div>
+        </div>
+        <div class="bottom">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/logo.png" />
+            <div class="bottom_text">真爱链-是真爱、就上真爱链</div>
+            <a href="javascript:;" target="_blank" id="down-app">
+                <div class="down">立即下载</div>
+            </a>
+        </div>
+    </div>
+    <div class="feed-warn">
+        <span class="feed-warn-text">复制成功</span>
+    </div>
+    <script>
+        var browser = {
+        version:function(){
+            var u = navigator.userAgent, 
+                app = navigator.appVersion;
+                return {
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, 
+                    iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, 
+                    iPad: u.indexOf('iPad') > -1,
+                }
+            }
+        }
+        var version = browser.version();
+        if(version.ios||version.iPhone||version.ipad){
+            $('#down-app').attr('href',iosUrl)
+        }else if(version.android){
+            $('#down-app').attr('href',androidUrl)
+        }else{
+            $('#down-app').attr('href',androidUrl)
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        function toPoint(percent) {
+            var str = percent.replace("%", "");
+            str = str / 100;
+            return str;
+        }
+        function keepFivePoint(num) {
+            var n = parseFloat(parseInt(num * 100000) / 100000);
+            return n;
+        }
+        function setBirth(day) {
+            var birth = day.split('-');
+            var birthDay = birth[0] + '年' + birth[1] + '月' + birth[2] + '日'
+            return birthDay;
+        }
+        function setxing(str) {
+            var len = str.length;
+            var a = str.substr(0, 1);
+            var b = str.substr(1, len).replace(/.(?=)/g, '*');
+            return a + b;
+        }
+        $(function(){
+            var getUrl = url;
+            var token = getQueryString('token');
+            var timer = null;
+            function dialog(text) {
+                $('.feed-warn-text').html(text);
+                $('.feed-warn').show();
+                clearTimeout(timer)
+                timer = setTimeout(function () {
+                    $('.feed-warn').hide();
+                }, 1000)
+            }
+            $.ajax({
+                url:getUrl+'/h5/openinfo/viewOurInfo',
+                type:'get',
+                data:{
+                    token:token
+                },
+                success:function(res){
+                    if(res.status == 200){
+                       
+                        
+                        //basic message
+                        var newImg1 = new Image();
+                        var newImg2 = new Image();
+                        newImg1.src = getUrl+res.relation.apic;
+                        newImg2.src = getUrl+res.relation.bpic;
+                        newImg1.onload = function(){
+                            EXIF.getData(newImg1, function(){
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if(exif == 1){
+                                    $('.boy-header img').attr('src',getUrl+res.relation.apic);
+                                }else if(exif == 6){
+                                    $('.boy-header').addClass('rotate6');
+                                    $('.boy-header img').attr('src',getUrl+res.relation.apic);
+                                }else if(exif == 8){
+                                    $('.boy-header').addClass('rotate8');
+                                    $('.boy-header img').attr('src',getUrl+res.relation.apic);
+                                }else if(exif == 3){
+                                    $('.boy-header').addClass('rotate180');
+                                    $('.boy-header img').attr('src',getUrl+res.relation.apic);
+                                }else{
+                                    $('.boy-header img').attr('src',getUrl+res.relation.apic);
+                                }
+                            
+                            });
+                        }
+                        newImg2.onload = function(){
+                            EXIF.getData(newImg2, function(){
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if(exif == 1){
+                                    $('.girl-header img').attr('src',getUrl+res.relation.bpic);
+                                }else if(exif == 6){
+                                    $('.girl-header').addClass('rotate6');
+                                    $('.girl-header img').attr('src',getUrl+res.relation.bpic);
+                                }else if(exif == 8){
+                                    $('.girl-header').addClass('rotate8');
+                                    $('.girl-header img').attr('src',getUrl+res.relation.bpic);
+                                }else if(exif == 3){
+                                    $('.girl-header').addClass('rotate180');
+                                    $('.girl-header img').attr('src',getUrl+res.relation.bpic);
+                                }else{
+                                    $('.girl-header img').attr('src',getUrl+res.relation.bpic);
+                                }
+                            
+                            });
+                        }
+                        $('.a-name').html(res.relation.aname);
+                        if(res.relation.asex == 1){
+                            $('.a-sex').html('男');
+                        }else if(res.relation.asex == 2){
+                            $('.a-sex').html('女');
+                        }else{
+                            $('.a-sex').html('保密');
+                        }
+                        $('.a-birth').html(setBirth(res.relation.abirthday))
+
+                        $('.girl-header img').attr('src',getUrl+res.relation.bpic);
+                        $('.b-name').html(res.relation.bname);
+                        if(res.relation.bsex == 1){
+                            $('.b-sex').html('男')
+                        }else if(res.relation.bsex == 2){
+                            $('.b-sex').html('女')
+                        }else{
+                            $('.b-sex').html('保密')
+                        }
+                        $('.b-birth').html(setBirth(res.relation.bbirthday))
+                        if(res.relation.aloveinfo.length>=50){
+                            var alove = res.relation.aloveinfo.slice(0,50);
+                            $('.a-oath').html(alove+'...');
+                        }else{
+                            $('.a-oath').html(res.relation.aloveinfo);
+                        }
+                        if(res.relation.bliveinfo.length>=50){
+                            var blove = res.relation.bliveinfo.slice(0,50);
+                            $('.b-oath').html(blove+'...');
+                        }else{
+                            $('.b-oath').html(res.relation.bliveinfo);
+                        }
+                        
+                        $('.jn-day').html(setBirth(res.relation.aloveday));
+                        $('.ourChainTime').html(setBirth(res.our.ourChainTime.split(' ')[0]))
+                        $('.zs-address').html(res.our.ourChainHash)
+                        if(res.our.lrQrStr){
+                            var qrcode = new QRCode('qrcode', {
+                                text: res.our.lrQrStr,
+                                width: 300,
+                                height: 300
+                            });
+                            setTimeout(function () {
+                                $('#qrcode').show()
+                            }, 20);
+                        }else{
+                            $('.address-img').html('<img src="http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/loading.png" />')
+                        }
+                        if (res.our.ourChainHash) {
+                            $('.to-copy').attr('data-clipboard-text', res.our.ourChainHash);
+                            var to_copy = document.querySelector('.to-copy');
+                            var clipboard = new ClipboardJS(to_copy);
+                            clipboard.on('success', function (e) {
+                                dialog('复制成功')
+                            });
+                            clipboard.on('error', function (e) {
+                                try {
+                                    if (e.text == res.our.ourChainHash) {
+                                        dialog('复制成功')
+                                    } else {
+                                        dialog('暂不支持复制')
+                                    }
+                                } catch (e) { }
+
+
+                            });
+                        }
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

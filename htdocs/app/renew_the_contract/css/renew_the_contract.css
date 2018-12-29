@@ -1,0 +1,154 @@
+.top{
+    width: 9.733333rem;
+    height: 4.4rem;
+    margin: 0 auto;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/renew_the_contract/img/banner_bg.png) top center no-repeat;
+    background-size:100% 100%;
+    position: relative 
+}
+.re-con-icon{
+    position: absolute;
+    z-index: 100;
+    bottom: .8rem;
+    left: 50%;
+    margin-left: -0.933333rem
+}
+.re-con-icon img{
+    width: 1.866667rem;
+    height: 1.866667rem;
+}
+.user-name{
+    text-align: center;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    font-size: .373333rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.user-name img{
+    width: .45rem
+}
+.user-name span:nth-child(2){
+    margin: 0 .08rem
+}
+.main-container{
+    width: 9.466667rem;
+    margin: 0 auto;
+    text-align: center;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/renew_the_contract/img/xuyue@2x_01.png) top center no-repeat;
+    background-size:100%; 
+    white-space:normal; 
+    word-break:break-all;
+}
+.count-banner{
+    height: 1.466667rem;
+}
+.main-container-bg{
+    background: url(http://tlcimg.quanxiankaibo.com/h5/renew_the_contract/img/1_02.png) top center repeat-y;
+    background-size:100% ;
+    padding-bottom: 4.053333rem;
+    position: relative;
+}
+.re-contract-bottom-bg{
+    width: 9.466667rem;
+    height: 4.133333rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/renew_the_contract/img/2_03.png) top center no-repeat;
+    background-size: 100%;
+    position: absolute;
+    bottom: 0
+}
+.re-contract-time{
+    font-size: .373333rem;
+}
+.love-lc{
+    margin-top: 1.066667rem
+}
+.re-contract-common h3{
+    padding-bottom: .266667rem;
+    border-bottom: 1px dashed #eadaff;
+    font-size: .373333rem;
+    color: #e54370
+}
+.re-contract-common div{
+    font-size: .373333rem;
+    padding: .266667rem 0 .8rem
+}
+.re-contract-title{
+    font-size: .373333rem;
+    width: 6rem;
+    font-weight: bold;
+    height: .8rem;
+    line-height: .8rem;
+    color: #e54370;
+    background: #f2eafd;
+    border-radius: .586667rem;
+    margin: .266667rem auto 0;
+}
+.count-box{
+    width: 8.4rem;
+    box-sizing: border-box;
+    margin: 0 auto
+}
+.count-section1{
+    font-size: .346667rem;
+    padding-bottom: .84rem
+}
+.count-section1 h3{
+    font-size: .346667rem;
+    color: #e54370;
+    width: 8.066667rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-bottom: 1px dashed #e8e5ec;
+    padding-bottom: .266667rem
+}
+.rela-witness{
+    padding-top: .266667rem
+}
+.witness-money{
+    padding-top: .48rem;
+}
+.bless-number,.bless-money,.witness-number,.witness-q{
+    display: inline-block;
+    padding: 0 .16rem;
+
+}
+.bless-money,.witness-q{
+    font-weight: bold
+}
+.tlc{
+    font-weight: bold;
+    padding-right: .16rem
+}
+.bless-money-rmb,.witness-money-rmb{
+    padding: 0 .133333rem;
+    font-size: .24rem
+}
+.rmb{
+    font-size: .24rem
+}
+.rela-asset span,.baoxian-asset span,.lose-tlc-number span{
+    display: inline-block;
+    padding: .333333rem .16rem 0
+}
+.re-contract-bottom p{
+    font-size: .373333rem;
+    line-height: .56rem
+}
+.re-contract-btn{
+    width: 8.666667rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    background: #ee4c7a;
+    margin: 0 auto;
+    font-size: .426667rem;
+    text-align: center;
+    border-radius: .586667rem;
+    box-shadow: 0 .133333rem .186667rem 0 #ffdfdf;
+    color: #fff;
+}
+.re-contract-next{
+    padding: .666667rem 0
+}

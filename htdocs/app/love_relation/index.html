@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/love_relation.css?v=20181128">
+
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_relation/js/jquery.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_relation/js/qrcode.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_relation/js/exif.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love_relation/js/clipboard.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>真爱关系</title>
+</head>
+
+<body>
+    <div class="policy-detail-container">
+        <div class="policy-detail-top">
+            <div class="user-header">
+                <div class="boy-header">
+                    <img src="http://tlcimg.quanxiankaibo.com/h5/love_relation/img/boy.png" />
+                </div>
+                <div class="girl-header">
+                    <img src="http://tlcimg.quanxiankaibo.com/h5/love_relation/img/girl.png" />
+                </div>
+
+            </div>
+        </div>
+        <div class="user-name">
+            <span class="a-user-name"></span>
+            <span><img src="http://tlcimg.quanxiankaibo.com/h5/love_relation/img/redlove.png" /></span>
+            <span class="b-user-name"></span>
+        </div>
+        <div class="line"></div>
+        <div class="love-relation-detail">
+            <div class="love-relation-detail-left">
+                <p class="join-time">真爱创建时间</p>
+                <p class="join-time-detail ourChainTime">******</p>
+            </div>
+            <div class="col-line"></div>
+            <div class="love-relation-detail-right">
+                <p class="join-time">真爱纪念日</p>
+                <p class="join-time-detail ourJnrTime">******</p>
+            </div>
+        </div>
+        <div class="love-date-cutdown">纪念日倒计时</div>
+        <div class="love-data">0天</div>
+        <div class="love-relation-address to-copy">
+            <div id="qrcode"></div>
+        </div>
+        <div class="love-relation-title">点击二维码复制真爱关系合约地址</div>
+        <div class="gx-address"></div>
+        <div class="remove-love" id="remove-love">解约真爱关系</div>
+    </div>
+    <div class="feed-warn">
+        <div class="feed-warn-text"></div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 2
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        function setBirth(day) {
+            var birth = day.split('-');
+            var birthDay = birth[0] + '年' + birth[1] + '月' + birth[2] + '日'
+            return birthDay;
+        }
+        $(function () {
+            var timer = null;
+            var getUrl = url;
+            var token = getQueryString('token');
+            function dialog(text) {
+                $('.feed-warn-text').html(text);
+                $('.feed-warn').show();
+                clearTimeout(timer)
+                timer = setTimeout(function () {
+                    $('.feed-warn').hide();
+                }, 3000)
+            }
+            var remove_love = document.getElementById('remove-love');
+            remove_love.onclick = function () {
+                $.ajax({
+                    url: getUrl + '/h5/openinfo/judge',
+                    type: 'get',
+                    async: false,
+                    data: {
+                        token: token
+                    },
+                    success: function (res) {
+                        if (res.status == 200) {
+                            try {
+                                window.android.jumpDissolution()
+                            } catch (e) {
+                                console.log(e)
+                            }
+                            try {
+                                window.webkit.messageHandlers.jumpDissolution.postMessage(null);
+                            } catch (e) {
+                                console.log(e)
+                            }
+                        } else {
+                            dialog(res.message)
+                        }
+                    }
+                })
+            }
+            try {
+                window.android.SetUpperMethod('', '', '2')
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj);
+            } catch (e) {
+                console.log(e)
+            }
+
+
+            $.ajax({
+                url: getUrl + '/h5/openinfo/viewOurAllInfo',
+                type: "get",
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    if (res.status == 200) {
+                        var newImg1 = new Image();
+                        var newImg2 = new Image();
+                        newImg1.src = getUrl + res.relation.apic;
+                        newImg2.src = getUrl + res.relation.bpic;
+                        newImg1.onload = function () {
+                            EXIF.getData(newImg1, function () {
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if (exif == 1) {
+                                    $('.boy-header img').attr('src', getUrl + res.relation.apic);
+                                } else if (exif == 6) {
+                                    $('.boy-header').addClass('rotate6');
+                                    $('.boy-header img').attr('src', getUrl + res.relation.apic);
+                                } else if (exif == 8) {
+                                    $('.boy-header').addClass('rotate8');
+                                    $('.boy-header img').attr('src', getUrl + res.relation.apic);
+                                } else if (exif == 3) {
+                                    $('.boy-header').addClass('rotate180');
+                                    $('.boy-header img').attr('src', getUrl + res.relation.apic);
+                                } else {
+                                    $('.boy-header img').attr('src', getUrl + res.relation.apic);
+                                }
+
+                            });
+                        }
+                        newImg2.onload = function () {
+                            EXIF.getData(newImg2, function () {
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if (exif == 1) {
+                                    $('.girl-header img').attr('src', getUrl + res.relation.bpic);
+                                } else if (exif == 6) {
+                                    $('.girl-header').addClass('rotate6');
+                                    $('.girl-header img').attr('src', getUrl + res.relation.bpic);
+                                } else if (exif == 8) {
+                                    $('.girl-header').addClass('rotate8');
+                                    $('.girl-header img').attr('src', getUrl + res.relation.bpic);
+                                } else if (exif == 3) {
+                                    $('.girl-header').addClass('rotate180');
+                                    $('.girl-header img').attr('src', getUrl + res.relation.bpic);
+                                } else {
+                                    $('.girl-header img').attr('src', getUrl + res.relation.bpic);
+                                }
+
+                            });
+                        }
+                        $('.a-user-name').html(res.relation.aname);
+                        $('.b-user-name').html(res.relation.bname);
+                        $('.ourChainTime').html(setBirth(res.our.ourChainTime.split(' ')[0]));
+                        $('.ourJnrTime').html(setBirth(res.our.ourJnrTime.split(' ')[0]));
+                        $('.love-data').html(res.data.jnrdays + '天');
+                        $('.gx-address').html(res.our.ourChainHash)
+                        if (res.our.lrQrStr) {
+                            var qrcode = new QRCode('qrcode', {
+                                text: res.our.lrQrStr,
+                                width: 295,
+                                height: 295
+                            });
+                            setTimeout(function () {
+                                $('#qrcode').show()
+                            }, 20)
+
+                        } else {
+                            $('.love-relation-address').html('<img src="http://tlcimg.quanxiankaibo.com/h5/love_relation/img/loading.png">')
+                        }
+                        if (res.our.ourChainHash) {
+                            $('.to-copy').attr('data-clipboard-text', res.our.ourChainHash);
+                            var to_copy = document.querySelector('.to-copy');
+                            var clipboard = new ClipboardJS(to_copy);
+                            clipboard.on('success', function (e) {
+                                dialog('复制成功')
+                            });
+                            clipboard.on('error', function (e) {
+                                dialog('复制失败')
+                            });
+                        }
+
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

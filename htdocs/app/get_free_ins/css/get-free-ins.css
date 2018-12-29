@@ -1,0 +1,173 @@
+.free-ins-cons{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.free-ins-top{
+    width: 9.733333rem;
+    height: 4.4rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/get_free_ins/img/bg.png) top center no-repeat;
+    background-size:100% 100%;
+    margin: 0 auto 
+}
+.free-ins-text{
+    text-align: center;
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-top: 2.88rem;
+    color: #ffffff
+}
+.ins-intro{
+    width: 9.733333rem;
+    height: 100%;
+    margin: .4rem auto 0;
+    box-sizing: border-box;
+    padding-bottom: 8.266667rem;
+    overflow: hidden;
+}
+.ins-intro-conatiner{
+    width: 100%;
+    height: 100%;
+    border:1px solid #e8e5ec;
+    box-sizing: border-box;
+    border-radius: .266667rem;
+    padding-bottom: .32rem;
+    overflow-y: scroll;
+
+}
+.ins-intro-conatiner::-webkit-scrollbar{
+    width: 0
+}
+.ins-title{
+    text-align: center;
+    font-size: .373333rem;
+    font-weight: bold;
+    padding-top: .533333rem
+}
+.ins-title-left{
+    width: 8.933333rem;
+    margin: 0 auto;
+    font-size: .32rem;
+    line-height: .48rem;
+    padding: .533333rem 0 .266667rem 0
+}
+.table{
+    width: 8.933333rem;
+    margin: 0 auto;
+    border-right:  1px solid #9490a3;
+    border-bottom:  1px solid #9490a3;
+    box-sizing: border-box
+}
+.table td{
+    width: 50%;
+    vertical-align: top;
+    box-sizing: border-box;
+    border-left: 1px solid #9490a3;
+    border-top:  1px solid #9490a3;
+    padding: .266667rem 0;
+    
+}
+.table td span{
+    line-height: .6rem;
+    padding: 0 .2rem;
+    display: inline-block;
+    font-size: .32rem
+}
+.first-tr,.first-tr2{
+    text-align: center;
+    font-weight: bold;
+    font-size: .4rem
+}
+.ins-detail{
+    width: 8.933333rem;
+    margin: 0 auto;
+}
+.ins-detail p{
+    font-size: .32rem;
+    line-height: .613333rem;
+    padding-top: .186667rem
+}
+.ins-detail-p1,.ins-detail-p2,.ins-detail-p3{
+    font-size: .32rem;
+    line-height: .613333rem;
+    width: 8.933333rem;
+    margin: 0 auto;
+    
+}
+.text-center{
+    text-align: center
+}
+.ins-detail-p1{
+    padding: .533333rem 0 .266667rem 0
+}
+.ins-detail-p3{
+    padding: .266667rem 0 .4rem 0
+}
+.table2{
+    width: 8.933333rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-right: 1px solid #9490a3;
+    border-bottom:  1px solid #9490a3;
+}
+.table2 td{
+    vertical-align: top;
+    box-sizing: border-box;
+    border-left: 1px solid #9490a3;
+    border-top:  1px solid #9490a3;
+    padding: .266667rem 0;
+    
+}
+.table2 td span{
+    line-height: .6rem;
+    padding: 0 .2rem;
+    display: inline-block;
+    font-size: .32rem
+}
+.agree-container{
+    position: absolute;
+    bottom: 2.24rem;
+    width: 100%;
+    z-index: 10;
+}
+.agree-container-child{
+    width: 8.933333rem;
+    font-size: .32rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: .52rem;
+    margin: 0 auto
+}
+.check-icon{
+    width: .56rem;
+    height: .56rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/get_free_ins/img/check2x.png) center center no-repeat;
+    background-size: 100% 100%
+}
+.check-icon-un{
+    background: url(http://tlcimg.quanxiankaibo.com/h5/get_free_ins/img/uncheck@2x.png) center center no-repeat;
+    background-size: 100% 100%
+}
+.check-icon-text{
+    padding-left: .08rem
+}
+.next-container{
+    padding: .4rem 0 .666667rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 11;
+}
+.next{
+    width: 8.666667rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    background: #ee4c7a;
+    color: #ffffff;
+    text-align: center;
+    font-size: .426667rem;
+    border-radius: .586667rem;
+    box-shadow: 0 .133333rem .186667rem 0 #FFDFDF;
+    margin: 0 auto
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/down.css">
+    <title>下载</title>
+</head>
+
+<body>
+   <div class="down-app"">
+        <img src="images/bg.png" alt="">
+        <div class="title">欢迎下载<br>真爱链APP</div>
+        <div class="des">基于区块链的全球爱情共识社区</div>
+        <div class="down" id="down">
+            <img src="images/android@1.5x.png" />
+            <span>Android版</span>
+        </div>
+   </div>
+   <div class="dialog" id="dialog">
+       <div class="jt-box">
+           <img src="images/jt.png" alt="">
+       </div>
+       <div class="warn">
+           <span>请点击右上角</span>
+           <span>选择“<i>浏览器打开</i>”</span>
+       </div>
+   </div>
+</body>
+<script>
+    var browser = {
+        version: function () {
+            var u = navigator.userAgent,
+                ua = navigator.userAgent.toLowerCase();
+            return {
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                iPad: u.indexOf('iPad') > -1,
+                wechat: ua.indexOf('micromessenger')>-1
+            }
+        }
+    }
+    var version = browser.version();
+    var dialog = document.getElementById('dialog');
+    if(!version.wechat){
+        dialog.style.display = 'none'
+    }
+    var down = document.querySelector('#down');
+    down.onclick = function(){
+        if(!version.wechat){
+            window.location.href = 'http://tlcimg.quanxiankaibo.com/apk/appv1.0.1.apk';
+            return
+        }
+        
+    }
+ </script>
+
+</html>

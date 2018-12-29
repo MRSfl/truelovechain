@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/new_find.css?20181220">
+    <script src="../config/config.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.lazyload.min.js"></script>
+    <script src="js/swiper.js"></script>
+    <title>发现</title>
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="game-center">
+        <p class="game-fa">小游戏</p>
+        <p class="course">教程</p>
+    </div>
+    <div class="article-list">
+        <ul class="article-list-par">
+        
+        </ul>
+    </div>
+    <div class="see-more">请期待更多发现</div>
+</body>
+<script>
+    $(function () {
+        var baseUrl = url;
+        var baseImgUrl = 'http://tlcimg.quanxiankaibo.com';
+        var token = getQueryString('token');
+        var app_course = 'http://h5.truelovechain.com/app_course/index.html';
+        var gameUrl = 'http://h5.truelovechain.com/game/index.html';
+        $.ajax({
+            url: baseUrl + '/h5/openinfo/findList',
+            data: {
+                token: token
+            },
+            success: function (res) {
+                if (res.status == 200) {
+                    if (res.list.length > 0) {
+                        var str = '';
+                        res.list.forEach(function (item) {
+                            str += "<li data-gofun='" + item.goFun + "'>\
+                                <div class='article-bg'>\
+                                    <p></p>\
+                                    <p></p>\
+                                    <p></p>\
+                                </div>\
+                                <div class='article-detail'>\
+                                    <p class='article-title'>"+ item.title + "</p>\
+                                    <p class='article-time'>"+ item.updateTime + "</p>\
+                                    <p clsss='article-desc'>"+ item.desc + "</p>\
+                                    <p class='article-img'>\
+                                        <img class='lazy' data-original='"+ baseImgUrl + item.imgUrl + "'>\
+                                    </p>\
+                                </div>\
+                            </li>"
+                        })
+                        $('.article-list-par').html(str);
+
+                    }
+                    if (res.banner.length > 0) {
+                        var str1 = '';
+                        res.banner.forEach(function (item) {
+                            str1 += '<div data-gofun='+item.banner_link+' class="swiper-slide">\
+                                        <div class="swiper-slide-img">\
+                                            <img src="'+ baseImgUrl + item.banner_url + '" class="main-img">\
+                                        </div>\
+                                    </div>'
+                        })
+                        $('.swiper-wrapper').html(str1)
+                        initSwiper()
+                    }
+                    $('.game-center').css({'display':'flex'});
+                    $('.see-more').show()
+                    $("img.lazy").lazyload({
+                        placeholder: 'img/default.png',
+                        effect: "fadeIn"
+                    });
+                }
+            }
+        })
+        $('.article-list-par').on('click', 'li', function () {
+            var goFun = $(this).data('gofun');
+            if(!goFun){
+                return
+            }
+            try{
+                window.android.openNewUrl(goFun)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                window.webkit.messageHandlers.openNewUrl.postMessage(goFun);
+            }catch(e){
+                console.log(e)
+            }
+        })
+        $('.swiper-wrapper').on('click','.swiper-slide',function(){
+            var goFun = $(this).data('gofun');
+            if(!goFun){
+                return
+            }
+            try{
+                window.android.openNewUrl(goFun)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                window.webkit.messageHandlers.openNewUrl.postMessage(goFun);
+            }catch(e){
+                console.log(e)
+            }
+        })
+        $('.course').click(function(){
+            try{
+                window.android.openNewUrl(app_course)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                window.webkit.messageHandlers.openNewUrl.postMessage(app_course);
+            }catch(e){
+                console.log(e)
+            }
+        })
+        $('.game-fa').click(function(){
+            try{
+                window.android.openNewUrl(gameUrl)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                window.webkit.messageHandlers.openNewUrl.postMessage(gameUrl);
+            }catch(e){
+                console.log(e)
+            }
+        })
+    })
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        var q = window.location.pathname.substr(1).match(reg_rewrite);
+        if (r != null) {
+            return unescape(r[2]);
+        } else if (q != null) {
+            return unescape(q[2]);
+        } else {
+            return null;
+        }
+    }
+    function initSwiper() {
+        var mySwiper = new Swiper(".swiper-container", {
+            pagination: {
+                el: '.swiper-pagination'
+            },
+            loop: true,
+            slidesPerView: "auto",
+            spaceBetween: 20,
+            delay: 3000,
+            speed: 500,
+            autoplay: {
+                disableOnInteraction: false,
+            },
+            centeredSlides: !0,
+            watchSlidesProgress: !0,
+            on: {
+                progress: function (b) {
+                    for (i = 0; i < this.slides.length; i++)
+                        slide = this.slides.eq(i),
+                            slideProgress = this.slides[i].progress,
+                            prevIndent = this.slides.length == i ? .3228 : .0898,
+                            scale = 1 > Math.abs(slideProgress + prevIndent) ? .1 * (1 - Math.abs(slideProgress + prevIndent)) + 1 : 1,
+                            slide.find(".swiper-slide-img").transform("scale3d(" + scale + "," + scale + ",1)")
+                },
+                setTransition: function (b) {
+                    for (var a = 0; a < this.slides.length; a++)
+                        this.slides.eq(a).find(".swiper-slide-img").transition(b)
+                }
+            }
+        });
+    }
+</script>
+
+</html>

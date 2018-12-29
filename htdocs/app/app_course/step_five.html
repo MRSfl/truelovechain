@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181220">
+    <title>领取保险</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="main-content">
+            <h5 id="five">领取保险</h5>
+            <div class="market-text">
+                在“真爱”的资产页面，点击“领取保险”，同意保险协议、设定保险比例后，发出领取保险的申请
+            </div>
+            <!-- <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins1.jpg" />
+            </div> -->
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins2.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins3.png" />
+            </div>
+            <!-- <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins4.png" />
+            </div> -->
+            <div class="market-text">
+                接收方在“真爱”的“关系”页面，看到另一半的申请后，点击查看，同意保险协议和保险设定比例后，领取保险成功<br>
+                注：<br>1、领取真爱保险时，真爱链社区将自行生成真爱保险合约，真爱保险合约生成需要一定的时间，具体视区块网络而定；<br>2、系统赠送的保险金额到账需要一定的时间，具体视区块网络而定。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins5.png" />
+            </div>
+            <!-- <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins1.jpg" />
+            </div> -->
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins7.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/get_ins8.png" />
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+
+.title-container{
+    width: 8.933333rem;
+    height: 1.173333rem;
+    margin: 0 auto;
+}
+.title{
+    width:8.933333rem;
+    height: 1.173333rem;
+    position: fixed;
+    top: 0;
+    background:#fff
+    
+}
+.back{
+    width: .28rem;
+    height: .52rem;
+    background: url(../images/back.png) center center no-repeat;
+    background-size: 100%;
+    position: absolute;
+    left: 0;
+    top: .306667rem
+}
+.title-text{
+    font-size: .48rem;
+    font-weight: bold;
+    position: absolute;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    left: 50%;
+    width: 2.666667rem;
+    margin-left: -1.333333rem;
+    text-align: center
+}
+.read{
+    font-size: .373333rem;
+    position: absolute;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    right: 0;
+}
+.messge-list{
+    width: 8.133333rem;
+    margin: .133333rem auto 0
+}
+.messge-list a:visited{
+    color: #BAB5CA
+}
+.messge-list li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.413333rem;
+    line-height: 1.413333rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #E8E5EC
+}
+
+.messge-list li.sign-read{
+    color: #BAB5CA
+}
+.messge-list li p{
+    font-size: .373333rem;
+    width: 4.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+.messge-list li div{
+    font-size: .32rem
+}
+.warn{
+    width: 100%;
+    font-size: .373333rem;
+    text-align: center;
+    line-height: 1.413333rem
+}

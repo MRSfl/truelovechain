@@ -1,0 +1,104 @@
+.diss-success-top{
+    width: 9.733333rem;
+    height: 4.4rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/dissolution_success/img/banner_bg.png) top center no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+    position: relative
+}
+.diss-success-top p{
+    text-align: center;
+    font-size: .72rem;
+    color: #fff;
+    font-weight: bold;
+    position: absolute;
+    bottom: .4rem;
+    width: 100%;
+}
+.dis-success-user{
+    font-size: .32rem;
+    text-align: center;
+    padding-top: .533333rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.dis-success-user img{
+    width: .45rem;
+}
+.dis-success-user span:nth-child(2){
+    margin: 0 .08rem
+}
+.diss-title{
+    padding-top: .933333rem;
+}
+.diss-title h3{
+    text-align: center;
+    font-size: .373333rem;
+    font-weight: bold;
+    padding-bottom: .533333rem
+}
+.see-calse{
+    padding: 0 .053333rem;
+    /* text-decoration: underline */
+}
+.rel-asset,.ins-asset,.wallet-address-boy,.wallet-address-girl,.service-charge{
+    padding: 0 1.013333rem 0 .933333rem;
+    white-space: normal;
+    word-break: break-all;
+}
+.ins-asset{
+    padding-top: .533333rem
+}
+.rel-asset div,.ins-asset div{
+    line-height: .56rem;
+    font-size: .373333rem
+}
+
+.judge-result-text{
+    text-align: center;
+    font-size: .48rem;
+    font-weight: bold;
+   
+}
+.wallet-address-boy div,.wallet-address-girl div,.service-charge div{
+    font-size: .373333rem;
+    line-height: .56rem
+}
+.wallet-address-boy,.wallet-address-girl,.service-charge{
+    padding-top: .533333rem
+}
+.dis-cuccess-bottom{
+    padding: .933333rem 0 .4rem
+}
+.dis-cuccess-bottom p{
+    text-align: center;
+    font-size: .32rem;
+    line-height: .48rem
+}
+.diss-success-confirm{
+    padding-bottom: .666667rem
+}
+.diss-success-btn{
+    width: 8.666667rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    text-align: center;
+    color: #fff;
+    background: #EE4C7A;
+    box-shadow: 0 .133333rem .186667rem 0 #FFDFDF;
+    border-radius: .586667rem;
+    font-size: .426667rem;
+    margin: 0 auto
+}
+.shadow-box{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,31,31,0.50);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    overflow-y: scroll
+}

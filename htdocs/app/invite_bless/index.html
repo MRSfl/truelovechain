@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/share.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/js/jquery.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/js/qrcode.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/js/clipboard.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/js/exif.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>邀请祝福</title>
+</head>
+
+<body>
+    <div class="share">
+        <div class="invite-bless-container clearfix">
+            <div class="invite-bless-title">邀请真爱祝福</div>
+            <div class="user-container">
+                <div class="user-header">
+                    <div class="auser-icon"><img src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/img/boy.png" /></div>
+                    <div class="buser-icon"><img src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/img/girl.png" /></div>
+                </div>
+                <div class="user-name">
+                    <span class="a-user-name"></span>
+                    <span><img src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/img/wlove.png" /></span>
+                    <span class="b-user-name"></span>
+                </div>
+                <div class="to-copy">
+                    <div class="gx-address">
+                        <div id="qrcode"></div>
+                    </div>
+                    <div class="gx-address-text">点击二维码复制真爱关系合约地址</div>
+                    <div class="gx-address-detail"></div>
+                </div>
+            </div>
+            <div class="explain-text">祝福方式：<br>
+                1、长按保存关系合约地址二维码，或点击复制关系合约地址；<br>
+                2、打开真爱链app，使用钱包转账功能，在收款人地址右侧点击扫一扫图标，从本地相册调取上述二维码图片，或直接粘贴关系合约地址进行转账即为好友祝福。</div>
+        </div>
+
+        <div class="bottom">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/invite_bless/img/logo.png" />
+            <div class="bottom_text">真爱链-是真爱、就上真爱链</div>
+            <a href="javascript:;" target="_blank" id="down-app">
+                <div class="down">立即下载</div>
+            </a>
+        </div>
+    </div>
+    <div class="feed-warn">
+        <span class="feed-warn-text">复制成功</span>
+    </div>
+</body>
+<script>
+
+    var browser = {
+        version: function () {
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            return {
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                iPad: u.indexOf('iPad') > -1,
+            }
+        }
+    }
+    var version = browser.version();
+    if (version.ios || version.iPhone || version.ipad) {
+        $('#down-app').attr('href', iosUrl)
+    } else if (version.android) {
+        $('#down-app').attr('href', androidUrl)
+    } else {
+        $('#down-app').attr('href', androidUrl)
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        var q = window.location.pathname.substr(1).match(reg_rewrite);
+        if (r != null) {
+            return unescape(r[2]);
+        } else if (q != null) {
+            return unescape(q[2]);
+        } else {
+            return null;
+        }
+    }
+    function setBirth(day) {
+        var birth = day.split('-');
+        var birthDay = birth[0] + '年' + birth[1] + '月' + birth[2] + '日'
+        return birthDay;
+    }
+    $(function () {
+        var token = getQueryString('token');
+        var getUrl = url;
+        var timer = null;
+        function dialog(text) {
+            $('.feed-warn-text').html(text);
+            $('.feed-warn').show();
+            clearTimeout(timer)
+            timer = setTimeout(function () {
+                $('.feed-warn').hide();
+            }, 1000)
+        }
+        $.ajax({
+            url: getUrl + '/h5/openinfo/invite',
+            type: 'get',
+            data: {
+                token: token
+            },
+            success: function (res) {
+                if (res.status == 200) {
+                    var newImg1 = new Image();
+                    var newImg2 = new Image();
+                    newImg1.src = getUrl + res.our.apic;
+                    newImg2.src = getUrl + res.our.bpic;
+                    newImg1.onload = function () {
+                        EXIF.getData(newImg1, function () {
+                            EXIF.getAllTags(this);
+                            var exif = EXIF.getTag(this, 'Orientation');
+                            if (exif == 1) {
+                                $('.auser-icon img').attr('src', getUrl + res.our.apic);
+                            } else if (exif == 6) {
+                                $('.auser-icon').addClass('rotate6');
+                                $('.auser-icon img').attr('src', getUrl + res.our.apic);
+                            } else if (exif == 8) {
+                                $('.auser-icon').addClass('rotate8');
+                                $('.auser-icon img').attr('src', getUrl + res.our.apic);
+                            } else if (exif == 3) {
+                                $('.auser-icon').addClass('rotate180');
+                                $('.auser-icon img').attr('src', getUrl + res.our.apic);
+                            } else {
+                                $('.auser-icon img').attr('src', getUrl + res.our.apic);
+                            }
+
+                        });
+                    }
+                    newImg2.onload = function () {
+                        EXIF.getData(newImg2, function () {
+                            EXIF.getAllTags(this);
+                            var exif = EXIF.getTag(this, 'Orientation');
+                            if (exif == 1) {
+                                $('.buser-icon img').attr('src', getUrl + res.our.bpic);
+                            } else if (exif == 6) {
+                                $('.buser-icon').addClass('rotate6');
+                                $('.buser-icon img').attr('src', getUrl + res.our.bpic);
+                            } else if (exif == 8) {
+                                $('.buser-icon').addClass('rotate8');
+                                $('.buser-icon img').attr('src', getUrl + res.our.bpic);
+                            } else if (exif == 3) {
+                                $('.buser-icon').addClass('rotate180');
+                                $('.buser-icon img').attr('src', getUrl + res.our.bpic);
+                            } else {
+                                $('.buser-icon img').attr('src', getUrl + res.our.bpic);
+                            }
+
+                        });
+                    }
+                    $('.a-user-name').html(res.our.aname);
+                    $('.b-user-name').html(res.our.bname);
+                    $('.ourChainTime').html(setBirth(res.our.created.split(' ')[0]));
+                    $('.gx-address-detail').html(res.our.chain_hash);
+                    if (res.our.chain_hash) {
+                        var qrcode = new QRCode('qrcode', {
+                            text: res.our.chain_hash,
+                            width: 300,
+                            height: 300
+                        });
+                        setTimeout(function () {
+                            $('#qrcode').show()
+                        }, 20);
+                        $('.to-copy').attr('data-clipboard-text', res.our.chain_hash);
+                        var to_copy = document.querySelector('.to-copy');
+                        var clipboard = new ClipboardJS(to_copy);
+                        clipboard.on('success', function (e) {
+                            dialog('复制成功')
+                        });
+                        clipboard.on('error', function (e) {
+                            try {
+                                if (e.text == res.our.ourChainHash) {
+                                    dialog('复制成功')
+                                } else {
+                                    dialog('暂不支持复制')
+                                }
+                            } catch (e) { }
+
+
+                        });
+                    }
+                }
+            }
+
+        })
+    })
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/about-us.css">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+    <title>关于真爱链</title>
+</head>
+
+<body>
+    <div class="about-us clearfix">
+        <div class="logo-container">
+            <div class="logo"></div>
+        </div>
+
+        <div class="version"></div>
+        <div class="about-us-intro">真爱链是基于区块链和智能合约技术建设的全球爱情共识社区，为全人类打造围绕爱情的寻爱平台、存证平台、娱乐平台和商业平台；寻爱平台帮助渴望爱情的单身青年寻找真爱；存证平台，帮助情侣证明爱情和守护爱情，让所有的真爱都有保障，让所有的真爱都有价值；娱乐平台帮助情侣丰富感情生活，让感情保持温度；商业平台可以帮助商家进入社区，为情侣提供实物或数字化服务，用户也可以用真爱币兑换实物或数字化服务。</div>
+        <div class="bottom">
+            <p class="bottom-text">官网地址</p>
+            <p class="bottom-href">http://www.truelovechain.com</p>
+            <p class="bottom-copy">Copyright © 真爱链</p>
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+            var obj = {
+                "colorType": 3
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', 3)
+            } catch (e) {
+                console.log(e)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

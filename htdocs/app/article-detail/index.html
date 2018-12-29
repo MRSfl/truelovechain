@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>真爱链 恋爱真有保障</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="report-title">真爱链 恋爱真有保障</div>
+        <div class="report-date">2018-07-19</div>
+        <div class="line"></div>
+        <div class="notes">
+            <p>互联网上遇得到真爱吗？我的亲身经验是「绝对可以」！</p>
+            <p>
+                <img src="http://tlcimg.quanxiankaibo.com/h5/article-detail/img/1.jpg" alt="">
+            </p>
+            <p>本文作者 邱永林 真爱链项目顾问<br>
+                台湾联合心理谘商所创院院长<br>
+                美国匹兹堡大学心理研究所<br>
+                台湾大陆心理谘询师双证<br>
+                心理谘询经验20年</p>
+            <p>2001年9月我刚从美国回台湾，11月我和现在的太太在MSN(当时微软的通讯软件)认识，3
+                个月后见面，13个月后我们结婚了。这一转眼15年了，我们已经是热闹的五口家庭。回顾这段从虚拟到实体，从相识、相恋、相爱、相知、相惜的过程，仍让我觉得自己实在太幸运。</p>
+            <p>但是现在的单身男女可以在互联网上複製我们当时的经验与幸运吗？我认为机会越来越淼茫！因为这十几年来，科技与网路世界已经发生好几波翻天复地的变化，虚拟世界带给我们方便与娱乐的同时，充满了更多诱惑与陷阱。单身男女们渴望遇见真爱的愿望，促使他们不断地在手机app上搜寻成千上万的其他用户，只希望有一天能中头奖----遇见真命天子或真命天女。然而，我们真的只能把这人生中最重要的决定交给机率吗？</p>
+            <p>真爱链是基于区块链和智能合约技术建设的全球爱情共识社区，结合区块链去中心化、不可篡改与不可逆等特性，以及爱情心理学的激情、亲密与承诺三大元素产生之爱情的模式，为全人类打造围绕爱情的寻爱平台、存证平台、娱乐平台和商业平台；寻爱平台帮助渴望爱情的单身青年寻找真爱；存证平台，帮助情侣证明爱情和守护爱情，让所有的真爱都有保障，让所有的真爱都有价值；娱乐平台帮助情侣丰富感情生活，让感情保持温度；商业平台可以帮助商家进入社区，为情侣提供实物或数字化服务，用户也可以用真爱币兑换实物或数字化服务。真爱链的使命为宣传珍惜爱情、忠于爱情的社会价值观，协助情侣建立稳固的二人情感关系，为建设和谐社会做出贡献。
+            </p>
+            <p>举例来说，小明和小丽加入了真爱链的会员，经由寻爱平台的智能配对认识了彼此，开始聊天与互动。在真爱链上确立爱情关系，存证平台利用区块链不可篡改的特性，生成爱情证书，并且每个人只能有唯一一份有效的爱情证书。娱乐平台则为他们每天提供更有趣的爱情游戏与爱情社交。遇到对方生日、特殊节日或情人节，小明和小丽可以从商业平台中挑选对方喜爱的礼物製造惊喜。</p>
+            <p>真爱链的创新模式将带给真诚寻爱的单身男女至少两个巨大优势！首先，由于真爱链寻爱平台上登记的单身青年，都必须经过严格身份认证，身份信息记录在区块链上，无法篡改和隐瞒。因此无意间成为第三者的烂桃花机率将大幅降低。其次，透过区块链不可篡改的特性让互联网上千千万万人见证爱情，将发挥强大的「心理契约效果」，让恋爱中的男女更能贯彻对彼此的承诺，大大提升走上红毯彼端的机会。</p>
+            <p>美国心理学家Robert J. Sternberg 提出爱情三元论，认为爱情是由三种成分所组成分别是：<br>
+                激情(Passion)：主要来自于对性的需求，渴望与对方发生关係<br>
+                亲密(Intimacy)：两人在一起感到幸福愉快，并互相扶持<br>
+                承诺(Commitment)：决定爱一个人，并保护这份关係</p>
+            <p>因此一份完整的爱情是激情（身）、亲密（心）与承诺（灵）三者兼具！容易吗？绝对不易，但值得追寻。因此真爱链将有兼具理论与实务的强大心理谘询专家团队为会员做情感谘询服务，助您寻到真爱、珍惜真爱！</p>
+
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

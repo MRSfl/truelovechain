@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/new_user.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>概念及规则</title>
+</head>
+
+<body>
+    <div class="new_user_container clearfix">
+        <ul class="new_user_main">
+            <li>
+                <div class="new_user_title">区块链</div>
+                <div class="new_user_con">区块链（Blockchain）是随着比特币诞生而产生的一个概念，区块链技术实际上是分布式数据存储、点对点传输、共识机制、加密算法等计算机技术的新型应用模式。<br>
+                    狭义来讲，区块链是一种按照时间顺序将数据区块以顺序相连的方式组合成的一种链式数据结构， 并以密码学方式保证的不可篡改和不可伪造的分布式账本。<br>
+                    广义来讲，区块链技术是利用块链式数据结构来验证与存储数据、利用分布式节点共识算法来生成和更新数据、利用密码学的方式保证数据传输和访问的安全、利用由自动化脚本代码组成的智能合约来编程和操作数据的一种全新的分布式基础架构与计算方式。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">智能合约</div>
+                <div class="new_user_con">智能合约（Smart Contract
+                    ）是一种旨在以信息化方式传播、验证或执行合同的计算机协议。智能合约允许在没有第三方的情况下进行可信交易，这些交易可追踪且不可逆转。</div>
+            </li>
+            <li>
+                <div class="new_user_title">以太坊</div>
+                <div class="new_user_con">以太坊（Ethereum）是一个开源的有智能合约功能的公共区块链平台，通过其专用加密货币以太币（Ether）提供去中心化的虚拟机（“以太虚拟机”
+                    Ethereum Virtual Machine）来处理点对点合约。<br>
+                    以太坊的概念首次在2013至2014年间由程序员Vitalik Buterin受比特币启发后提出，大意为“下一代加密货币与去中心化应用平台”，在2014年通过ICO众筹开始得以发展。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">以太币</div>
+                <div class="new_user_con">以太币简称ETH，是以太坊区块链上的代币。以太坊是一个开源的有智能合约功能的公共区块链平台，通过其专用加密货币以太币提供去中心化的虚拟机来处理点对点的合约。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱链基金会</div>
+                <div class="new_user_con">真爱链基金会是致力于真爱链技术开发及推广运营的机构，注册于新加坡。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱链</div>
+                <div class="new_user_con">真爱链是基于区块链和智能合约技术建设的全球爱情共识社区，为全人类打造围绕爱情的寻爱平台、存证平台、娱乐平台和商业平台；寻爱平台帮助渴望爱情的单身青年寻找真爱；存证平台，帮助情侣证明爱情和守护爱情，让所有的真爱都有保障，让所有的真爱都有价值；娱乐平台帮助情侣丰富感情生活，让感情保持温度；商业平台可以帮助商家进入社区，为情侣提供实物或数字化服务，用户也可以用真爱币兑换实物或数字化服务。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱币</div>
+                <div class="new_user_con">真爱币简称TLC，是真爱链社区发行的代币。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱上链</div>
+                <div class="new_user_con">经过情侣双方确认且自愿，通过使用双方的真爱链钱包密钥共同创建一份真爱链智能合约，将爱情关系信息记录在这个智能合约上的过程称之为真爱上链。这份智能合约里记载了双方的基础信息、身份信息、真爱誓言、双方在现实世界中确立关系的日期，以上信息皆可自主选择是否加密存储。爱情关系信息一旦上链，将永久无法更改。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱关系</div>
+                <div class="new_user_con">情侣双方在完成真爱上链后，在真爱链智能合约中形成的爱情关系称之为真爱关系。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱纪念日</div>
+                <div class="new_user_con">情侣双方设定在真爱链智能合约里的，现实世界中确立关系的日期，称之为真爱纪念日。</div>
+            </li>
+            <li>
+                <div class="new_user_title">续约</div>
+                <div class="new_user_con">真爱关系是有有效期的，需要情侣双方在续约期内（真爱纪念日前一天至后一天共72小时），使用各自的钱包密钥续约，才能继续生效。如果在续约期内有一方或双方未续约，则双方的真爱关系将被销毁。</div>
+            </li>
+            <li>
+                <div class="new_user_title">解约</div>
+                <div class="new_user_con">情侣任何一方都可随时发起真爱关系解约请求，如果对方同意则真爱关系将被销毁，如果对方不同意，则解约请求被驳回。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱关系合约账户</div>
+                <div class="new_user_con">
+                    情侣双方创建的真爱关系智能合约，也可以存储TLC资产，因此也称之为真爱关系合约账户，简称关系账户。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱保险合约账户</div>
+                <div class="new_user_con">情侣双方在兑换真爱保险后，会自动生成一份真爱保险智能合约，可以用来存储双方投保的TLC资产，因此也称之为真爱保险合约账户，简称保险账户。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱保险</div>
+                <div class="new_user_con">情侣双方在完成真爱上链后，可以在真爱链系统中使用TLC为双方的真爱关系兑换真爱保险，只要真爱关系有效，即可获得真爱链的社区激励。双方可以在保险合约中约定共同资产的分配比例。一旦选择分手，将根据分手情形，按照约定的规则分配双方共有的关系账户和保险账户中的TLC资产。</div>
+            </li>
+            <li>
+                <div class="new_user_title">和平分手</div>
+                <div class="new_user_con">情侣任何一方都可随时发起真爱关系解约请求，如果对方同意解约，真爱链视为和平分手，真爱关系自动销毁。和平分手后，双方关系合约账户和保险合约账户中的资产，在系统扣除相应的分手手续费后，按照双方约定的比例，返还至双方的个人钱包中。</div>
+            </li>
+            <li>
+                <div class="new_user_title">单方分手</div>
+                <div class="new_user_con">在真爱关系续约期结束后，如果只有一方续约，另外一方未续约，真爱链视为单方分手，真爱关系自动销毁。双方关系合约账户和保险合约账户中的资产，在系统扣除相应的分手手续费后，剩余部分全部返还至续约方的个人钱包中。</div>
+            </li>
+            <li>
+                <div class="new_user_title">遗忘关系</div>
+                <div class="new_user_con">在真爱关系续约期结束后，如果双方都未续约，真爱链视为遗忘关系，真爱关系自动销毁。双方关系合约账户和保险合约账户中的资产，将全部被系统回收。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱见证</div>
+                <div class="new_user_con">好友注册真爱链用户并完成身份认证后，往我的保险账户完成一笔转入TLC的操作，称之为真爱见证，好友成为我的真爱见证人。</div>
+            </li>
+            <li>
+                <div class="new_user_title">真爱祝福</div>
+                <div class="new_user_con">以下两种情形均为真爱祝福：1.好友未进行身份认证，往我的保险账户完成一笔TLC的转入操作；2.好友不论认证与否，往我的关系账户里完成一笔TLC的转入操作。</div>
+            </li>
+            <li>
+                <div class="new_user_title">追加保额</div>
+                <div class="new_user_con">指情侣双方往保险账户转入TLC的行为。</div>
+            </li>
+            <li>
+                <div class="new_user_title">提现</div>
+                <div class="new_user_con">情侣在真爱纪念日完成关系续约后，系统会自动分配一次提现机会，供情侣将关系账户和保险账户中的TLC资产提取到外部钱包；情侣可自行确定是否从账户中进行提现，以及提现多少。</div>
+            </li>
+            <li>
+                <div class="new_user_title">关系账户余额</div>
+                <div class="new_user_con">关系账户可以接收好友的祝福、社区激励以及其他未知原因的TLC转入，情侣双方也可以在真爱纪念日续约后从关系账户中提取TLC资产。关系账户余额是指关系账户当前剩余的TLC数量。</div>
+            </li>
+            <li>
+                <div class="new_user_title">保险账户余额</div>
+                <div class="new_user_con">保险账户可以接收好友的见证、祝福，追加的TLC，情侣双方也可以在真爱纪念日续约后从保险账户中提取TLC，保险账户余额是指保险账户当前剩余的TLC数量。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">总资产</div>
+                <div class="new_user_con">即关系账户余额与保险账户余额的总和。</div>
+            </li>
+            <li>
+                <div class="new_user_title">保险收益</div>
+                <div class="new_user_con">真爱保险收益包括三部分：基础收益、见证收益、社区收益。</div>
+            </li>
+            <li>
+                <div class="new_user_title">基础收益</div>
+                <div class="new_user_con">兑换了真爱保险的用户，每天可以获得真爱链社区分发的固定利息，这部分收益称为基础收益，基础收益=保险账户余额*基础日利息率。</div>
+            </li>
+            <li>
+                <div class="new_user_title">见证收益</div>
+                <div class="new_user_con">真爱保险在获得真爱见证后，将会获得真爱链社区分发的见证收益，见证人数越多，见证收益越高。见证收益=基础收益*见证人数*1%。</div>
+            </li>
+            <li>
+                <div class="new_user_title">社区收益</div>
+                <div class="new_user_con">真爱链会将社区收益奖池中的全部TLC，每天定期分给所有持有真爱保险的用户，分配规则为，社区收益=保险账户余额/社区保险总余额*社区收益奖池余额。社区收益需要用户每天在社区里手动领取，当日未领取的，待领收益将自动滚动到奖池中于次日重新分配。</div>
+            </li>
+            <li>
+                <div class="new_user_title">社区收益奖池</div>
+                <div class="new_user_con">真爱链系统每收到一笔手续费（和平分手、单方分手、遗忘关系、提现），在扣除系统收入部分后，剩余的会自动转入社区收益奖池。</div>
+            </li>
+            <li>
+                <div class="new_user_title">累计收益</div>
+                <div class="new_user_con">基础收益、见证收益和社区收益的总和。</div>
+            </li>
+            <li>
+                <div class="new_user_title">基础收益率</div>
+                <div class="new_user_con">即基础日利息率：自真爱链发布之日起，第一年为0.2%，然后逐年减半，减至0.0125%后保持不变。</div>
+            </li>
+            <li>
+                <div class="new_user_title">见证收益率</div>
+                <div class="new_user_con">见证收益率=基础收益率*见证人数*1%</div>
+            </li>
+            <li>
+                <div class="new_user_title">社区收益率</div>
+                <div class="new_user_con">社区收益率=社区收益奖池余额/社区保险总余额*100%</div>
+            </li>
+            <li>
+                <div class="new_user_title">保险万币收益</div>
+                <div class="new_user_con">保险万币收益=10000*（基础收益率+见证收益率+社区收益率）</div>
+            </li>
+            <li>
+                <div class="new_user_title">社区万币收益</div>
+                <div class="new_user_con">社区万币收益=10000*（社区奖池余额/社区总保额）</div>
+            </li>
+            <li>
+                <div class="new_user_title">年化收益率</div>
+                <div class="new_user_con">年化收益率=（基础收益率+见证收益率+社区收益率）*365</div>
+            </li>
+            <li>
+                <div class="new_user_title">昨日奖池新增</div>
+                <div class="new_user_con">社区奖池昨日转入的所有TLC之和</div>
+            </li>
+            <li>
+                <div class="new_user_title">今日奖池领取</div>
+                <div class="new_user_con">真爱链用户今天领取的社区收益总数</div>
+            </li>
+            <li>
+                <div class="new_user_title">手续费率</div>
+                <div class="new_user_con">
+                    提现手续费率：1%<br>
+                    和平分手手续费率：1%<br>
+                    单方分手手续费率：10%<br>
+                    遗忘关系手续费率：100%
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">社区回收的TLC分配方案</div>
+                <div class="new_user_con">社区回收的TLC包括分手手续费（和平分手和单方分手）、遗忘关系手续费、提现手续费。社区回收的TLC的90%存入社区收益奖池，10%属于真爱链基金会。</div>
+            </li>
+        </ul>
+        <div class="nomore">
+            <div class="nomore_question">没有更多</div>
+            <div class="nomore_question_bottom">如果没有解决您的问题 请在意见反馈提交</div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44) {
+                flag = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

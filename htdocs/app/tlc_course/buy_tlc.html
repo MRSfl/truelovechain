@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+    <title>买入TLC</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="main-content">
+            <h5>买入TLC</h5>
+            <div class="market-text">
+                1、购买ETH<br>
+                （1）首先登录BCEX官网：<span class="undeline">http://www.bcex.top</span><br>（2）点击法币交易，购买CK.USD或者USDT（以购买CK.USD为例）
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/1.png" />
+            </div>
+            <div class="market-text">
+                附：购买CK.USD或USDT，需要先绑定微信、银行卡，或者支付宝，具体操作如下
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/2.png" />
+            </div>
+            <div class="market-text">
+                <span style="color:red">注：必须是本人的银行卡、微信和支付宝。</span><br>
+                （3）将BCEX账户中的钱提交到币币账户。点击“个人中心”，在“OTC账户”下点击“资金划转”，填写好数量和密码后，点击“立即提交”。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/3.png" />
+            </div>
+            <div class="market-text">
+                备注：买入、卖出都需要把您的CK.USD转入到相应的账户，目前分为币币账户和OTC账户。<br>
+                OTC账户：您买入或者卖出CK.USD/USDT来获取人民币的唯一账户；<br>
+                币币账户：该账户是进行币币交易的。<br>
+                （4）可在CK.USD交易区进行ETH交易,买入适量的ETH。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/4.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/5.png" />
+            </div>
+            <div class="market-text">
+                2、用ETH购买TLC<br>
+                （1）在ETH交易区里找到TLC，点击交易，即可买入TLC。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/6.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/7.png" />
+            </div>
+            <div class="market-text">
+                （2）将TLC转入到真爱链APP内；点击“我的资产”，找到真爱币TLC，点击“提币”，添加自己在真爱链APP的钱包地址（可真爱保险地址，或真爱关系地址），并输入相应的转出数量，确定提币后，可成功将交易平台上的TLC转入到真爱链APP内。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/8.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/9.png" />
+            </div>
+            <div class="market-text">
+                如果在BCEX平台已拥有ETH，则可直接购买TLC；<br>
+                如果在别的交易平台拥有ETH，可在转入到BCEX平台的个人账户中后，直接购买TLC。
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

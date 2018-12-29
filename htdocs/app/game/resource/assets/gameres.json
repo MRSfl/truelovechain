@@ -1,0 +1,8 @@
+{"file":"gameres.png","frames":{
+"bg":{"x":0,"y":0,"w":640,"h":1136,"offX":0,"offY":0,"sourceW":640,"sourceH":1136},
+"btn_start":{"x":0,"y":1138,"w":399,"h":605,"offX":1,"offY":0,"sourceW":400,"sourceH":605},
+"failed":{"x":456,"y":1138,"w":473,"h":341,"offX":0,"offY":0,"sourceW":473,"sourceH":341},
+"pot1":{"x":769,"y":127,"w":61,"h":61,"offX":0,"offY":0,"sourceW":61,"sourceH":61},
+"pot2":{"x":850,"y":127,"w":61,"h":61,"offX":0,"offY":0,"sourceW":61,"sourceH":61},
+"replay":{"x":642,"y":4,"w":203,"h":103,"offX":0,"offY":0,"sourceW":203,"sourceH":103},
+"victory":{"x":456,"y":1491,"w":473,"h":341,"offX":0,"offY":0,"sourceW":473,"sourceH":341}}}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/share.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/wx_share/js/jquery.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/wx_share/js/swiper-3.4.2.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/wx_share/js/exif.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>邀请</title>
+</head>
+
+<body>
+    <div class="share clearfix">
+        <div class="share-ava">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/wx_share/img/boy.png" />
+        </div>
+        <div class="user-name">用户名</div>
+        <div class="user-name-bottom"></div>
+        <div class="invite-number-container">
+            <div class="invite-number-title"></div>
+            <div class="invite-number"></div>
+            <div class="invite-bottom"></div>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiper-section clearfix">
+                        <img src="http://tlcimg.quanxiankaibo.com/h5/wx_share/img/share_img1.png" />
+                        <div>基于区块链的全球爱情</div>
+                        <div>共识社区</div>
+                    </div>
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-section clearfix">
+                        <img src="http://tlcimg.quanxiankaibo.com/h5/wx_share/img/share_img2.png" />
+                        <div>将我们的爱情记录在区块链上</div>
+                        <div>接受全社区的共同见证和祝福</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-section clearfix">
+                        <img src="http://tlcimg.quanxiankaibo.com/h5/wx_share/img/share_img3.png" />
+                        <div>让所有的爱情都有保障</div>
+                        <div>让所有的爱情都有价值</div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="swiper-section clearfix">
+                        <img src="http://tlcimg.quanxiankaibo.com/h5/wx_share/img/share_img4.png" />
+                        <div>参与爱情“挖矿” 获得</div>
+                        <div>社区激励</div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="bottom">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/wx_share/img/logo.png" />
+            <div class="bottom_text">真爱链-是真爱、就上真爱链</div>
+            <a href="" target="_blank" id="down-app">
+                <div class="down">立即下载</div>
+            </a>
+        </div>
+    </div>
+</body>
+<script>
+    var browser = {
+        version: function () {
+            var u = navigator.userAgent,
+                app = navigator.appVersion;
+            return {
+                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                iPad: u.indexOf('iPad') > -1,
+            }
+        }
+    }
+    var version = browser.version();
+    if (version.ios || version.iPhone || version.ipad) {
+        $('#down-app').attr('href', iosUrl)
+    } else if (version.android) {
+        $('#down-app').attr('href', androidUrl)
+    } else {
+        $('#down-app').attr('href', androidUrl)
+    }
+    var mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 1.65,
+        pagination: '.swiper-pagination'
+    })
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        var q = window.location.pathname.substr(1).match(reg_rewrite);
+        if (r != null) {
+            return unescape(r[2]);
+        } else if (q != null) {
+            return unescape(q[2]);
+        } else {
+            return null;
+        }
+    }
+    $(function () {
+        var getUrl = url;
+        var token = getQueryString('token');
+        var type = getQueryString('type');
+        if (type == 'lovecode') {
+            sendinvite()
+        } else if (type == 'sharecode') {
+            sharecode()
+        }
+        function sharecode() {
+            $.ajax({
+                url: getUrl + '/h5/openinfo/getShareInfo',
+                type: 'get',
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    console.log(res);
+                    if (res.status == 200) {
+                        $('.user-name').html(res.name);
+                        $('.invite-number').html(res.code);
+                        $('.invite-number-title').html('邀请码');
+                        $('.invite-bottom').html('');
+                        $('.user-name-bottom').html('邀请你注册真爱链');
+                        var newImg1 = new Image();
+                        newImg1.src = getUrl + res.pic;
+                        newImg1.onload = function () {
+                            EXIF.getData(newImg1, function () {
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if (exif == 1) {
+                                    $('.share-ava img').attr('src', getUrl + res.pic)
+                                } else if (exif == 6) {
+                                    $('.share-ava').addClass('rotate6');
+                                    $('.share-ava img').attr('src', getUrl + res.pic)
+                                } else if (exif == 8) {
+                                    $('.share-ava').addClass('rotate8');
+                                    $('.share-ava img').attr('src', getUrl + res.pic)
+                                } else if (exif == 3) {
+                                    $('.share-ava').addClass('rotate180');
+                                    $('.share-ava img').attr('src', getUrl + res.pic)
+                                } else {
+                                    $('.share-ava img').attr('src', getUrl + res.pic)
+                                }
+
+                            });
+                        }
+                    }
+                }
+            })
+        }
+        function sendinvite() {
+            $.ajax({
+                url: getUrl + '/h5/openinfo/sendinvite',
+                type: 'get',
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    if (res.status == 200) {
+                        $('.user-name').html(res.aname);
+                        $('.invite-number').html(res.mycode);
+                        $('.invite-bottom').html('(24小时内有效)');
+                        $('.invite-number-title').html('匹配码');
+                        $('.user-name-bottom').html('邀请你创建真爱关系')
+                        var newImg1 = new Image();
+                        newImg1.src = getUrl + res.apic;
+                        newImg1.onload = function () {
+                            EXIF.getData(newImg1, function () {
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if (exif == 1) {
+                                    $('.share-ava img').attr('src', getUrl + res.apic)
+                                } else if (exif == 6) {
+                                    $('.share-ava').addClass('rotate6');
+                                    $('.share-ava img').attr('src', getUrl + res.apic)
+                                } else if (exif == 8) {
+                                    $('.share-ava').addClass('rotate8');
+                                    $('.share-ava img').attr('src', getUrl + res.apic)
+                                } else if (exif == 3) {
+                                    $('.share-ava').addClass('rotate180');
+                                    $('.share-ava img').attr('src', getUrl + res.apic)
+                                } else {
+                                    $('.share-ava img').attr('src', getUrl + res.apic)
+                                }
+
+                            });
+                        }
+                    }
+                }
+            })
+        }
+    })
+</script>
+
+</html>

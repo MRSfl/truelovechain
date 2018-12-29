@@ -1,0 +1,77 @@
+img{
+    width: 100%
+}
+.report-container{
+    width: 8.133333rem;
+    padding: 1.173333rem 0 .933333rem;
+    margin: 0 auto
+}
+.report-title{
+    font-size: .48rem;
+    font-weight: bold;
+    padding-top: .533333rem
+}
+.report-date{
+    font-size: .32rem;
+    color: #9490a3;
+    padding-bottom: .266667rem 
+}
+.line{
+    border-top: 1px solid #e8e5ec
+}
+.notes{
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-top: .506667rem
+}
+.notice-img{
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    padding: 5px;
+    margin-top: 10px
+}
+.main-content h5{
+    font-size: .48rem;
+    font-weight: bold;
+    /* padding: .666667rem 0 .266667rem */
+}
+.market-text{
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-bottom: .266667rem
+}
+.noice-text{
+    text-align: center;
+    font-size: .266667rem;
+    color: #2d2643;
+    padding: .266667rem 0 .666667rem
+}
+.table1,.table2{
+    width: 100%;
+    text-align: center;
+    border-right:1px solid #201919;
+    border-bottom:1px solid #201919 
+}
+.table1 tr,.table2 tr{
+    height: .666667rem;
+    color: #432626;
+   
+}
+.table1 td{
+    width: 50%;
+    border-left: 1px solid #201919;
+    border-top: 1px solid #201919;
+    font-size: .266667rem
+}
+.table1 .td1,.table2 .td2{
+    border-left: 1px solid #ffffff;
+}
+.table1 .tr1,.table2 .tr2{
+    background: #201919;
+    color: #ffffff
+}
+.table2 td{
+    border-left: 1px solid #201919;
+    border-top: 1px solid #201919;
+    font-size: .266667rem
+}

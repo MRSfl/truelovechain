@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181220">
+    <title>领取社区奖励</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="main-content">
+            <h5 id="seven">领取社区奖励</h5>
+            <div class="market-text">
+                在“社区”页面，点击金币，金币变成蝴蝶，则领取今日社区奖励成功。<br>
+                注：<br>1：须真爱关系账户和真爱保险账户地址都生成，并且系统赠送的TLC到账后才能领取金币；<br>
+                2：系统赠送的TLC到账后的第二天，才可以开始领取社区奖励；<br>
+                3：社区奖励一天只可领取一次，不可重复领取。
+
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/step_seven.png" />
+            </div>
+            
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

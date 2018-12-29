@@ -1,0 +1,202 @@
+
+.charge-detail-banner{
+    width: 9.733333rem;
+    height: 5.333333rem;
+    position: fixed;
+    /* background: url(../images/charge_detail.png) top center no-repeat;
+    background-size: 100% 100%; */
+    top: 0;
+    left: 50%;
+    margin-left: -4.866667rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: .72rem
+}
+.charge-mumber-bless-container{
+    /* margin-top: .373333rem */
+    position: absolute;
+    bottom: .533333rem;
+    z-index: 100;
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+.charge-money{
+    font-weight: bold
+}
+.charge-mumber-bless-container div{
+    font-size: .386667rem;
+    color: #ffffff;
+    text-align: center;
+    
+}
+.charge-mumber-bless-container p{
+    font-size: .72rem;
+    color: #ffffff;
+    padding: .133333rem 0;
+    text-align: center;
+    font-weight: bold
+}
+.charge-mumber-wallet-container{
+    font-size: .72rem;
+    color: #D9B765
+}
+.charge-number-none{
+    display: none
+}
+.charge-number-block{
+    display: block
+}
+.charge-message-list{
+    width: 8.666667rem;
+    margin: 0 auto;
+    padding-top: 6rem;
+    padding-bottom: .8rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #d9b765
+}
+.banner-bless{
+    background: url(http://tlcimg.quanxiankaibo.com/h5/charge_detail/img/bless.png) top center no-repeat;
+    background-size:100% 100%;;
+    height: 4.4rem; 
+}
+.banner-wallet{
+    background: url(http://tlcimg.quanxiankaibo.com/h5/charge_detail/img/charge_detail.png) top center no-repeat;
+    background-size:100% 100%; 
+}
+.banner-bless-fen{
+    background: url(http://tlcimg.quanxiankaibo.com/h5/charge_detail/img/pink.png) top center no-repeat;
+    background-size:100% 100%;;
+    height: 4.4rem;
+}
+.charge-message-list-bless{
+    padding-top: 5.2rem;
+}
+.charge-message-list li{
+    font-size: .373333rem;
+    padding: .106667rem 0
+}
+.charge-message-list li div{
+    word-break: break-all ;
+    padding-top: .066667rem
+ }
+.charge-message-list li div:nth-child(1){
+    color: #bab5ca;
+    padding-right: .266667rem;
+}
+
+.charge-block-message{
+    width: 8.666667rem;
+    margin: 0 auto;
+    padding-bottom: 1.066667rem;
+    position: relative;
+    padding-top: .213333rem
+}
+.charge-block-message ul li{
+    font-size: .373333rem;
+    min-height: .373333rem;
+    word-break: break-all
+}
+.charge-block-message ul li:nth-child(2n){
+    padding-top: .266667rem
+}
+.charge-block-message ul li:nth-child(2n-1){
+    color: #bab5ca;
+    padding-top: .453333rem
+}
+.url-container{
+    position: absolute;
+    right: 0;
+    bottom: 1.066667rem;
+    display: none
+}
+.url-img-container{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.url-img-container img{
+    width: 100%;
+    height: 100%;
+}
+.to-copyurl{
+    text-align: center;
+    font-size: .373333rem;
+    padding-top: .266667rem
+}
+.feed-warn{
+    position: fixed;
+    bottom: 2.666667rem;
+    text-align: center;
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.feed-warn-text{
+    background: #000;
+    opacity: .5;
+    font-size: .32rem;
+    color: #ffffff;
+    padding: .266667rem
+
+}
+.dialog-warn{
+    display: none
+}
+.dialog-warn-sh{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    background: rgba(31,31,31,0.50);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.dialog-warn-con{
+    width: 8.666667rem;
+    background: #fff;
+    border-radius: .266667rem
+}
+.dialog-warn-title{
+    text-align: center;
+    font-size: .426667rem;
+    height: 1.493333rem;
+    line-height: 1.493333rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e8e5ec;
+    font-weight: bold
+}
+.dialog-warn-text{
+    height: 2.666667rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: .373333rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e8e5ec;
+    font-size: .373333rem
+}
+.qx-qd{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 1.466667rem;
+}
+.qx-qd div{
+    width: 50%;
+    height: 1.466667rem;
+    line-height: 1.466667rem;
+    font-size: .426667rem;
+    font-weight: bold;
+    text-align: center;
+    box-sizing: border-box
+}
+.qx-qd div:nth-child(1){
+    border-right: 1px solid #e8e5ec
+}

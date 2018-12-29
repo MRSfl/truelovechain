@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181220">
+    <title>资产提现</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="main-content">
+            <h5 id="seven">资产提现</h5>
+            <div class="market-text">
+                前提：上链双方都成功续约后，方可进行提现操作。<br>
+                1、在“真爱”页面，点击“提现”，在提现页面输入要提现的金额，安全验证后，发出该提现申请，等待对方的答复；
+
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian1.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian2.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian3.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian4.png" />
+            </div>
+            <div class="market-text">
+                2、接收方会在“真爱”的页面看到来自另一伴的提现申请，点击查看提现申请。如果点击“同意”，安全认证后，提现操作成功；如果点击“不同意”，则为提现失败。<br>
+                注：<br>01：提现操作只有一次机会，不可重复操作；<br>
+                02：对方不同意该提现申请/未在该约定时间内对提现申请作出任何回应，或者双方都未在该约定时间内发起提现都将判定为提现失败；<br>
+                03：提现到账需要一定的时间，具体根据区块网络而定。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian5.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian6.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian7.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/app_course/img/tixian8.png" />
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+.match_top_img{
+    width: 9.733333rem;
+    height: 4.666667rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/match_success/img/match_success.png) top center no-repeat;
+    background-size:100%;
+    margin: 0 auto 
+}
+.match_title{
+    text-align: center;
+    color: #ffffff;
+    font-size: .48rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    
+}
+.congratulation{
+    text-align: center;
+    font-size: .46rem;
+    color: #fff;
+    height: .733333rem;
+    line-height: .733333rem
+}
+.congratulation_top{
+    margin-top: .3rem    
+}
+.swiper_section{
+    width: 5.333333rem;
+    height: 7.813333rem;
+    border: 1px solid #ffdfdf;
+    border-radius: .533333rem;
+    box-sizing: border-box;
+    box-shadow: 0 7px 12px 0 rgba(255,223,223,0.30);
+    text-align: center;
+    margin: .4rem 0
+}
+.swiper_section_title{
+    font-size: .373333rem;
+    text-align: center;
+    color: #1f1f1f;
+    margin-top: .4rem
+}
+.swiper_section img{
+    width: 4.266667rem;
+    margin-top: .4rem
+}
+.swiper_section_text{
+    font-size: .373333rem;
+    color: #1f1f1f;
+    height: .533333rem;
+    line-height: .533333rem
+}
+.swiper_section_text_one{
+    margin-top: .266667rem
+}
+.swiper-container{
+    padding-left: .4rem;
+    height: 9.3rem;
+    padding-top: .2rem
+}
+.swiper-pagination-bullet{
+    width: .346667rem;
+    height: .053333rem;
+    border-radius: 2px;
+    background: #FFDFDF;
+    opacity: 1;
+}
+.swiper-pagination-bullet-active{
+    background: #E54370
+}
+.match_learn_more{
+    text-align: center;
+    color: #000;
+    font-size: .346667rem;
+    text-decoration: underline
+}
+.match_bottom{
+    display: flex;
+    justify-content: center;
+    padding: .433333rem 0
+}
+.match_bottom div{
+    width: 4rem;
+    height: 88px;
+    background: #ee4c7a;
+    font-size: .426667rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    text-align: center;
+    border-radius: .586667rem;
+    color: #fff;
+    margin: 0 .133333rem;
+    box-shadow: 0 .133333rem .186667rem 0 #FFDFDF;
+}

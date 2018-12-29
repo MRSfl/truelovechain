@@ -1,0 +1,425 @@
+.love-cer-container{
+    padding-bottom: 2.466667rem
+}
+.love-box-bg{
+    width: 9.733333rem;
+    /* height: 17.7rem; */
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/bg.png) top center no-repeat;
+    background-size:100% 100%; 
+    margin: 0 auto;
+    /* padding-bottom: 4.7rem; */
+}
+.user-info{
+    text-align: center;
+    position: relative;
+    margin-top: -1.44rem
+}
+.top-image{
+    width: 9.733333rem;
+    height: 4.92rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/top-img.png) top center no-repeat;
+    background-size:100% 100%; 
+    margin: 0 auto
+}
+.user-header{
+    height: 1.44rem
+}
+.user-header div{
+    width: 1.44rem;
+    height: 1.44rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.user-header div img{
+    width:  1.33333333333rem;
+    height: 1.33333333333rem;
+    border-radius: 50%
+}
+/*  */
+.boy-header{
+    left: 2.4rem;
+    z-index: 10;
+}
+.girl-header{
+    right: 2.4rem;
+    z-index: 9;
+}
+.rotate6{
+    transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+}
+.rotate8{
+    transform: rotateZ(-90deg);
+    -webkit-transform: rotateZ(-90deg);
+    -moz-transform: rotateZ(-90deg);
+    -ms-transform: rotateZ(-90deg);
+    -o-transform: rotateZ(-90deg);
+}
+.rotate180{
+    transform: rotateZ(-180deg);
+    -webkit-transform: rotateZ(-180deg);
+    -moz-transform: rotateZ(-180deg);
+    -ms-transform: rotateZ(-180deg);
+    -o-transform: rotateZ(-180deg);
+}
+.jb-message{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: .373333rem;
+    padding-top: .453333rem;
+}
+.basic-message{
+   padding: 0 .533333rem
+}
+.basic-message p,.a-basic-message p,.b-basic-message p{
+    height: .613333rem;
+    line-height: .613333rem;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    max-width: 120px
+}
+.a-basic-message p{
+   text-align: right
+}
+.b-basic-message p{
+    text-align: left
+}
+
+.love-oath{
+    width: 4.826667rem;
+    height: .666667rem;
+    line-height: .666667rem;
+    font-size: .32rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/oath-bg.png) center center no-repeat;
+    background-size: 100%;
+    color: #fff;
+    margin: .8rem auto 0
+}
+.love-oath-text{
+    width: 8.666667rem;
+    /* height: 1.6rem; */
+    border-top: 1px dashed #CD4964;
+    border-bottom: 1px dashed #CD4964;
+    margin: .4rem auto 0;
+    display: flex;
+    flex-direction: column;
+    padding:.213333rem 0;
+    justify-content: center
+}
+.love-oath-text div{
+    font-size: .373333rem;
+    font-weight: bold;
+    /* height: .56rem; */
+    line-height: .56rem;
+    display: flex;
+    flex-direction: row;
+}
+.a-oath,.b-oath{
+    display: inline-block;
+    text-align: left;
+    word-break: break-all
+}
+.a-name,.b-name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 80px;
+    min-width: 60px;
+    text-align: right
+}
+.jn-day{
+    height: 1.066667rem;
+    font-size: .373333rem;
+    font-weight: bold
+}
+.mark-date-intro{
+    width: 8.666667rem;
+    margin: 0 auto;
+    padding: .4rem 0;
+    font-size: .32rem;
+    line-height: .48rem;
+    text-align: left
+}
+.address-img{
+    width: 2.933333rem;
+    height: 2.933333rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: .266667rem;
+    margin: 0 auto;
+}
+.address-img img{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+#qrcode{
+    display: none
+}
+.address-text{
+    padding: .266667rem 0;
+    font-size: .373333rem
+}
+.zs-address{
+    font-size: .373333rem;
+    padding-bottom: .266667rem;
+    color: #1f1f1f
+}
+.line{
+    width: 8.4rem;
+    border-bottom: 1px dashed #CD4964;
+    margin: 0 auto;
+}
+.check-line-message{
+    font-size: .32rem;
+    padding: .746667rem 0;
+    text-decoration: underline
+}
+.love-card-logo{
+    width: 2.973333rem;
+    height: 2.346667rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_certificate_ins_share/img/zhang.png) center center no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    right: .4rem;
+    bottom: -0.8rem
+}
+.share-card-con{
+    padding: .933333rem 0 .666667rem  0 
+}
+.share-card{
+    width: 8.666667rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    background: #ee4c7a;
+    text-align: center;
+    font-size: .426667rem;
+    color: #fff;
+    border-radius: .586667rem;
+    margin: 0 auto
+}
+
+
+.float{
+    display: none
+}
+.dialog{
+    /* display: none; */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,31,31,0.50);
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.dialog-text{
+    width: 8.666667rem;
+    background: #fff;
+    border-radius: .266667rem;
+    border: 1px solid #e8e5ec;
+}
+.dialog-text-title{
+    text-align: center;
+    height: 1.493333rem;
+    line-height: 1.493333rem;
+    font-size: .426667rem;
+    font-weight: bold;
+    box-sizing: border-box;
+    border-bottom: 1px solid #e8e5ec;
+}
+.dialog-info-title{
+    text-align: center;
+   padding: .533333rem 0 .266667rem;
+    font-size: .373333rem;
+    font-weight: bold
+}
+.dialog-info{
+    width: 8.4rem;
+    /* height: 4.8rem; */
+    background: rgba(234,218,255,0.25);
+    border-radius: .266667rem;
+    box-sizing: border-box;
+    border:1px solid #eadaff;
+    margin: 0 auto;
+    font-size: .373333rem
+}
+
+.dialog-info-boy{
+    width: 7.333333rem;
+    margin:0 auto;
+    padding: .4rem 0 .133333rem 0;
+}
+.dialog-info-boy div{
+    display: flex;
+    font-size: .373333rem;
+    padding: .133333rem 0
+}
+.dialog-info-boy div p:nth-child(1){
+    width: 1.6rem;
+    text-align: right;
+    padding-right: .266667rem
+}
+.dialog-info-girl{
+    width: 7.333333rem;
+    margin:0 auto;
+    padding: .133333rem 0 .4rem 0
+}
+.dialog-info-girl div{
+    display: flex;
+    font-size: .373333rem;
+    padding: .12rem 0
+}
+.dialog-info-girl div p:nth-child(1){
+    width: 1.6rem;
+    text-align: right;
+    padding-right: .266667rem
+}
+.a-sex-name,.b-sex-name{
+    padding-right: .266667rem
+}
+.a-user,.b-user{
+    min-width: 2rem;
+    max-width: 2.3rem;
+}
+.dia-line{
+    border-top: 1px solid #eadaff
+}
+.shiyan-title{
+    text-align: center;
+    font-size: .373333rem;
+    padding: .533333rem 0 .266667rem;
+    font-weight: bold
+}
+.shiyan-detail{
+    text-align: center;
+    width: 8.4rem;
+    /* height: 2.186667rem; */
+    background: rgba(234,218,255,0.25);
+    border-radius: .266667rem;
+    box-sizing: border-box;
+    border:1px solid #eadaff;
+    margin: 0 auto;
+    font-size: .373333rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: .133333rem 0
+}
+.shiyan-detail div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+.chain-bloveinfo,.chain-aloveinfo{
+    text-align: left
+}
+.sign-detail{
+    text-align: center;
+    width: 8.4rem;
+    height: 1.44rem;
+    background: rgba(234,218,255,.25);
+    border-radius: .266667rem;
+    box-sizing: border-box;
+    border:1px solid #eadaff;
+    margin: 0 auto;
+    line-height: 1.44rem;
+    font-size: .373333rem;
+}
+.close-dialog{
+    text-align: center;
+    font-size: .426667rem;
+    height: 1.333333rem;
+    line-height: 1.333333rem;
+    border-top: 1px solid #eadaff;
+    margin-top: .426667rem;
+    font-weight: bold
+}
+.auser-name,.buser-name,.chain-aname,.chain-bname{
+    max-width: 2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 50px;
+    /* display: block */
+}
+.feed-warn{
+    position: fixed;
+    bottom: 2.666667rem;
+    text-align: center;
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.feed-warn-text{
+    background: #000;
+    opacity: .8;
+    font-size: .32rem;
+    color: #ffffff;
+    padding: .266667rem
+
+}
+/* .jir-message,.jb-message,.sy-message{
+    display: none
+} */
+.hide-user-info{
+    font-size: .373333rem;
+    padding: .453333rem 0
+}
+.hide-text{
+    text-align: center;
+    font-size: .373333rem;
+    font-weight: bold;
+    padding-bottom: .666667rem
+}
+.gx-address{
+    width: 8rem;
+    margin: 0 auto;
+    font-size: .32rem;
+    padding-bottom: .266667rem;
+    word-break: break-all;
+}
+.bottom{
+    width: 10rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    height: 1.466667rem;
+    background: #E54370;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+}
+.bottom_text{
+    font-size: .373333rem;
+    color: #fff
+}
+.bottom img{
+    width: 1.066667rem;
+    height: 1.066667rem;
+    margin-left: .4rem;
+    margin-right: .213333rem
+}
+.down{
+    width: 2.133333rem;
+    height: .853333rem;
+    line-height: .853333rem;
+    font-size: .373333rem;
+    color: #E54370;
+    background: #fff;
+    text-align: center;
+    border-radius: .426667rem;
+    margin-left: 1rem
+}

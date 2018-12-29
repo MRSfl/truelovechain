@@ -1,0 +1,17 @@
+.agreement-container{
+    width: 8.666667rem;
+    margin: 0 auto;
+    padding: 1.066667rem 0 .933333rem
+}
+.agreement-list-title{
+    padding: .666667rem 0 .213333rem;
+    font-size: .373333rem;
+    font-weight: bold
+}
+.agreement-list-content{
+    font-size: .373333rem;
+    
+}
+.agreement-list-content p{
+    line-height: .746667rem
+}

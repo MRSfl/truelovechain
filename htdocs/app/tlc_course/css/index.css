@@ -1,0 +1,62 @@
+img{
+    width: 100%
+}
+.report-container{
+    width: 8.233333rem;
+    padding: 1.173333rem 0 .933333rem;
+    margin: 0 auto
+}
+.notice-img{
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    padding: 5px
+}
+.main-content h5{
+    font-size: .48rem;
+    font-weight: bold;
+}
+.market-text{
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-bottom: .266667rem;
+    padding-top: 20px;
+    word-break: break-all
+}
+.noice-text{
+    text-align: center;
+    font-size: .266667rem;
+    color: #2d2643;
+    padding: .266667rem 0 .666667rem
+}
+.undeline{
+    text-decoration: underline
+}
+.app_coourse{
+    width: 9.2rem;
+    margin: 0 auto;
+    padding: 1.83333rem 0 .933333rem;
+}
+.app_coourse li{
+    width: 100%;
+    height: 1.2rem;
+    background: #e8e5ec;
+    border-radius: .666667rem;
+    margin: .133333rem 0 0 0;
+    font-size: .373333rem;
+    color: #1f1f1f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: .4rem;
+    box-sizing: border-box;
+    position: relative;
+}
+.app_coourse li span{
+    display: inline-block;
+    width: .213333rem;
+    height: .4rem;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAeCAYAAADKO/UvAAAAAXNSR0IArs4c6QAAAodJREFUSA2llUuLE0EQxzOTja6PxCQH9eAjD8VDCHhSEBZG2V1Q9Lp48RERvPgB9pjTgl48LH4AEUQ8iAfdQ4wnFS9ejARB8xRhVVg2CwYf5OGvhumh85jsuDYMVf3vqn9XVdd0GwFGMplc6Pf7y6hrpmlertVqbwX3OwycDUg2kGHHaR0iq16vl/ySmGIIwQ7NIca8kEqljmrYRNU0DKOPxR3dCpJ9vV6vmE6nD+q4l25HksvlFiF7oBtBdKjb7QrRXh0fpxsKtCxrqtFoPMb5gsJEQv4OYbHW0nFdd0kETCQS05A8Qz0zYGQYbyKRyFypVGrruNIHSATMZDK72+12EbKTysiRxVAodL5SqfwewgN2TXSwXC7/CIfDZ0njvY6jz3Y6nYeS9hAeGIlEGZDafqJ5yfyIwhx5n/pccU7VhkYiUQ4YfqXpZpl/UZgjL7GBdLc7gq42Rmm1WhvxeHyFpQW+XZrJiVgstp31F4JNJBEDDNei0WiR8C8ynRbMGTMQ/WL9tWdNlKWSNN0pCltgrkckfXTVN4mQ8aPOUeynfNsUOXLVs7Ca0aaq70icdJ7DuFNnlXR8RcKRHudnlFMaJlikFe5tSkIdjuFcoA579AjooSUIbgk2MR0IDnOvvMLugE6AfrfZbN5UmCfJf7d9NpuNsYv0xMB/QxGfEN01pNyG7hiJZCtXwQAJKUhbr1DE0+42KOw88VJyT8e5Jx6NIZDr8ZzXrSab2ST5fN6U84Zg+H79GAwG51nzvF+FxP6Leahuo98QQA1S+AyBVa1WVxXmJe0XkFr8wWBKGUHwjWaa4Tn9pLBJ0k4Hp5+a0Trzeb8E4me/gDhd5/vO90Fq8C/vsJD8BUzz+vpgTO4YAAAAAElFTkSuQmCC");
+    background-size:100% 100%; 
+    position: absolute;
+    right: .4rem
+}

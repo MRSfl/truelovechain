@@ -1,0 +1,212 @@
+.policy-detail-top{
+    width: 9.733333rem;
+    height: 4.4rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_relation/img/my_bg.png) top center no-repeat;
+    background-size: 100%;
+    margin: 0 auto;
+    color: #1f1f1f
+}
+.back{
+    width: .28rem;
+    height: .52rem;
+    float: left;
+    margin-left: .533333rem;
+    margin-top: .346667rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_relation/img/back.png) center center no-repeat;
+    background-size:100% 
+}
+.back img{
+    width: 100%;
+    height: 100%
+}
+.title{
+    color: #fff;
+    font-size: .48rem;
+    font-weight: bold;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: .346667rem
+}
+.policy-title{
+    width: 9.733333rem;
+    position: fixed;
+    top: 0;
+    z-index: 100
+}
+.policy-title-right{
+    width: .666667rem;
+    height: .666667rem;
+    float: right;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/love_relation/img/warn.png) center center no-repeat;
+    background-size: 100%;
+    margin-right: .4rem;
+    margin-top: .346667rem
+}
+.user-header {
+    position: relative;
+    top: 1.946667rem
+}
+.user-header img{
+   width:  100%;
+   height: 100%;
+   border-radius:50%; 
+}
+.user-header  div{
+    width: 1.44rem;
+    height: 1.44rem;
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.boy-header{
+    position: absolute;
+    left: 3.546667rem;
+    z-index: 10;
+}
+.girl-header{
+    position: absolute;
+    right: 3.546667rem;
+    z-index: 9;
+}
+.rotate6{
+    transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+}
+.rotate8{
+    transform: rotateZ(-90deg);
+    -webkit-transform: rotateZ(-90deg);
+    -moz-transform: rotateZ(-90deg);
+    -ms-transform: rotateZ(-90deg);
+    -o-transform: rotateZ(-90deg);
+}
+.rotate180{
+    transform: rotateZ(-180deg);
+    -webkit-transform: rotateZ(-180deg);
+    -moz-transform: rotateZ(-180deg);
+    -ms-transform: rotateZ(-180deg);
+    -o-transform: rotateZ(-180deg);
+}
+.user-name{
+    text-align: center;
+    font-size: .426667rem;
+    color: #1f1f1f;
+    padding-top: .533333rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: center
+}
+.user-name img{
+    width: .5rem
+}
+.user-name span:nth-child(2){
+    margin: 0 3px
+}
+.line{
+    width: 8.133333rem;
+    border-bottom: 1px solid #E8E5EC;
+    margin: .4rem auto 0
+}
+.love-relation-detail{
+    width: 7.76rem;
+    height: 1.066667rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: .373333rem auto 0;
+    text-align: center
+}
+.col-line{
+    height: 1.066667rem;
+    border-left: 1px solid #e8e5ec;
+}
+.join-time{
+    font-size: .373333rem;
+    color: #9490a3;
+    height: .56rem;
+    line-height: .56rem
+}
+.join-time-detail{
+    font-size: .373333rem;
+    height: .56rem;
+    line-height: .56rem;
+    font-weight: bold
+}
+.love-date-cutdown{
+    font-size: .373333rem;
+    text-align: center;
+    margin-top: .8rem
+}
+.love-data{
+    font-size: .72rem;
+    text-align: center;
+    font-weight: bold;
+    margin-top: .133333rem
+}
+.gx-address{
+    font-size: .373333rem;
+    width: 9.733333rem;
+    margin: 0 auto;
+    word-break: break-all;
+    text-align: center;
+    color:#1f1f1f
+}
+.love-relation-address{
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: .266667rem;
+    border: 1px solid #e8e5ec;
+    margin: .533333rem auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+#qrcode{
+    width: 3.933333rem;
+    height: 3.933333rem;
+    display: none
+}
+.love-relation-address img{
+    width: 3.933333rem;
+    height: 3.933333rem;
+   
+}
+.love-relation-title{
+    font-size: .373333rem;
+    text-align: center;
+    padding: .266667rem 0 .133333rem 0
+}
+.remove-love{
+    font-size: .373333rem;
+    text-align: center;
+    color: #9490a3;
+    padding-bottom: .666667rem;
+    margin-top: .666667rem
+}
+.feed-warn{
+    position: fixed;
+    bottom: 2.666667rem;
+    text-align: center;
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.feed-warn-text{
+    background: #000;
+    opacity: .8;
+    font-size: .32rem;
+    color: #ffffff;
+    padding: .266667rem;
+    max-width: 300px;
+    margin: 0 auto;
+    display: inline-block
+
+}

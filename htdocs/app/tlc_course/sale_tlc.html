@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+    <title>卖出TLC</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="main-content">
+            <h5>卖出TLC</h5>
+            <div class="market-text">
+                1、兑换成ETH<br>
+                （1）将真爱链APP内的TLC转入到BCEX交易平台里；在真爱链APP内，“我的钱包”里点击“转账”，随后输入个人在BCEX平台的TLC的充币地址，安全验证后，将TLC转到BCEX的个人账户中去。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/10.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/11.png" />
+            </div>
+            <div class="market-text">
+                注：自己在BCEX平台的TLC充币地址可如下操作得知；登录BCEX，在我的资产里找到真爱币TLC，点击“充币”，该地址即为TLC的充币地址。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/12.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/13.png" />
+            </div>
+            <div class="market-text">
+                （2）在自己的资产里，在真爱币一栏点击“去交易”，卖出TLC，成功挂单交易后，即可得到对应的ETH。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/14.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/15.png" />
+            </div>
+            <div class="market-text">
+                2、兑换成人民币<br>
+                （1）在BCEX平台里，点击“法币交易”，在“个人中心”里，点击“币币账户”进行资金划转（以CK.USD为例），输入划转数量和交易密码，点击“立即提交”后，划转到OTC账户中。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/16.png" />
+            </div>
+            <div class="market-text">
+                （2）在法币交易中，点击“我要卖出”，以CK.USD为例，找到合适的卖家（一般可参考买家支持的付款方式、单价、好评、限额等）后，点击卖出，输入卖出的数量，并点击“发起交易请求”。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/17.png" />
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/18.png" />
+            </div>
+            <div class="market-text">
+                在订单管理中可以看到自己的挂单，然后等待买家打款
+            </div><div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/tlc_course/img/19.png" />
+            </div>
+            <div class="market-text">
+                在对方打款成功后，确定自己受到钱后，点击“放行”，填写密码及手机号验证码，完成该交易，出金成功。
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

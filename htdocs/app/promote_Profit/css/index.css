@@ -1,0 +1,32 @@
+img{
+    width: 100%
+}
+.report-container{
+    width: 8.133333rem;
+    padding: 1.173333rem 0 .933333rem;
+    margin: 0 auto
+}
+.notice-img{
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    padding: 5px
+}
+.main-content h5{
+    font-size: .48rem;
+    font-weight: bold;
+}
+.market-text{
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-bottom: .266667rem;
+    padding-top: 10px
+}
+.noice-text{
+    text-align: center;
+    font-size: .266667rem;
+    color: #2d2643;
+    padding: .266667rem 0 .666667rem
+}
+.undeline{
+    text-decoration: underline
+}

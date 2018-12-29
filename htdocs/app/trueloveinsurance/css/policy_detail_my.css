@@ -1,0 +1,313 @@
+.policy-detail-my{
+    position: relative;
+}
+.policy-detail-con{
+    width: 9.733333rem;
+    height: 4.693333rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/trueloveinsurance/img/my_bg.png) top center no-repeat;
+    background-size:100% 100%;
+    margin: 0 auto 
+}
+.policy-detail-title{
+    width: 10rem;
+    height: 1.173333rem;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+#qrcode{
+    width: 2.4rem;
+    height: 2.4rem;
+    display: none
+}
+.back{
+    width: .28rem;
+    height: .52rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/trueloveinsurance/img/back.png) center center no-repeat;
+    background-size:100% ;
+    position: absolute;
+    left: .533333rem;
+    top: .306667rem;
+    z-index: 100;
+}
+.policy-detail-title-middle{
+    width: 2.666667rem;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.333333rem;
+    text-align: center;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    color: #d9b765;
+    font-size: .48rem;
+    font-weight: bold
+}
+.policy-detail-title-right{
+    width: .56rem;
+    height: .56rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/trueloveinsurance/img/warn.png) center center no-repeat;
+    background-size:100%;
+    position: absolute;
+    right: .56rem;
+    top: .306667rem ;
+    z-index: 100;
+}
+.policy-detail-explain{
+    text-align: center;
+    color: #fff;
+    font-size: 10px;
+    opacity: .5;
+    padding-top: 1.48rem
+}
+.policy-detail-main{
+    width: 8.666667rem;
+    /* height: 15.5rem; */
+    box-sizing: border-box;
+    border: 1px solid #e8e5ec;
+    border-radius: .533333rem;
+    background: #fff;
+    margin: -2rem auto 0
+}
+.user-info{
+    position: relative;
+    height: 1.466667rem;
+    top: .666667rem
+}
+.user-info div{
+    width: 1.333333rem;
+    height: 1.333333rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    
+}
+.boy-info{
+    position: absolute;
+    left: 3.08rem;
+    top: 0;
+    z-index: 10;
+}
+.girl-info{
+    position: absolute;
+    right: 3.08rem;
+    top: 0;
+    z-index: 9;
+}
+.user-info div img{
+    width: 1.333333rem;
+    height: 1.333333rem;
+    border-radius: 50%;
+}
+.user-name{
+    text-align: center;
+    font-size: .373333rem;
+    margin-top: .986667rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+}
+.user-name img{
+    width: .4rem
+}
+.user-name span:nth-child(2){
+    margin: 0 3px
+}
+.rotate6{
+    transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+}
+.rotate8{
+    transform: rotateZ(-90deg);
+    -webkit-transform: rotateZ(-90deg);
+    -moz-transform: rotateZ(-90deg);
+    -ms-transform: rotateZ(-90deg);
+    -o-transform: rotateZ(-90deg);
+}
+.rotate180{
+    transform: rotateZ(-180deg);
+    -webkit-transform: rotateZ(-180deg);
+    -moz-transform: rotateZ(-180deg);
+    -ms-transform: rotateZ(-180deg);
+    -o-transform: rotateZ(-180deg);
+}
+.line{
+    width: 1.333333rem;
+    margin: .4rem auto 0;
+    border-bottom: 1px solid #e54370
+}
+.policy-detail-date{
+    margin-top: .4rem
+}
+.policy-detail-date p{
+    text-align: center;
+    font-size: .32rem;
+    height: .48rem;
+    line-height: .48rem;
+  
+}
+.policy-cash{
+    width: 8.4rem;
+   /* height: 3.093333rem; */
+   border-top: 1px dashed #e54370;
+   border-bottom: 1px dashed #e54370;
+   margin:0.4rem auto 0
+
+}
+.policy-cash-title{
+    position: relative;
+    margin-top: .4rem;
+}
+.policy-cash-title div{
+    height: .666667rem;
+    line-height: .666667rem
+}
+.policy-cash-title-left{
+    font-size: .373333rem;
+    text-align: center
+
+}
+.policy-cash-title-right{
+    font-size: .32rem;
+    position: absolute;
+    right: .266667rem;
+    top: 0;
+    text-decoration: underline
+}
+.policy-cash-num{
+    font-size: .933333rem;
+    font-weight: bold;
+    text-align: center;
+}
+.policy-cash-num-next{
+    text-align: center;
+    font-size: .32rem;
+    color: #9490a3;
+    height: .666667rem;
+    line-height: .666667rem;
+    padding-bottom: .4rem
+}
+.policy-love-address{
+    width: 2.933333rem;
+    height: 2.933333rem;
+    border:1px solid #e8e5ec;
+    border-radius: .266667rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .666667rem auto 0
+}
+.policy-love-address img{
+    width: 2.4rem;
+    height: 2.4rem;
+}
+.policy-love-address-text{
+    text-align: center;
+    font-size: .373333rem;
+    padding: .266667rem 0 .133333rem 0
+}
+.bx-address{
+    font-size: .34rem;
+    text-align: center;
+    margin: 0 auto;
+    word-break: break-all;
+    color: #1f1f1f
+}
+.bottom-line{
+    width: 8.4rem;
+    border-bottom: 1px dashed #e54370;
+    margin: .666667rem auto 0
+}
+.policy-detail-logo{
+    height: 2rem;
+}
+.policy-detail-logo-left{
+    display: flex;
+    flex-direction: row;
+    height: 2rem;
+    line-height: 2rem;
+    align-items: center
+}
+.policy-detail-logo-left div{
+    width: .933333rem;
+    height: .933333rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/trueloveinsurance/img/cer-logo.png) center center no-repeat;
+    background-size:100% ;
+    margin-left: .533333rem
+}
+.policy-detail-logo-left p{
+    font-size: .373333rem;
+    margin-left: .266667rem
+}
+.policy-detail-logo-right{
+    width: 2.973333rem;
+    height: 2.346667rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/trueloveinsurance/img/zhang.png) center center no-repeat;
+    background-size:100% ;
+}
+.policy-detail-logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 8.8rem;
+    margin: 0 auto
+}
+.bottom-container{
+    width: 9.2rem;
+    margin: 0 auto;
+    height: 1.2rem;
+    padding-bottom: .666667rem;
+    padding-top: 1.026667rem
+}
+.bottom{
+    height: 1.2rem;
+    line-height: 1.2rem;
+    background: #EE4C7A;
+    border-radius: .666667rem;
+    font-size: .426667rem;
+    text-align: center;
+    color: #fff
+}
+
+.biao{
+    width: 8.4rem;
+    height: 1.866667rem;
+    background:  rgba(217,183,101,0.15);
+    box-sizing: border-box;
+    margin: .4rem auto;
+    display: none
+}
+.isshow{
+    display: block
+}
+.biao-title p,.biao-number p{
+    float: left;
+    font-size: .373333rem;
+    width: 33.333%;
+    text-align: center;
+    height: .933333rem;
+    line-height: .933333rem;
+    border: 1px solid #bab5ca;;
+    box-sizing: border-box
+}
+.feed-warn{
+    position: fixed;
+    bottom: 2.666667rem;
+    text-align: center;
+    width: 100%;
+    display: none;
+    z-index: 100;
+}
+.feed-warn-text{
+    background: #000;
+    opacity: .8;
+    font-size: .32rem;
+    color: #ffffff;
+    padding: .266667rem
+
+}

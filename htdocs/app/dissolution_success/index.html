@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/dissolution_success.css">
+    <link rel="stylesheet" href="css/clause.css">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/dissolution_success/js/jquery.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>解约真爱关系</title>
+</head>
+
+<body>
+    <div class="diss-success-container">
+        <div class="diss-success-top clearfix">
+            <p>解约成功</p>
+        </div>
+        <div class="dis-success-main">
+            <div class="dis-success-user">
+                <span class="a-user-name">用户名</span>
+                <span><img src="http://tlcimg.quanxiankaibo.com/h5/dissolution_success/img/redlove.png" /></span>
+                <span class="b-user-name">用户名</span>
+            </div>
+            <div class="asset-profile diss-title">
+                <h3>真爱关系存续期间资产概况</h3>
+                <div class="rel-asset">
+                    <div class="rel-asset-title">真爱关系资产</div>
+                    <div><span class="rel-asset-count">0</span> TLC</div>
+                    <div>返还比例<span class="rel-asset-scale"></span></div>
+                </div>
+                <div class="ins-asset">
+                    <div class="ins-asset-title">真爱保险资产</div>
+                    <div><span class="ins-asset-count">0</span> TLC</div>
+                    <div>返还比例<span class="ins-asset-scale"></span></div>
+                </div>
+            </div>
+            <div class="judge-result diss-title">
+                <h3>根据真爱链<span class="see-calse">解约条款</span>判定为</h3>
+                <div class="judge-result-text">和平分手</div>
+                <div class="wallet-address-boy">
+                    <div><span class="aname"></span>绑定的钱包地址</div>
+                    <div class="wallet-address-boy-detail"></div>
+                    <div>分配资产</div>
+                    <div class="fp-detail">
+                        <span class="rel-asset-number">
+                            关系资产：<span class="a_investor_assets_income"></span> TLC;
+                        </span>
+                        <span class="ins-asset-number">
+                            保险资产：<span class="a_activity_income"></span> TLC
+                        </span>
+                    </div>
+                </div>
+                <div class="wallet-address-girl">
+                    <div><span class="bname"></span>绑定的钱包地址</div>
+                    <div class="wallet-address-girl-detail"></div>
+                    <div>分配资产</div>
+                    <div class="fp-detail">
+                        <span class="rel-asset-number">
+                            关系资产：<span class="b_investor_assets_income"></span> TLC;
+
+                            <span class="ins-asset-number">
+                                保险资产：<span class="b_activity_income"></span> TLC
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="service-charge">
+                    <div>官方平台手续费(1%)</div>
+                    <div class="fp-detail">
+                        <span class="rel-asset-number">
+                            关系资产：<span class="gx_shouxufei"></span> TLC;
+
+                            <span class="ins-asset-number">
+                                保险资产：<span class="zc_shouxufei"></span> TLC
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dis-cuccess-bottom">
+            <p>真爱关系资产依照“解约条款”资产分配。</p>
+            <p>24小时后到账已绑定的钱包地址，请注意查收！</p>
+        </div>
+        <div class="diss-success-confirm">
+            <p class="diss-success-btn">确认</p>
+        </div>
+    </div>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        function toPoint(percent) {
+            return percent;
+        }
+        function keepFivePoint(num) {
+            var n = parseFloat(num.toFixed(5));
+            return n;
+        }
+
+        $(function () {
+            var obj = {
+                "colorType": 2
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '2')
+            } catch (e) {
+                console.log(e)
+            }
+            $('.diss-success-btn').click(function () {
+                try {
+                    window.android.closeWebview()
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    window.webkit.messageHandlers.closeWebview.postMessage(null)
+                } catch (e) {
+                    console.log(e)
+                }
+            })
+            var getUrl = url;
+            var token = getQueryString('token');
+            $.ajax({
+                url: getUrl + '/h5/openinfo/viewOurAllInfo',
+                type: 'get',
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    if (res.status == 200) {
+                        var bili = res.our.bili.split(':');
+                        $('.a-user-name').html(res.data.aname);
+                        $('.b-user-name').html(res.data.bname);
+                        $('.rel-asset-count').html(res.account.investor_assets_income);
+                        $('.rel-asset-scale').html(res.our.bili);
+                        $('.ins-asset-count').html(res.account.activity_income);
+                        $('.ins-asset-scale').html(res.data.aname + ' ' + bili[0] + '：' + res.data.bname + ' ' + bili[1]);
+                        $('.aname').html(res.data.aname);
+                        $('.wallet-address-boy-detail').html(res.relation.aqhash);
+                        $('.a_investor_assets_income').html(keepFivePoint(res.account.investor_assets_income * 0.99 * bili[0] / 10));
+                        $('.a_activity_income').html(keepFivePoint(res.account.activity_income * 0.99 * bili[0] / 10));
+                        $('.bname').html(res.data.bname);
+                        $('.wallet-address-girl-detail').html(res.relation.aqhash)
+                        $('.b_investor_assets_income').html(keepFivePoint(res.account.investor_assets_income * 0.99 * bili[1] / 10));
+                        $('.b_activity_income').html(keepFivePoint(res.account.activity_income * 0.99 * (bili[1] / 10)));
+                        $('.gx_shouxufei').html(keepFivePoint(res.account.investor_assets_income * 0.01));
+                        $('.zc_shouxufei').html(keepFivePoint(res.account.activity_income * 0.01))
+
+                    }
+                }
+            })
+            var bgStyle = {
+                "bgColor": '#ffffff',
+                "color": 3
+            }
+            var bgStylenone = {
+                'bgColor': '',
+                "color": 2
+            }
+            var flag = true;
+            $(window).scroll(function () {
+                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                if (scrollTop >= 44 && flag == true) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = false;
+                    return false
+                } else if (scrollTop < 44 && flag == false) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = true;
+                    return false;
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+img{
+    width: 100%
+}
+.report-container{
+    width: 8.133333rem;
+    padding: 1.173333rem 0 0;
+    margin: 0 auto
+}
+.report-title{
+    font-size: .48rem;
+    font-weight: bold;
+    padding: .533333rem 0 .266667rem
+}
+.report-date{
+    font-size: .32rem;
+    color: #9490a3;
+    padding-bottom: .266667rem 
+}
+.line{
+    border-top: 1px solid #e8e5ec
+}
+.notes{
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-top: .506667rem
+}
+.notes p{
+    font-size: .373333rem;
+    line-height: .56rem;
+    padding-bottom: .933333rem
+}

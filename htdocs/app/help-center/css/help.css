@@ -1,0 +1,43 @@
+input::-ms-input-placeholder {
+    text-align: center;
+    font-size: .373333rem
+}
+
+input::-webkit-input-placeholder {
+    font-size: .373333rem;
+    text-align: center;
+}
+
+.search-container {
+    margin: 0  auto;
+    text-align: center;
+    padding-top: 1.573333rem;
+}
+
+.search {
+    width: 8.133333rem;
+    height: .8rem;
+    line-height: .8rem;
+    border: 1px solid #BAB5CA;
+    border-radius: .666667rem;
+    box-sizing: border-box;
+    outline: none;
+    color: #1F1F1F;
+    font-size: .373333rem;
+    text-align: center
+}
+.question-list{
+    width: 8.133333rem;
+    margin: .4rem auto 0
+}
+.question-list li{
+    box-sizing: border-box;
+    width: 8.133333rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    font-size: .373333rem;
+    border-bottom: 1px solid #E8E5EC;
+    color: #1f1f1f;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/help-center/img/more.png) no-repeat 7.7rem center;
+    background-size:.213333rem .4rem 
+}

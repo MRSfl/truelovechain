@@ -1,0 +1,71 @@
+img{
+    width: 100%
+}
+.app_coourse{
+    width: 92%;
+    margin: 0 auto;
+    padding-bottom: 30px
+}
+.app_coourse li{
+    background: #FFFFFF;
+    box-shadow: 0 4px 7px 0 rgba(229,67,112,0.10);
+    border-radius: 20px;
+    margin-top: 25px
+}
+.app_coourse li:nth-child(1){
+    margin-top: 60px
+}
+.app_coourse li img{
+    border-top-left-radius:20px; 
+    border-top-right-radius:20px; 
+}
+.desc p:nth-child(1){
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 0 15px 15px
+}
+/* .desc p:nth-child(2){
+    font-size: 14px;
+    padding: 5px 0 15px 15px
+} */
+/*  */
+.report-container{
+    width: 85%;
+    padding: 44px 0 35px;
+    margin: 0 auto;
+   
+}
+.notice-img{
+    box-sizing: border-box;
+    border: 1px solid #dddddd;
+    padding: 5px
+}
+.main-content{
+    padding: 10px 0
+}
+.main-content h5{
+    font-weight: bold;
+    font-size: 18px
+}
+.market-text{
+    font-size: 14px;
+    line-height: 21px;
+    padding-bottom: 10px;
+    padding-top: 20px
+}
+.noice-text{
+    text-align: center;
+    font-size: .266667rem;
+    color: #2d2643;
+    padding: .266667rem 0 .666667rem;
+    /* font-size: 20px */
+}
+.undeline{
+    text-decoration: underline
+}
+.fjx{
+    height: 10px;
+}
+.colorRed{
+    color: red
+}

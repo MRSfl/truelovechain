@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/charge_detail.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/charge_detail/js/jquery.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/charge_detail/js/qrcode.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/charge_detail/js/clipboard.min.js"></script>
+    <title>交易明细</title>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+            setRemUnit()
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+</head>
+
+<body>
+    <div class="charge-detail-container">
+        <div class="charge-detail-banner">
+            <div class="charge-mumber-bless-container charge-number-none">
+                <div class="witness-text charge-number-none">见证金额(TLC)</div>
+                <div class="bless-text charge-number-none">祝福金额(TLC)</div>
+                <p class="charge-money"></p>
+            </div>
+            <div class="charge-mumber-wallet-container charge-number-none">
+               <p class="charge-money"></p>
+            </div>
+        </div>
+        <ul class="charge-message-list">
+           
+            <li>
+                <div>发款方</div>
+                <div class="charge-from-wallet"></div>
+            </li>
+            <li>
+                <div>收款方</div>
+                <div class="charge-to-wallet"></div>
+            </li>
+        </ul>
+        <div class="charge-block-message">
+            <ul>
+                <li>交易号</li>
+                <li class="charge-number"></li>
+                <li>区块</li>
+                <li class="charge-blick"></li>
+                <li>交易时间</li>
+                <li class="charge-time"></li>
+            </ul>
+            <div class="url-container">
+                <div class="url-img-container btn">
+                    <div id="qrcode"></div>
+                </div>
+                <div class="to-copyurl">复制URL</div>
+            </div>
+        </div>
+    </div>
+    <div class="feed-warn">
+        <span class="feed-warn-text">复制成功</span>
+    </div>
+    <div class="dialog-warn">
+        <div class="dialog-warn-sh">
+            <div class="dialog-warn-con">
+                <div class="dialog-warn-title">温馨提示</div>
+                <div class="dialog-warn-text">
+                    交易正在处理中，请稍后查看
+                </div>
+                <div class="qx-qd">
+                    <div>取消</div>
+                    <div>确定</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function steRightCornerYellow() {
+            var obj = {
+                "colorType": 1
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '1')
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        function steRightCornerWhite() {
+            var obj = {
+                "colorType": 2
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '2')
+            } catch (e) {
+                console.log(e)
+            }
+        }
+      
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        var type = getQueryString('type');
+        var sourcefrome = getQueryString('sourcefrome')?getQueryString('sourcefrome'):1;
+        if(type=='bless'&&sourcefrome==2){
+            $('.charge-detail-banner').addClass('banner-bless');
+            $('.charge-message-list').addClass('charge-message-list-bless');
+            $('.charge-mumber-bless-container').removeClass('charge-number-none');
+            $('.bless-text').removeClass('charge-number-none')
+            document.title= '真爱祝福详情';
+            steRightCornerWhite()
+        }else if(type=='witness'&&sourcefrome==2){
+            $('.charge-detail-banner').addClass('banner-bless');
+            $('.charge-message-list').addClass('charge-message-list-bless');
+            $('.charge-mumber-bless-container').removeClass('charge-number-none');
+            $('.witness-text').removeClass('charge-number-none')
+            document.title= '真爱见证详情';
+            steRightCornerWhite()
+        }else if(type=='wallet'){
+            $('.charge-detail-banner').addClass('banner-wallet');
+            $('.charge-mumber-wallet-container').removeClass('charge-number-none')
+            document.title= '交易明细';
+            steRightCornerYellow()
+        }else if(type=='bless'&&sourcefrome==1){
+            $('.charge-detail-banner').addClass('banner-bless-fen');
+            $('.charge-message-list').addClass('charge-message-list-bless');
+            $('.charge-mumber-bless-container').removeClass('charge-number-none');
+            $('.bless-text').removeClass('charge-number-none');
+            $('.charge-message-list').css({"border-bottom":"1px solid #e8e5ec"})
+            document.title= '真爱祝福详情';
+            steRightCornerWhite()
+        }else if(type=='witness'&&sourcefrome==1){
+            $('.charge-detail-banner').addClass('banner-bless-fen');
+            $('.charge-message-list').addClass('charge-message-list-bless');
+            $('.charge-mumber-bless-container').removeClass('charge-number-none');
+            $('.witness-text').removeClass('charge-number-none')
+            $('.charge-message-list').css({"border-bottom":"1px solid #e8e5ec"})
+            document.title= '真爱见证详情';
+            steRightCornerWhite()
+        }
+        $(function(){
+            var getUrl = url;
+            var token = getQueryString('token');
+            var transhash = getQueryString('transhash');
+            var timer = null;
+            function dialog(text) {
+                $('.feed-warn-text').html(text);
+                $('.feed-warn').show();
+                clearTimeout(timer)
+                timer = setTimeout(function () {
+                    $('.feed-warn').hide();
+                }, 1000)
+            }
+            $('.qx-qd').click(function(){
+                try {
+                    window.android.closeWebview()
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    window.webkit.messageHandlers.closeWebview.postMessage(null);
+                } catch (e) {
+                    console.log(e)
+                }
+                $('.dialog-warn').hide()
+            })
+            $.ajax({
+                url:getUrl+'/h5/openinfo/getTransData',
+                type:'get',
+                data:{
+                    token:token,
+                    transhash:transhash
+                },
+                success:function(res){
+                    if(res.status == 200){
+                        $('.charge-time').html(res.data.ethTime)
+                        $('.charge-from').html(res.data.fromName);
+                        $('.charge-from-wallet').html(res.data.from);
+                        $('.charge-to').html(res.data.toName);
+                        $('.charge-to-wallet').html(res.data.to);
+                        $('.charge-number').html(res.data.transactionHash);
+                        $('.charge-blick').html(res.data.blockNumber);
+                        $('.charge-money').html(res.data.tranNum)
+                        if(res.data.tranUrl){
+                            var qrcode = new QRCode('qrcode', {
+                                text: res.data.tranUrl,
+                                width: 240,
+                                height: 240
+                            });
+                            setTimeout(function () {
+                                $('.url-container').show()
+                            }, 20);
+                        }
+                        var clipboard = new ClipboardJS('.btn', {
+                            text: function () {
+                                return res.data.tranUrl
+                            }
+                        });
+                        clipboard.on('success', function (e) {
+                            dialog('复制成功')
+                        });
+                        clipboard.on('error', function (e) {
+                            try{
+                                if(e.text==res.data.tranUrl){
+                                    dialog('复制成功')
+                                }else{
+                                    dialog('暂不支持复制')
+                                }
+                            }catch(e){
+
+                            }
+                            
+                        });
+                    }else{
+                        $('.dialog-warn').show()
+                    }
+                }
+            })
+            
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,193 @@
+.top{
+    width: 9.733333rem;
+    height: 4.4rem;
+    margin: 0 auto;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/dissolution_see/img/banner_bg.png) top center no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+}
+.top div{
+    position: absolute;
+    width: 1.333333rem;
+    height: 1.333333rem;
+    border-radius: 50%;
+}
+.top div img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%
+}
+.a-name-icon{
+   left: 3.613333rem;
+   top: 1.946667rem;
+   z-index: 2;
+
+}
+.b-name-icon{
+    right: 3.613333rem;
+    top: 1.946667rem;
+    z-index: 1;
+ 
+ }
+ .user-name-container{
+    text-align: center;
+    font-size: .373333rem;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    bottom: .4rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center
+ }
+ .user-name-container img{
+     width: .45rem;
+ }
+ .user-name-container span:nth-child(2){
+    margin:0 .08rem
+ }
+.main-container{
+    width: 9.733333rem;
+    margin: .4rem auto 0;
+    box-sizing: border-box;
+    border-radius: .533333rem;
+    border:1px solid #e8e5ec;
+    text-align: center;
+    white-space:normal; 
+    word-break:break-all;
+}
+.diss-user{
+    font-size: .666667rem;
+    font-weight: bold;
+    padding-top: .666667rem
+}
+.love-day-container{
+    padding-bottom: 0.8rem
+}
+.love-together{
+    font-size: .373333rem;
+    padding-top: .8rem
+}
+.love-day,.love-birth-day{
+    font-size: .666667rem;
+    font-weight: bold;
+    color: #e54370;
+    padding: .133333rem 0
+}
+.love-day-text{
+    font-size: .373333rem;
+    padding-bottom: .8rem
+}
+.love-birth{
+    font-size: .373333rem
+}
+.count-section1{
+    font-size: .346667rem;
+    padding-bottom: .84rem
+}
+.count-section1 h3{
+    font-size: .346667rem;
+    color: #e54370;
+    width: 8.066667rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-bottom: 1px dashed #e8e5ec;
+    padding-bottom: .266667rem
+}
+.rela-witness{
+    padding-top: .266667rem
+}
+.witness-money{
+    padding-top: .48rem;
+}
+.bless-number,.bless-money,.witness-number,.witness-q{
+    display: inline-block;
+    padding: 0 .16rem;
+
+}
+.bless-money,.witness-q{
+    font-weight: bold
+}
+.tlc{
+    font-weight: bold;
+    padding-right: .16rem
+}
+.bless-money-rmb,.witness-money-rmb{
+    padding: 0 .133333rem;
+    font-size: .24rem
+}
+.rmb{
+    font-size: .24rem
+}
+.rela-asset span,.baoxian-asset span{
+    display: inline-block;
+    padding: .333333rem .16rem 0
+}
+.please-see-clause{
+    font-size: 0.32rem;
+    padding-bottom: .666667rem
+}
+.see-calse{
+    width: 2.666667rem;
+    text-decoration: underline;
+    font-size: .32rem;
+    margin: .8rem auto 0;
+    text-align: center
+}
+.agree-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-bottom: .666667rem;
+    padding-top: .8rem
+}
+.agree-btn div{
+    width: 4rem;
+    height: 1.173333rem;
+    line-height: 1.173333rem;
+    background: #ee4c7a;
+    box-shadow: 0 .133333rem .186667rem 0 #ffdfdf;
+    border-radius: .586667rem;
+    color: #fff;
+    text-align: center;
+    font-size: .426667rem;
+    margin: 0 .133333rem
+}
+.shadow-box{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(31,31,31,0.50);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    overflow-y: scroll
+}
+.start-diss-container-fixed{
+    position: fixed;
+    left: 50%;
+    margin-left: -4.866667rem
+}
+.rotate6{
+    transform: rotateZ(90deg);
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    -ms-transform: rotateZ(90deg);
+    -o-transform: rotateZ(90deg);
+}
+.rotate8{
+    transform: rotateZ(-90deg);
+    -webkit-transform: rotateZ(-90deg);
+    -moz-transform: rotateZ(-90deg);
+    -ms-transform: rotateZ(-90deg);
+    -o-transform: rotateZ(-90deg);
+}
+.rotate180{
+    transform: rotateZ(-180deg);
+    -webkit-transform: rotateZ(-180deg);
+    -moz-transform: rotateZ(-180deg);
+    -ms-transform: rotateZ(-180deg);
+    -o-transform: rotateZ(-180deg);
+}

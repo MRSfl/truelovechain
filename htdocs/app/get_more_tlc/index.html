@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>每日放送10,000TLC，先到先得</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="report-title">前言</div>
+        <div class="notes">
+            真爱链是基于区块链和智能合约技术建设的全球爱情共识社区。<br>
+            真爱链致力于为爱情信仰构建忠诚基石，现每日向社区奖池投放10,000TLC，专用于奖励那些信仰爱情对彼此忠诚的恋人们。
+        </div>
+        <div class="report-title" style="padding-top:10px">领取方式</div>
+        <div class="notes">
+            进入社区点击“真爱币”进行领取，领取成功后“真爱币”将变成真爱蝴蝶，所领收益将进入“今日领取”，并叠加在“累计领取”中
+        </div>
+        <div class="main-text">领取社区收益前：</div>
+        <div class="img-container">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/get_more_tlc/img/3.1.jpg">
+        </div>
+        <div class="main-text">领取社区收益后：</div>
+        <div class="img-container">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/get_more_tlc/img/3.2.jpg">
+        </div>
+        <div class="report-title" style="padding-top:10px">注意事项</div>
+        <div class="notes">
+            凡有一方进行操作即可，每日不可重复点击领取。<br>
+            领取的社区收益将进入双方共有的关系合约地址，可在关系账户余额中进行查看。
+        </div>
+        <div class="img-container" style="margin-top:10px">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/get_more_tlc/img/3.3.jpg">
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+    </script>
+</body>
+
+</html>

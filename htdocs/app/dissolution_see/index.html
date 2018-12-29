@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/dissolution_see.css?v=20181128">
+    <link rel="stylesheet" href="css/clause.css">
+    <script src="http://tlcimg.quanxiankaibo.com/h5/dissolution_see/js/exif.js"></script>
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/dissolution_see/js/jquery.min.js"></script>
+    <script>
+        (function flexible (window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize () {
+                if (document.body) {
+                document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit () {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+            }(window, document))
+
+    </script>
+    <title>解约真爱关系</title>
+</head>
+
+<body>
+    <div class="start-diss-container">
+        <div class="top">
+            <div class="a-name-icon"><img></div>
+            <div class="b-name-icon"><img></div>
+            <p class="user-name-container">
+                <span class="a-user-name"></span>
+                <span><img src="http://tlcimg.quanxiankaibo.com/h5/dissolution_see/img/wlove.png"></span>
+                <span class="b-user-name"></span>
+            </p>
+        </div>
+        <div class="main-container">
+            <div class="diss-user"><span>某某</span>发起解约</div>
+            <div class="love-together">我们在一起相爱</div>
+            <div class="love-day-container"><span class="love-day">0</span><span class="love-day-text"> 天</span></div>
+            <div class="love-birth">距离纪念日还差</div>
+            <div class="love-day-container"><span class="love-birth-day">0</span><span class="love-day-text"> 天</span></div>
+            <div class="count-box">
+                <div class="count-section1">
+                    <h3>截至今日</h3>
+                    <div class="rela-witness">共有<span class="bless-number">0</span>位蜜友为我们真爱关系祝福</div>
+                    <div class="witness-money">祝福收入<span class="bless-money">0</span><i class="tlc">TLC</i></div>
+                    <div class="witness-money">共有<span class="witness-number">0</span>位蜜友为我们真爱关系见证</div>
+                    <div class="witness-money">见证收入<span class="witness-q">0</span><i class="tlc">TLC</i></div>
+                </div>
+                <div class="count-section1">
+                    <h3>真爱关系资产</h3>
+                    <div class="rela-asset tlc">
+                        <span class="rela-asset-tlc">0</span>TLC
+                    </div>
+                </div>
+                <div class="count-section1">
+                    <h3>真爱保险资产</h3>
+                    <div class="baoxian-asset tlc">
+                        <span class="baoxian-asset-tlc">0</span>TLC
+                    </div>
+                </div>
+                <div class="count-section1">
+                    <h3>真爱总资产</h3>
+                    <div class="baoxian-asset tlc">
+                        <span class="all-asset-tlc">0</span>TLC
+                    </div>
+                    <div class="baoxian-asset rmb">
+                        ≈<span class="all-asset-rmb">0</span>RMB
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="agree-btn">
+            <div class="agree">同意</div>
+            <div class="disagree">不同意</div>
+        </div>
+    </div>
+    <div class="shadow-box">
+        <div class="clause-container clearfix">
+            <div class="clause-box">  
+                <div class="title">解约提醒</div>
+                <div class="clause-text">
+                    如果双方选择解除真爱关系，则双方的真爱关系和真爱保险都会解除，关系账户和保险账户中的TLC将按照上链时约定的分配比例，返还到各自的钱包中，同时系统会收取1%的分手手续费。
+                </div>
+                <div class="bottom">
+                    <div class="cancle">取消</div>
+                    <p></p>
+                    <div class="confirm">确定</div>
+                </div>  
+            </div>
+        </div>
+    </div>
+    <script>
+       
+        $(function () {
+            var obj = {
+                "colorType": 2
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '2')
+            } catch (e) {
+                console.log(e)
+            }
+            $('.confirm').click(function () {
+                try {
+                    window.android.agreeDissolution()
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    window.webkit.messageHandlers.agreeDissolution.postMessage(null)
+                } catch (e) {
+                    console.log(e)
+                }
+                $('.shadow-box').hide();
+                $('.start-diss-container').removeClass('start-diss-container-fixed');
+                $('.start-diss-container').css({'top':0});
+                $(window).scrollTop(scroll)
+            })
+            $('.disagree').click(function () {
+                try {
+                    window.android.disDissolution()
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    window.webkit.messageHandlers.disDissolution.postMessage(null)
+                } catch (e) {
+                    console.log(e)
+                }
+            })
+            $('.agree').click(function(){
+                $('.shadow-box').show();
+                scroll = $(window).scrollTop();
+                $('.start-diss-container').addClass('start-diss-container-fixed');
+                $('.start-diss-container').css({'top':-scroll});
+            })
+            $('.cancle').click(function(){
+                $('.shadow-box').hide();
+                $('.start-diss-container').removeClass('start-diss-container-fixed');
+                $('.start-diss-container').css({'top':0});
+                $(window).scrollTop(scroll)
+            })
+            function getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                var q = window.location.pathname.substr(1).match(reg_rewrite);
+                if (r != null) {
+                    return unescape(r[2]);
+                } else if (q != null) {
+                    return unescape(q[2]);
+                } else {
+                    return null;
+                }
+            }
+            function toPoint(percent) {
+                return percent;
+            }
+            function keepFivePoint(num){
+                var n = parseFloat(num.toFixed(5));
+                return n;
+            }
+            var getUrl = url;
+            var token = getQueryString('token');
+            $.ajax({
+                url: getUrl + '/h5/openinfo/viewOurAllInfo',
+                data: {
+                    token: token
+                },
+                type: "get",
+                success: function (res) {
+                    if (res.status == 200) {
+                        var rate = toPoint(res.account.defaultper);
+                        $('.diss-user span').html(res.data.aname);
+                        $('.love-day').html(res.data.days);
+                        $('.love-birth-day').html(res.data.jnrdays);
+                        $('.bless-number').html(res.our.ourZhufu);
+                        $('.witness-number').html(res.our.ourJianzheng);
+                        $('.bless-money').html(res.our.zhufu_shouru);
+                        $('.witness-q').html(res.our.jianzheng_shouru);
+                        $('.rela-asset-tlc').html(res.account.investor_assets_income);
+                        $('.baoxian-asset-tlc').html(res.account.activity_income);
+                        $('.all-asset-tlc').html(res.account.tlc_balance);
+                        $('.all-asset-rmb').html(keepFivePoint(res.account.tlc_balance*rate));
+                        $('.a-user-name').html(res.relation.aname)
+                        $('.b-user-name').html(res.relation.bname)
+
+                        var newImg1 = new Image();
+                        var newImg2 = new Image();
+                        newImg1.src = getUrl+res.relation.apic;
+                        newImg2.src = getUrl+res.relation.bpic;
+                        newImg1.onload = function(){
+                            EXIF.getData(newImg1, function(){
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if(exif == 1){
+                                    $('.a-name-icon img').attr('src',getUrl+res.relation.apic);
+                                }else if(exif == 6){
+                                    $('.a-name-icon').addClass('rotate6');
+                                    $('.a-name-icon img').attr('src',getUrl+res.relation.apic);
+                                }else if(exif == 8){
+                                    $('.a-name-icon').addClass('rotate8');
+                                    $('.a-name-icon img').attr('src',getUrl+res.relation.apic);
+                                }else if(exif == 3){
+                                    $('.a-name-icon').addClass('rotate180');
+                                    $('.a-name-icon img').attr('src',getUrl+res.relation.apic);
+                                }else{
+                                    $('.a-name-icon img').attr('src',getUrl+res.relation.apic);
+                                }
+                            
+                            });
+                        }
+                        newImg2.onload = function(){
+                            EXIF.getData(newImg2, function(){
+                                EXIF.getAllTags(this);
+                                var exif = EXIF.getTag(this, 'Orientation');
+                                if(exif == 1){
+                                    $('.b-name-icon').attr('src',getUrl+res.relation.bpic);
+                                }else if(exif == 6){
+                                    $('.b-name-icon').addClass('rotate6');
+                                    $('.b-name-icon img').attr('src',getUrl+res.relation.bpic);
+                                }else if(exif == 8){
+                                    $('.b-name-icon').addClass('rotate8');
+                                    $('.b-name-icon img').attr('src',getUrl+res.relation.bpic);
+                                }else if(exif == 3){
+                                    $('.b-name-icon').addClass('rotate180');
+                                    $('.b-name-icon img').attr('src',getUrl+res.relation.bpic);
+                                }else{
+                                    $('.b-name-icon img').attr('src',getUrl+res.relation.bpic);
+                                }
+                            
+                            });
+                        }
+
+                    }
+
+                }
+            })
+            var bgStyle = {
+                "bgColor":'#ffffff',
+                "color":3
+            }
+            var bgStylenone = {
+                'bgColor':'',
+                "color":2
+            }
+            var flag = true;
+            $(window).scroll(function(){
+                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                if(scrollTop>=44&&flag==true){
+                    try{
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                    }catch(e){
+                        console.log(e)
+                    }
+                    flag = false;
+                    return false
+                }else if(scrollTop<44&&flag==false){
+                    try{
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                    }catch(e){
+                        console.log(e)
+                    }
+                    flag = true;
+                    return false;
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

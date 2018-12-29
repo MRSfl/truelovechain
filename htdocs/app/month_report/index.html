@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>月报</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="report-title">真爱链项目月报（2018年10月31日）</div>
+        <div class="report-date">2018-11-06</div>
+        <div class="line"></div>
+        <div class="notes">注：从10月份开始，真爱链项目将定期发布项目月报，及时向用户公布项目进展。</div>
+        <div class="main-content">
+            <h5>一 研发</h5>
+            <div class="market-text">
+                1、真爱关系合约已完成<br>
+                2、真爱保险合约已完成<br>
+                3、ios/android版本app1.0版本开始内测中，附APP截图：
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/home1.jpg" />
+            </div>
+            <div class="notice-img" style="margin-top:10px">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/home2.jpg" />
+            </div>
+        </div>
+        <div class="main-content">
+            <h5>二 市场</h5>
+            <div class="market-text">
+                真爱币TLC于2018年8月17日上线加拿大数字资产交易平台BCEX。
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/notice.png" />
+            </div>
+            <div class="noice-text">注：BCEX官网公告截图</div>
+            <div class="market-text">
+                截止至10月31日24:00，TLC交易数据如下：
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/k.png" />
+            </div>
+            <div class="noice-text">注：BCEX官网公告截图</div>
+            <div class="market-text">
+                目前，TLC已被mytoken、aicoin行情软件收录：
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/1.jpg" />
+            </div>
+            <div class="noice-text">注：截图来自Mytoken App</div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/2.jpg" />
+            </div>
+            <div class="noice-text">注：截图来自AIcoin App</div>
+        </div>
+        <div class="main-content">
+            <h5>三 运营</h5>
+            <div class="market-text" style="font-weight:bold">
+                1、由于上线时间正值七夕佳节，TLC联合BCEX平台共同举办七夕福利转发活动：
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/activity.jpg" />
+            </div>
+            <div class="noice-text">注：图为七夕活动海报</div>
+            <div class="market-text">
+                其中参与人数：550人次；<br>共计打出真爱币总数：427,350 TLC
+            </div>
+
+            <div class="market-text" style="font-weight:bold">
+                2、赞助18区王者荣耀比赛活动
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/3.jpg" />
+            </div>
+            <div class="noice-text">注：财经类新闻截图</div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/4.jpg" />
+            </div>
+            <div class="noice-text">注：活动海报截图</div>
+            <div class="market-text">
+                共计打出真爱币总数：150,000 TLC
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/5.jpg" />
+            </div>
+            <div class="noice-text">注：图为Imtoken打币记录</div>
+            <div class="market-text" style="font-weight:bold">
+                3、联合巴比特社区举办评论点赞活动
+            </div>
+            <div class="notice-img">
+                <img src="http://tlcimg.quanxiankaibo.com/h5/month_report/img/6.png" />
+            </div>
+            <div class="noice-text">注：截图来自巴比特论坛</div>
+            <div class="market-text">
+                具体情况参见微信公众号同名推文。<br>本次活动共计打出真爱币总数：5,200 TLC
+            </div>
+
+        </div>
+        <div class="main-content">
+            <h5>四 社区情况</h5>
+            <div class="notice-img" style="border:none">
+                <table class="table2" cellpadding="0" cellspacing="0">
+                    <tr class="tr2">
+                        <td>序号</td>
+                        <td class="td2">事项</td>
+                        <td class="td2">详情</td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>微信公众帐号—真爱链</td>
+                        <td>文章整理及发布7篇</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>新浪微博—Truelovechain</td>
+                        <td>微博发布50条</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>官网—truelovechain.com</td>
+                        <td>文章整理及发布2篇</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Twitter—Truelovechain</td>
+                        <td>推文发布18篇</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>金色财经—真爱链</td>
+                        <td>文章整理及发布23篇</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>币源社区—真爱链</td>
+                        <td>文章整理及发布24篇</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>微信群</td>
+                        <td>共计五个</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>电报群—@truelovechain</td>
+                        <td>群成员18.8K</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

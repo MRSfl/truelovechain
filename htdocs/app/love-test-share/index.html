@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/love-test-share.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/love-test-share/js/jquery.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>爱情小测试</title>
+</head>
+
+<body>
+    <div class="love-test-share">
+        <div class="love-test-share-detail">
+            <div class="result-detail-score"></div>
+            <div class="result-detail-title"></div>
+            <div class="result-detail-con">
+            </div>
+        </div>
+
+    </div>
+    <div class="bottom">
+        <img src="http://tlcimg.quanxiankaibo.com/h5/love-test-share/img/logo.png" />
+        <div class="bottom_text">真爱链-是真爱、就上真爱链</div>
+        <a href="javascript:;" target="_blank" id="down-app">
+            <div class="down">立即下载</div>
+        </a>
+    </div>
+    <script>
+        var browser = {
+            version: function () {
+                var u = navigator.userAgent,
+                    app = navigator.appVersion;
+                return {
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                    iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1,
+                    iPad: u.indexOf('iPad') > -1,
+                }
+            }
+        }
+        var version = browser.version();
+        if (version.ios || version.iPhone || version.ipad) {
+            $('#down-app').attr('href', iosUrl)
+        } else if (version.android) {
+            $('#down-app').attr('href', androidUrl)
+        } else {
+            $('#down-app').attr('href', androidUrl)
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        $(function () {
+            var getUrl = url;
+            var token = getQueryString('token');
+            $.ajax({
+                url: getUrl + '/h5/openinfo/queryFen',
+                type: 'get',
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    if (res.status == 200) {
+                        $('.result-detail-score').html(res.data.usernum);
+                        $('.result-detail-title').html(res.data.timu1);
+                        $('.result-detail-con').html(res.data.timu2)
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

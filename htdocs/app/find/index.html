@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/love-test.css?v=20181226">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/find/js/jquery.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>爱情小测试</title>
+</head>
+<div class="love-test-container clearfix">
+    <div class="love-test">
+        <div class="title-img">
+            <img src="http://tlcimg.quanxiankaibo.com/h5/find/img/test1-5@2x.png" />
+        </div>
+        <div class="container"></div>
+        <div class="prev">上一题</div>
+    </div>
+    <div class="result-container">
+        <div class="result-bg clearfix">
+            <div class="result-detail">
+                <div class="result-detail-score">99</div>
+                <div class="result-detail-title">手可摘星辰</div>
+                <div class="result-detail-con">
+                    幸运的是，你的爱情非常顺利，不幸的是，你周围眼红的人太多了！！你坚持真爱至上，对爱情始终保持着虔诚的的态度，当然也是老天不负有心人，你会遇到那个让你心仪的人，与你携手一生，正如你们相遇的那天一样，阳光灿烂！
+                </div>
+            </div>
+        </div>
+        <div class="result-btn">
+            <div class="result-share">分享结果</div>
+            <div class="result-again">再来一次</div>
+        </div>
+    </div>
+</div>
+
+<body>
+
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        $(function () {
+            var token = getQueryString('token');
+            var data = [
+                [{
+                    questionTitle: '你最欣赏对方哪一个优点：',
+                    questionText: [{
+                        value: '爱干净，整洁',
+                        score: 3
+                    },
+                    {
+                        value: '真诚，对自己毫无保留',
+                        score: 5
+                    },
+                    {
+                        value: '有上进心，责任感强',
+                        score: 4
+                    },
+                    {
+                        value: '脾气好，包容自己',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '在一个孤岛上，你只能选一种动物来陪你，你会选：',
+                    questionText: [{
+                        value: '狗',
+                        score: 5
+                    },
+                    {
+                        value: '猫',
+                        score: 3
+                    },
+                    {
+                        value: '马',
+                        score: 4
+                    },
+                    {
+                        value: '鲸鱼',
+                        score: 1
+                    }
+                    ]
+                }, {
+                    questionTitle: '出门旅行的话，会选择哪种方式？',
+                    questionText: [{
+                        value: '先规划，按照规划进行',
+                        score: 5
+                    },
+                    {
+                        value: '到了旅游地点再做打算',
+                        score: 3
+                    },
+                    {
+                        name: '3',
+                        value: '全程报团，跟着旅行社走',
+                        score: 4
+                    },
+                    {
+                        value: '找当地的朋友玩耍',
+                        score: 2
+                    }
+                    ]
+                }, {
+                    questionTitle: '假如你们是异地恋，会为了爱情离开自己所在的城市奔向TA吗？',
+                    questionText: [{
+                        value: '毫不犹豫选择奔向另一半',
+                        score: 2
+                    },
+                    {
+                        value: '根据自己的工作情况来把握是否合适',
+                        score: 4
+                    },
+                    {
+                        value: '会犹豫，根据感情进度决定是否适合 ',
+                        score: 5
+                    },
+                    {
+                        value: '直接拒绝',
+                        score: 2
+                    }
+                    ]
+                }, {
+                    questionTitle: '看到自己的对象跟别人很亲热，你会怎么做？',
+                    questionText: [{
+                        value: '主动质问，先听解释，看其表现',
+                        score: 5
+                    },
+                    {
+                        value: '直接分手，感情不允许欺骗',
+                        score: 3
+                    },
+                    {
+                        value: '当做不知道，等TA主动交代',
+                        score: 4
+                    },
+                    {
+                        value: '自己也出去玩，相互伤害',
+                        score: 2
+                    }
+                    ]
+                }], [{
+                    questionTitle: '当与一个人交往时，你最看重的是什么？',
+                    questionText: [{
+                        value: '相互理解，能够和谐相处',
+                        score: 4
+                    },
+                    {
+                        value: '思想沟通，价值观一致',
+                        score: 5
+                    },
+                    {
+                        value: '学识渊博，有很好的素养',
+                        score: 3
+                    },
+                    {
+                        value: '财富指数，足够的经济实力',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '在和朋友聚会的时候，你会怎么做？',
+                    questionText: [{
+                        value: '主动寻找话题，与人交谈',
+                        score: 4
+                    },
+                    {
+                        value: '自己沉溺于自己的小世界，不与外界沟通',
+                        score: 1
+                    },
+                    {
+                        value: '做一个很好的倾听者，默默注视',
+                        score: 3
+                    },
+                    {
+                        value: '做朋友之间沟通的桥梁',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '当一个不熟的朋友跟你突然示爱，你会有什么感觉？',
+                    questionText: [{
+                        value: '我这该死的人气，魅力太大遮掩不住',
+                        score: 4
+                    },
+                    {
+                        value: '开什么玩笑，我们不约',
+                        score: 5
+                    },
+                    {
+                        value: 'TA，怕不是在玩真心话大冒险',
+                        score: 3
+                    },
+                    {
+                        value: '看长相再做决定',
+                        score: 2
+                    }
+                    ]
+                }, {
+                    questionTitle: '看到朋友起争执，你会怎么做？',
+                    questionText: [{
+                        value: '先听听她们各自的说辞，再做决定',
+                        score: 5
+                    },
+                    {
+                        value: '现场演示事情发生的前后过程，从中协调',
+                        score: 4
+                    },
+                    {
+                        value: '吵吵关系更好，说出来才能解决',
+                        score: 3
+                    },
+                    {
+                        value: '一旁看戏，不插手',
+                        score: 2
+                    }
+                    ]
+                }, {
+                    questionTitle: '你做错了事，要惩罚你变成一种动物，并说一句话，你想变成一下哪个动物？',
+                    questionText: [{
+                        value: '狗：会保护好你的，不让你受一点伤害！',
+                        score: 5
+                    },
+                    {
+                        value: '猫：你要握着我的jiojio吗？',
+                        score: 3
+                    },
+                    {
+                        value: '马：带你去驰骋万里，看遍这风景！',
+                        score: 4
+                    },
+                    {
+                        value: '蛇：夏天热，给你降降温！',
+                        score: 2
+                    }
+                    ]
+                }], [{
+                    questionTitle: '旅游回来，你会选择什么礼物带回去？',
+                    questionText: [{
+                        value: '当地的明信片',
+                        score: 3
+                    },
+                    {
+                        value: '特色的旅游小吃',
+                        score: 2
+                    },
+                    {
+                        value: '风俗饰品小玩意',
+                        score: 4
+                    },
+                    {
+                        value: '一本书',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '你在交往中最看重的是什么？',
+                    questionText: [{
+                        value: '人品',
+                        score: 5
+                    },
+                    {
+                        value: '外貌',
+                        score: 3
+                    },
+                    {
+                        value: '经济实力',
+                        score: 4
+                    },
+                    {
+                        value: '上进心',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '出去约会的时候，你会迟到吗？',
+                    questionText: [{
+                        value: '偶尔',
+                        score: 4
+                    },
+                    {
+                        value: '从不',
+                        score: 5
+                    },
+                    {
+                        value: '经常',
+                        score: 2
+                    },
+                    {
+                        value: '看心情',
+                        score: 1
+                    }
+                    ]
+                }, {
+                    questionTitle: '如果你有能力可以驯服所有动物，你会选择哪种动物来当宠物呢？',
+                    questionText: [{
+                        value: '恐龙：活这么久，还保护不了你吗？',
+                        score: 2
+                    },
+                    {
+                        value: '白老虎：这么帅气的宠物，你值得拥有！',
+                        score: 5
+                    },
+                    {
+                        value: '北极熊：来爸爸怀里，给你降降温.',
+                        score: 3
+                    },
+                    {
+                        value: '豹子：我跑得快，可不是说说而已！',
+                        score: 2
+                    }
+                    ]
+                }, {
+                    questionTitle: '若有足够的时间与金钱可以出去旅游，你会选择哪个国家？',
+                    questionText: [{
+                        value: '日本',
+                        score: 4
+                    },
+                    {
+                        value: '泰国',
+                        score: 4
+                    },
+                    {
+                        value: '英国',
+                        score: 5
+                    },
+                    {
+                        value: '法国',
+                        score: 3
+                    }
+                    ]
+                }],
+                [{
+                    questionTitle: '你认为自己更偏重于哪种性格？',
+                    questionText: [{
+                        value: '随和，对朋友真挚',
+                        score: 5
+                    },
+                    {
+                        value: '外冷内热，内心柔软，小傲娇',
+                        score: 4
+                    },
+                    {
+                        value: '大大咧咧，说话直接，逗逼本人',
+                        score: 4
+                    },
+                    {
+                        value: '高冷不容易接近',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '在做决定时，你会优先考虑哪些因素？',
+                    questionText: [{
+                        value: '自己的能力，人际关系',
+                        score: 4
+                    },
+                    {
+                        value: '影响事件发展的因素',
+                        score: 5
+                    },
+                    {
+                        value: '自己身边朋友的感受',
+                        score: 3
+                    },
+                    {
+                        value: '本身的经济情况',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '你更喜欢和哪种人交流？',
+                    questionText: [{
+                        value: '聪明反应灵敏的',
+                        score: 4
+                    },
+                    {
+                        value: '踏实可靠的',
+                        score: 5
+                    },
+                    {
+                        value: '随和温柔的',
+                        score: 2
+                    },
+                    {
+                        value: '严厉直言不讳的',
+                        score: 4
+                    }
+                    ]
+                }, {
+                    questionTitle: '假如有五分钟，你可以当一种动物，你会选择哪个呢？',
+                    questionText: [{
+                        value: '狮：森林之王就是我',
+                        score: 4
+                    },
+                    {
+                        value: '猫：我们一起学猫叫，喵~',
+                        score: 2
+                    },
+                    {
+                        value: '马：自由地驰骋',
+                        score: 3
+                    },
+                    {
+                        value: '鸽子：我不仅是和平的象征',
+                        score: 5
+                    }
+                    ]
+                }, {
+                    questionTitle: '按照排名，哪个在你心中排名最高？',
+                    questionText: [{
+                        value: '父母',
+                        score: 4
+                    },
+                    {
+                        value: '爱人',
+                        score: 5
+                    },
+                    {
+                        value: '朋友',
+                        score: 3
+                    },
+                    {
+                        value: '工作',
+                        score: 2
+                    }
+                    ]
+                }],
+                [{
+                    questionTitle: '你平常一个人无聊的时候，会选择去哪里呆着呢？',
+                    questionText: [{
+                        value: '到热闹的街市里',
+                        score: 4
+                    },
+                    {
+                        value: '在安静的书店',
+                        score: 4
+                    },
+                    {
+                        value: '在家里颐养天年',
+                        score: 2
+                    },
+                    {
+                        value: '去公园里锻炼',
+                        score: 5
+                    }
+                    ]
+                }, {
+                    questionTitle: '跟朋友出去，你一般扮演着怎样的角色？',
+                    questionText: [{
+                        value: '领导者，安排整个流程和内容',
+                        score: 4
+                    },
+                    {
+                        value: '享用者，等着被安排',
+                        score: 2
+                    },
+                    {
+                        value: '参与者，会给出一些适当的建议',
+                        score: 5
+                    },
+                    {
+                        value: '倾听者，听大家意见',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '你希望爱人的年纪最好是什么样子的？',
+                    questionText: [{
+                        value: '同龄人有话讲',
+                        score: 2
+                    },
+                    {
+                        value: '比我大，能照顾我',
+                        score: 4
+                    },
+                    {
+                        value: '比我小，我能够宠爱TA，有威信',
+                        score: 4
+                    },
+                    {
+                        value: '感觉对了，年龄无所谓',
+                        score: 5
+                    }
+                    ]
+                }, {
+                    questionTitle: '有一天，你碰上了会说人话的动物，你感觉会是哪种动物？',
+                    questionText: [{
+                        value: '羊：当着我的面，还敢说烤全羊!',
+                        score: 5
+                    },
+                    {
+                        value: '马：马上马上，我看你上不上得了！',
+                        score: 4
+                    },
+                    {
+                        value: '兔：眼睛都哭肿了，还不相信我，嘤嘤~',
+                        score: 4
+                    },
+                    {
+                        value: '鸟：安排上我的豪华鸟笼了吗?',
+                        score: 3
+                    }
+                    ]
+                }, {
+                    questionTitle: '你准备买植物放在家里，你会选择哪种植物？',
+                    questionText: [{
+                        value: '绿萝',
+                        score: 3
+                    },
+                    {
+                        value: '茉莉花',
+                        score: 4
+                    },
+                    {
+                        value: '结果的小橘子树',
+                        score: 5
+                    },
+                    {
+                        value: '插花',
+                        score: 2
+                    }
+                    ]
+                }]
+            ];
+            var result = [
+                [{
+                    text: '你的爱情像是在冒险，总是在危险的边缘试探，可能过于决断来保护自己的方式，会使你在生活中错过很多，但是你可以试着，适当的依赖信任一下对方，多一些理解。其实你只是缺少一定的安全感，爱情不是禁锢，而是能让你成为更好的人的存在！',
+                    value: 50,
+                    theme: '离地狱就差一步'
+                },
+                {
+                    text: '恋爱，对你来说“不以结婚为目的的谈恋爱都是耍流氓”，这样的爱情虽然会比较平淡，但是你却尤其喜欢这样的安稳。相互照顾，获得很大的满足感，让人觉得和你相处很舒心！',
+                    value: 60,
+                    theme: '平平淡淡才是真'
+                },
+                {
+                    text: '爱情不是一件随意的事情，无论是一见钟情还是日久生情，感觉是第一位的。你一提我一套，对象才能开口笑！在你的爱情中，“套路”会是恋爱的调味品，偶尔加一点，会使你们的感情更加甜蜜，不过还是要适当套路啊！',
+                    value: 70,
+                    theme: '浪漫色彩少不了'
+                },
+                {
+                    text: '爱情，对你而言是唯一且十分宝贵。在感情中不允许欺骗的存在，双方要对感情负责，深知恋爱不是儿戏，同时又保持着基本的理智；你崇尚干净的毫无杂质的恋爱，对于自己所爱会表达出强烈的占有欲，同时也有基本的规划，不迷失自己！',
+                    value: 80,
+                    theme: '理智至上'
+                },
+                {
+                    text: '爱情没有极限，你一旦陷入就会毫无保留的交付给对方，你心目中的爱情就是这样，既然相爱就全心付出，相信你会收获属于自己的独一无二的感情！',
+                    value: 90,
+                    theme: '绝对宠爱'
+                }
+                ],
+                [{
+                    text: '你以为你凭借的是颜值，错，你凭借的是勇气！不知道有没有人跟你说过“直男”这个词，如果没有，我想成为第一个对你说这个词的人！情商，七分天注定，三分靠努力，你看着办吧！',
+                    value: 50,
+                    theme: '你离挨打就差一步了'
+                },
+                {
+                    text: '你刚过了及格线，就好像幼儿园时刚学会aoe，小学刚学会加减乘除，初中时的代数，高中常伴随你的函数，大学压线一般，刚刚扒着边，不要再在危险的边缘试探了，赶紧来拯救你的爱情吧！',
+                    value: 60,
+                    theme: '在危险的边缘试探'
+                },
+                {
+                    text: '你的爱情有点波澜，好像看着什么都对，又好像缺了点什么，迷茫的你有时也会怀疑究竟对不对，不要害怕，尝试着勇敢地走下去，谁也无法保证你们的未来，因为未来的指引靠的是你们自己啊！',
+                    value: 70,
+                    theme: '冥冥之中自有天意'
+                },
+                {
+                    text: '等不到的永远在骚动，被偏爱的都有恃无恐！” 因为等到对的人总是要花些时间，所以应该不介意再等等吧，放慢自己的脚步，就会看到不一样的风景，多一些耐心，少一点急躁，多一些温暖，少一些冰冷，多一份糖，少一份苦，爱情中缺不了甜蜜，偶尔一些小惊喜就会让人感动不已！',
+                    value: 80,
+                    theme: '止住你的“骚动'
+                },
+                {
+                    text: '幸运的是，你的爱情非常顺利，不幸的是，你周围眼红的人太多了！！你坚持真爱至上，对爱情始终保持着虔诚的的态度，当然也是老天不负有心人，你会遇到那个让你心仪的人，与你携手一生，正如你们相遇的那天一样，阳光灿烂！',
+                    value: 90,
+                    theme: '手可摘星辰'
+                }
+                ],
+                [{
+                    text: '你对待爱情是比较消极的，总是充满很多幻想，但是与此同时也是极富有浪漫主义色彩的，你随意洒脱，却有时会忽视了身边人的想法，爱情本就是两个人的恋爱，一个人唱独角戏怎么能算是爱情呢？',
+                    value: 50,
+                    theme: '丧与中二并存的奇迹生物'
+                },
+                {
+                    text: '爱情，对你而言有点像是可有可无的东西；你既害怕着，同时又在期待着，过于注重外在的表象，有时会让你迷失自己的方向，你会忘记自己到底追寻的是什么？望你能够拨开云雾，发现自己的真爱！',
+                    value: 60,
+                    theme: '且行且珍惜'
+                },
+                {
+                    text: '你的爱情像是暴风雨，来的也快，走的也快，就像几天前的台风，热衷于探索新的未知领域，与此同时又像上海等台风一样，像初恋少女在等她的男朋友，怕他不来又怕他乱来 。对待自己的爱情多一份信任，毕竟不是每一年的台风都能吹走你的骄傲放纵！',
+                    value: 70,
+                    theme: '热泪盈眶夸你及格'
+                },
+                {
+                    text: '相比较别人的爱情，你活得更实际；确认过眼神，爱情是两个人的事情，你确实奔着结婚去的！婚姻与爱情，是两个跨不过的话题，都说“婚姻是爱情的坟墓”，可是如果没有婚姻，你会死无葬身之地！',
+                    value: 80,
+                    theme: '爱情修成正果？假象！'
+                },
+                {
+                    text: '爱情测试有满分，可是爱情祝贺会说“99”，你想做个拿满分的孩子，还是在继续前行的路上的祝贺呢？爱情没有终点，我们都是在路上慢慢摸索的孩童，幸福的模样千差万别，幸福的语音又是千言万语；爱，是从眼神里溢出来的，哪怕只是呆呆的望着，就足够盛满你的整个世界！',
+                    value: 90,
+                    theme: '咬你一口算弥补吗？'
+                }
+                ],
+                [{
+                    text: '总是，小心翼翼，又故作高冷，喜欢你的人会因为你释放的冷气冻到的；温柔一点，好吗？试着放下自己虚假的外表，展示柔软的内心有这么困难吗？虽之前的偶像剧是这样发展的，不过你确定你比那些小鲜肉长得更加精彩吗？',
+                    value: 50,
+                    theme: '你跟爱情是绝缘体吧！'
+                },
+                {
+                    text: '你们这届的直男不太行，爱情刚达标，再差一点就挂了，下课老师请你喝茶好不好？恋爱，在你看来有点随意，既不想被固定的关系绑住，又想四处留情，海边的浪花都没有你浪的高，我连老奶奶都不扶就服你。如果爱情对你来说是禁锢，你又何必苦苦奢求呢？',
+                    value: 60,
+                    theme: '来，老师请你喝茶啊！ '
+                },
+                {
+                    text: '少年少女们，惊讶不？人并非生而孤独，只是，你是真单身！我这我这颗单身的心已经陪你度过了漫长岁月，不禁有点心酸！跃跃欲试对你的态度，希望你还能拯救一下，如果不行，就自己打包一下吧！  ',
+                    value: 70,
+                    theme: '我就看你咋办'
+                },
+                {
+                    text: '你渴望着爱情，能为爱请做很多事情，但是不会轻易坠入情网，你在等待那个人也值得你的等待。不要害怕，尝试着去勇敢地爱一次吧，爱情的模样千千万，没有经历又怎会体会呢？“我知道你不完美，但是我也想象不到比你更美好的人是什么样子的了！',
+                    value: 80,
+                    theme: '双向狙击瞄准谁'
+                },
+                {
+                    text: '跨越时间、空间，才遇见懵逼的你！我也是傻了，才会栽倒在你这棵歪脖子树上！爱情本就没有对错，爱就爱了，恋就恋了，痴就痴了，究竟你什么模样，我细细探究才会发现，我们都活成了自己想活的样子！',
+                    value: 90,
+                    theme: '爱情久久不停歇'
+                }
+
+                ],
+                [{
+                    text: '你对爱情充满着无限的幻想，想活成诗的模样，现实或许会把生活映进来；过于安逸的生活或许需要一点改变，不如就从走出房间开始，迎接新的朝气蓬勃，为自己平静的“老干部生活”迎来新的曙光！',
+                    value: 50,
+                    theme: '中等线不知海平面的忧伤'
+                },
+                {
+                    text: '一把心酸老泪，究竟自己的崽崽什么时候可以爱情丰收？你不仅活在当下，同时也在畅想未来，对你来说，爱情是真挚的，所以你也是格外慎重，在没有确定的感觉和足够的能力的时候，你不敢轻易说爱；爱是一种承诺，不是随便说说！',
+                    value: 60,
+                    theme: '补习班等你上课'
+                },
+                {
+                    text: '艾玛，公开化全透明的爱情，有点小期待呢！在恋爱中，你没有秘密，一旦陷入就会全身心的投入，这样的人也是着实难能可贵的，在以后的路上，还是要多陪伴，毕竟你们是要一起走到白头的人啊！',
+                    value: 70,
+                    theme: '玛丽苏？我看是小傲娇！'
+                },
+                {
+                    text: '恋爱中的你，是爱人安心的存在，仿佛有你在，天塌下来都不怕 ！强烈的责任感，不仅出自你对恋爱的许诺，更是你的言出必行的做法。对另一半宠爱有加，怪不得你的追求者排成队呢！不过，可不要滥情哦！',
+                    value: 80,
+                    theme: '有证驾驶，无师自通！'
+                },
+                {
+                    text: '温暖，在你的爱情里始终扮演着重要的角色。别人总说你是安心的存在，只有你自己知道，这是出于本能的对爱人的宠爱！多幸运，能在七十五亿中遇到你，等了这么久，也算是值得了！拿一辈子的好运都用来遇见你了，所以这辈子注定要被你吃得死死的！',
+                    value: 90,
+                    theme: '全垒打？待我算上一卦！'
+                }
+                ]
+            ];
+
+            var isCanClick, selectIndex, totalScore, resultScore, arr, random;
+            chooseItem()
+            console.log(url)
+            function chooseItem() {
+                isCanClick = true;
+                selectIndex = 0;
+                totalScore = [];
+                resultScore = 0;
+                arr = [];
+                random = Math.floor(Math.random() * data.length);;
+                for (var i = 0; i < data[random].length; i++) {
+                    var str1 = '';
+                    var str2 = '';
+                    str1 = "<div class='item-container item-container" + i + "'>\
+                    <div class='item-title-container'>\
+                        <h5>"+ (i + 1) + "：" + data[random][i].questionTitle + "</h5>\
+                        </div><ul class='item-detail-container item-detail-container"+ i + "'></ul>\
+                    </div>";
+                    $('.love-test').append(str1);
+                    for (var j = 0; j < data[random][i].questionText.length; j++) {
+                        str2 += "<li data-score='" + data[random][i].questionText[j].score + "'>" + data[random][i].questionText[j].value + "</li>"
+                    }
+                    $('.item-detail-container' + i).append(str2)
+                    $('.container').append($('.item-container' + i))
+                }
+                showfirst();
+
+            }
+
+            function showfirst() {
+                $('.item-container').hide();
+                $('.item-container0').show()
+            }
+
+            function addScore(arr, resultScore) {
+                try {
+                    for (var i = 0; i < arr.length; i++) {
+                        resultScore += arr[i]
+                    }
+                    return resultScore;
+                } catch (e) {
+                    console.log(e)
+                }
+            }
+            $('.container').on('click', 'li', function () {
+                if (isCanClick) {
+                    $(this).siblings().removeClass('active');
+                    $(this).addClass('active');
+                    var score = parseInt($(this).attr('data-score'));
+                    totalScore[selectIndex] = score
+                    selectIndex++;
+                    if (selectIndex > 0) {
+                        $('.prev').show()
+                    }
+                    isCanClick = false;
+                    setTimeout(function () {
+                        $('.item-container').hide();
+                        $('.item-container' + selectIndex).show();
+                        if (selectIndex == 5) {
+                            var resetScore = addScore(totalScore, 0);
+                            resdResult(resetScore)
+                            // console.log(resetScore)
+                            $('.love-test').hide();
+                            $('.prev').hide();
+                            $('.result-container').show();
+                        }
+                        isCanClick = true
+                    }, 500)
+                    // console.log(totalScore)
+                }
+            })
+            $('.prev').on('click', function () {
+                if (selectIndex <= 1) {
+                    $(this).hide()
+                }
+                if (selectIndex <= 0) {
+                    alert('start');
+                    return false
+                }
+                selectIndex--;
+                setTimeout(function () {
+                    $('.item-container').hide();
+                    $('.item-container' + selectIndex).show();
+                    isCanClick = true
+                }, 100)
+            })
+            $('.result-again').click(function () {
+                $('.container').children().remove();
+                $('.result-container').hide();
+                $('.love-test').show();
+                chooseItem()
+            })
+            function resdResult(totalScore) {
+                if (totalScore >= 10 && totalScore <= 13) {
+                    resultSelectIndex = 0
+                } else if (totalScore >= 14 && totalScore <= 16) {
+                    resultSelectIndex = 1
+                } else if (totalScore >= 17 && totalScore <= 20) {
+                    resultSelectIndex = 2
+                } else if (totalScore >= 21 && totalScore <= 23) {
+                    resultSelectIndex = 3
+                } else {
+                    resultSelectIndex = 4
+                }
+                value = result[random][resultSelectIndex].value;
+                theme = result[random][resultSelectIndex].theme;
+                text = result[random][resultSelectIndex].text;
+                $('.result-detail-score').html(value);
+                $('.result-detail-title').html(theme);
+                $('.result-detail-con').html(text);
+                $.ajax({
+                    url: url + '/h5/openinfo/saveFen',
+                    type: 'get',
+                    data: {
+                        token: token,
+                        fennum: value,
+                        jianjie: theme,
+                        desc: text
+                    },
+                    success: function (res) {
+                        if (res.status == 200) {
+                            $('.result-share').unbind();
+                            $('.result-share').bind('click', function () {
+                                var obj = {
+                                    title: '当与一个人交往时，你最看重的是什么？',
+                                    desc: text,
+                                    link: 'http://h5.truelovechain.com/love-test-share/index.html'
+                                }
+                                try {
+                                    window.webkit.messageHandlers.wxShare.postMessage(obj);
+                                } catch (e) {
+                                    console.log(e)
+                                }
+
+                                try {
+                                    window.android.wxShare('当与一个人交往时，你最看重的是什么？', text, 'http://h5.truelovechain.com/love-test-share/index.html')
+                                } catch (e) {
+                                    console.log(e)
+                                }
+                            })
+                        }
+                    }
+                })
+            }
+
+
+        })
+    </script>
+</body>
+
+</html>

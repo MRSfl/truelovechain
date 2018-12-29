@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/renew_the_contract.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/renew_the_contract/js/jquery.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>续约</title>
+</head>
+
+<body>
+    <div class="start-diss-container">
+        <div class="top">
+
+        </div>
+        <div class="user-name">
+            <span class="a-user-name"></span>
+            <span><img src="http://tlcimg.quanxiankaibo.com/h5/renew_the_contract/img/redlove.png" /></span>
+            <span class="b-user-name"></span>
+        </div>
+        <div class="main-container">
+            <div class="count-banner">
+            </div>
+            <div class="main-container-bg">
+                <div class="count-box">
+                    <div class="re-contract-time">来</div>
+                    <div class="re-contract-title">感谢你的陪伴</div>
+                    <div class="love-lc">
+                        <div class="create-love-rela re-contract-common">
+                            <h3 class="create-love-rela-time"></h3>
+                            <div>我们创建了真爱关系</div>
+                        </div>
+                        <div class="love-up-line re-contract-common">
+                            <h3 class="love-up-line-time"></h3>
+                            <div>真爱关系上链 宣誓真爱</div>
+                        </div>
+                        <div class="get-ins re-contract-common">
+                            <h3 class="get-ins-time"></h3>
+                            <div>领取真爱保险</div>
+                        </div>
+                    </div>
+                    <div class="count-section1">
+                        <h3>截至今日</h3>
+                        <div class="rela-witness">共有<span class="bless-number">0</span>位蜜友为我们真爱关系祝福</div>
+                        <div class="witness-money">祝福收入<span class="bless-money">0</span><i class="tlc">TLC</i></div>
+                        <div class="witness-money">共有<span class="witness-number">0</span>位蜜友为我们真爱关系见证</div>
+                        <div class="witness-money">见证收入<span class="witness-q">0</span><i class="tlc">TLC</i></div>
+                    </div>
+                    <div class="count-section1">
+                        <h3>真爱关系资产</h3>
+                        <div class="rela-asset tlc">
+                            <span class="rela-asset-tlc">0</span>TLC
+                        </div>
+                    </div>
+                    <div class="count-section1">
+                        <h3>真爱保险资产</h3>
+                        <div class="baoxian-asset tlc">
+                            <span class="baoxian-asset-tlc">0</span>TLC
+                        </div>
+                    </div>
+                    <div class="count-section1">
+                        <h3>真爱总资产</h3>
+                        <div class="baoxian-asset tlc">
+                            <span class="all-asset-tlc">0</span>TLC
+                        </div>
+                        <div class="baoxian-asset rmb">
+                            ≈<span class="all-asset-rmb">0</span>RMB
+                        </div>
+                    </div>
+                    <!-- <div class="re-contract-bottom">
+                        <p>可以让我们</p>
+                        <p>澳大利亚旅游七天</p>
+                        <p>超过了98%的情侣</p>
+                    </div> -->
+                </div>
+                <div class="re-contract-bottom-bg"></div>
+            </div>
+        </div>
+        <div class="re-contract-next">
+            <div class="re-contract-btn">下一步</div>
+        </div>
+    </div>
+    <script>
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        function toPoint(percent) {
+            return percent;
+        }
+        function keepFivePoint(num) {
+            var n = parseFloat(num.toFixed(5));
+            return n;
+        }
+        function setBirth(day) {
+            var birth = day.split('-');
+            var birthDay = birth[0] + '年' + birth[1] + '月' + birth[2] + '日'
+            return birthDay;
+        }
+        $(function () {
+            var obj = {
+                "colorType": 2
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '2')
+            } catch (e) {
+                console.log(e)
+            }
+
+            $('.re-contract-btn').click(function () {
+                try {
+                    window.android.renewTheContractNext()
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    window.webkit.messageHandlers.renewTheContractNext.postMessage(null)
+                } catch (e) {
+                    console.log(e)
+                }
+            })
+            var getUrl = url;
+            var token = getQueryString('token');
+            $.ajax({
+                url: getUrl + '/h5/openinfo/viewOurAllInfo',
+                type: "get",
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    if (res.status == 200) {
+                        var rate = toPoint(res.account.defaultper);
+                        $('.a-user-name').html(res.relation.aname);
+                        $('.b-user-name').html(res.relation.bname);
+                        $('.re-contract-time').html(res.data.days + '天来')
+
+                        if (res.our.created) {
+                            $('.create-love-rela-time').html(setBirth(res.our.created.split(' ')[0]));
+                        }
+                        if (res.our.ourChainTime) {
+                            $('.love-up-line-time').html(setBirth(res.our.ourChainTime.split(' ')[0]));
+                        }
+                        if (res.our.ourLoveTime) {
+                            $('.get-ins-time').html(setBirth(res.our.ourLoveTime.split(' ')[0]));
+                        }else{
+                            $('.get-ins').hide()
+                        }
+
+                        $('.bless-number').html(res.our.ourZhufu);
+                        $('.bless-money').html(res.our.zhufu_shouru);
+                        $('.witness-number').html(res.our.ourJianzheng);
+                        $('.witness-q').html(res.our.jianzheng_shouru);
+                        $('.rela-asset-tlc').html(res.account.investor_assets_income);
+                        $('.baoxian-asset-tlc').html(res.account.activity_income);
+                        $('.all-asset-tlc').html(res.account.tlc_balance);
+                        $('.all-asset-rmb').html(keepFivePoint(res.account.tlc_balance * rate))
+
+                    }
+                }
+            })
+            var flag = true;
+            var bgStyle = {
+                "bgColor": '#ffffff',
+                'color': 3
+            }
+            var bgStylenone = {
+                'bgColor': '',
+                'color': 2
+            }
+            window.onscroll = function () {
+                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                if (scrollTop >= 44 && flag == true) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = false;
+                    return false
+                } else if (scrollTop < 44 && flag == false) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = true;
+                    return false;
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

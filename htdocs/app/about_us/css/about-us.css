@@ -1,0 +1,43 @@
+.about-us{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.logo{
+    width: 2.4rem;
+    height: 2.4rem;
+    background: url(http://tlcimg.quanxiankaibo.com/h5/about_us/img/logo-180@2x.png) center center no-repeat;
+    background-size:100% 100%;
+    margin: 2.506667rem auto 0 
+    /* margin: 0 auto */
+}
+.version{
+    font-size: .32rem;
+    text-align: center;
+    margin: .266667rem auto 0
+}
+.about-us-intro{
+    font-size: .373333rem;
+    line-height: .56rem;
+    width: 8.213333rem;
+    margin: .933333rem auto 0;
+    text-indent: 2em
+}
+.bottom{
+    position: absolute;
+    width: 100%;
+    bottom: .666667rem;
+    font-size: .32rem;
+    text-align: center
+}
+.bottom-text{
+    padding-bottom: .266667rem
+}
+.bottom-href{
+   text-decoration: underline;
+   padding-bottom: .533333rem
+}
+.bottom-copy{
+   color: #9490a3
+}

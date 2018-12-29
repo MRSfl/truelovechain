@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/new_user.css?version=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>常见问题</title>
+</head>
+
+<body>
+    <div class="new_user_container clearfix">
+        <ul class="new_user_main">
+            <li>
+                <div class="new_user_title">真爱链APP里没有TLC购买渠道，在哪里可以购买或出售TLC？</div>
+                <div class="new_user_con">
+                    真爱链APP本身不支持TLC交易，目前在知名数字资产交易平台BCEX（www.bcex.top）可以交易TLC，支持TLC/ETH交易对，即需要有ETH才能购买TLC。近期，我们将陆续开通更多交易平台及交易对，方便用户自由买卖。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">在真爱链APP里转账TLC时为什么需要ETH？</div>
+                <div class="new_user_con">真爱链是在以太坊（Ethereum）公链开发的区块链应用项目，TLC为符合以太坊ERC20规范的代币，任何在以太坊上发行的代币，在进行转账交易时，都需要缴纳少量的ETH作为网络手续费。</div>
+            </li>
+            <li>
+                <div class="new_user_title">在哪里可以购买ETH？</div>
+                <div class="new_user_con">
+                    如果是直接用法币购买ETH，可以选择火币交易平台（www.huobi.br.com）的法币交易板块。<br><br>大部分交易平台是先用法币兑换稳定数字货币USDT（一种锚定美元的数字货币）或CK.USD（另一种锚定美元的数字货币），然后再使用USDT或CK.USD购买ETH。<br><br>如需购买USDT，可在火币（www.huobi.br.com）、CoinbankOTC（www.coinbankotc.com）、BCEX（www.bcex.top）、GATE（www.gateio.io）等交易平台进行兑换。而用USDT购买ETH，则以上交易平台均可。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">交易平台账户里TLC能直接转到真爱保险里吗？</div>
+                <div class="new_user_con">可以的。只需要将交易平台账户中的TLC提币地址，设置为你的真爱保险合约地址即可。</div>
+            </li>
+            <li>
+                <div class="new_user_title">为什么我在社区页面点击领取了社区收益，但在资产页面没收到？</div>
+                <div class="new_user_con">
+                    这是因为当你在社区页面点击领取后，系统则标记你已领取并在社区页面进行了数据展示，然后系统开始将你领取的TLC转账到你的关系账户上，TLC转账需要以太坊网络确认，这个过程一般需要几分钟至几十分钟，等网络确认完成后，相关数据就会显示在你的资产页面上。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">为什么我们的真爱保险社区收益只有一个人能领？</div>
+                <div class="new_user_con">社区收益的奖励是按照真爱保险来计算的，而真爱保险是属于投保双方的，所以只要属于这份真爱保险的任意一方进行领取即可。当一方点击领取后，另一方不可再重复领取。</div>
+            </li>
+            <li>
+                <div class="new_user_title">我的钱包密码忘记了怎么办？</div>
+                <div class="new_user_con">
+                    钱包密码如果忘记了，可以通过重新导入钱包助记词或钱包keystore文件来重置钱包，并重新设置密码。但因为钱包地址跟真爱关系是绑定的，为了避免发生混乱，导入的钱包必须与该账号上链时的钱包保持一致，上链后不可新建钱包，新建钱包只能在单身状态下操作。如果你目前已处于真爱上链状态，又没有钱包助记词或钱包keystore文件，则需要等待遗忘解约，待恢复单身后才能重新创建钱包。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">换新手机了怎么恢复原来的钱包？</div>
+                <div class="new_user_con">只要有原钱包的助记词或keystore文件，通过导入钱包即可恢复原钱包。如果忘记了助记词或keystore文件，则无法恢复原钱包，因此请务必保存好钱包助记词和keystore文件。</div>
+            </li>
+            <li>
+            <li class="new_user_title">换手机号了怎么办？</li>
+            <li class="new_user_con">首先需要使用原手机号登录APP，然后在【我的资料】页面选择更换手机号，新手机号必须跟原账号属于同一实名人。</li>
+            </li>
+            <li>
+                <div class="new_user_title">真爱上链需要满足什么条件？</div>
+                <div class="new_user_con">
+                    真爱上链需要具备两个前提条件：<br>
+                    1. 双方都已在真爱链APP中创建了钱包；<br>
+                    2. 双方都已通过身份认证。
+                </div>
+            </li>
+            <li>
+                <div class="new_user_title">免费领取1314TLC真爱保险需要满足什么条件？</div>
+                <div class="new_user_con">
+                    只有双方均为首次领取，才能获得免费领取额度为1314TLC的真爱保险的资格。如果任意一方已免费领取过真爱保险，则再次领取只能获得额度为100TLC的真爱保险。
+                </div>
+            </li>
+        </ul>
+        <div class="nomore">
+            <div class="nomore_question_bottom">如果没有解决您的问题 请在意见反馈提交</div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44) {
+                flag = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+.new_user_container{
+    width: 8.133333rem;
+    margin: 0 auto;
+    color: #1f1f1f
+}
+.new_user_main{
+    margin-top: 1.573333rem;
+}
+.new_user_title{
+    font-size: .373333rem;
+    color: #2D2643;
+    font-weight: 700;
+    height: 1.173333rem;
+    border-bottom: 1px solid #E8E5EC;
+    display: flex;
+    align-items: center
+}
+.new_user_con{
+    font-size: .373333rem;
+    padding: .4rem 0 .266667rem;
+    line-height: .56rem;
+    word-break: break-all
+}
+.nomore{
+    margin-top: 2.213333rem;
+    padding-bottom: .4rem;
+    text-align: center;
+    font-size: .32rem;
+    color: #9490A3
+}
+.nomore div{
+    line-height: .48rem
+}
+.biao-title{
+    font-size: .373333rem
+}
+.biao{
+    height: 1.866667rem;
+    background:  rgba(217,183,101,0.15);
+    box-sizing: border-box;
+    margin: .4rem auto;
+    /* display: none */
+}
+.biao-title p,.biao-number p{
+    float: left;
+    font-size: .373333rem;
+    width: 33.333%;
+    text-align: center;
+    height: .933333rem;
+    line-height: .933333rem;
+    border: 1px solid #bab5ca;;
+    box-sizing: border-box
+}

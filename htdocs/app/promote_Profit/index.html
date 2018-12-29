@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css?v=20181128">
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            } 
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+    </script>
+    <title>如何提升见证收益</title>
+</head>
+
+<body>
+    <div class="report-container">
+        <div class="market-text">
+            开始这个话题之前，我们有必要了解下见证收益的计算方式。
+        </div>
+        <div class="main-content">
+            <div class="market-text" style="font-weight:700;">
+                见证收益=投保总额*见证收益率
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="market-text" style="font-weight:700;">
+                见证收益率=基础收益率*见证人数*0.01
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="market-text">
+                根据上面两个公式可以知道，影响收益的因素主要有两个：投保总额和见证人数。
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="market-text">
+                投保总额就很简单啦，免费领取保险以后选择追加保额即可，或者从外部钱包（例如Im token）或者交易所（目前是bcex.top）直接转账到保险合约地址即可。
+            </div>
+            <div class="market-text">
+                见证人数就是通过实名的真爱链用户对你的保险合约地址进行转账的行为就叫见证。（每对情侣至多只可以被199个好友见证哟）
+            </div>
+            <div class="market-text">
+                所以啊，快叫好友见证你们的爱情，为你们的爱情增加收益吧。
+            </div>
+           
+            <div class="market-text">
+                （现在邀请好友加入真爱社区还可以获得邀请奖励哟）
+            </div>
+        </div>
+    </div>
+    <script>
+        var obj = {
+            "colorType": 3
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '3')
+        } catch (e) {
+            console.log(e)
+        }
+        var flag = true;
+        var bgStyle = {
+            "bgColor": '#ffffff'
+        }
+        var bgStylenone = {
+            'bgColor': ''
+        }
+        window.onscroll = function () {
+            var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+            if (scrollTop >= 44 && flag == true) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = false;
+                return false
+            } else if (scrollTop < 44 && flag == false) {
+                try {
+                    window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                } catch (e) {
+                    console.log(e)
+                }
+                flag = true;
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

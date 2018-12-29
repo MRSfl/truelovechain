@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/my-feedback.css">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/my_feedback/js/jquery.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>我的反馈</title>
+</head>
+
+<body>
+    <div class="my-feedback-container">
+        <div class="message-container">
+            <div class="no-more">没有更多了</div>
+        </div>
+        <!-- <div class="line"></div> -->
+    </div>
+    <script>
+
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        function steRightCorner() {
+            var obj = {
+                "colorType": 3
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '3')
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        $(function () {
+            steRightCorner();
+            var token = getQueryString('token');
+            var getUrl = url;
+            $.ajax({
+                url: getUrl + '/api/userFeedBack/getUserFeedBack',
+                type: 'get',
+                data: {
+                    token: token
+                },
+                success: function (res) {
+                    if (res.status == 200) {
+                        if (res.data.length > 0) {
+                            var json = res.data;
+                            var str = '';
+                            for (var i = 0; i < json.length; i++) {
+                                str += "<div class='message'>\
+                                <div class='time'>"+ json[i].submit_time + "</div>\
+                                <div class='text'>"+ json[i].feedback_content + "</div>\
+                                </div>";
+                            }
+                            $('.message-container').html(str)
+                        } else {
+                            $('.message-container').html('<div class="no-more">没有更多了</div>')
+                        }
+                    }
+                }
+            })
+            var bgStyle = {
+                "bgColor": '#ffffff'
+            }
+            var bgStylenone = {
+                'bgColor': ''
+            }
+            var flag = true;
+            $(window).scroll(function () {
+                var scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                if (scrollTop >= 44 && flag == true) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStyle);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = false;
+                    return false
+                } else if (scrollTop < 44 && flag == false) {
+                    try {
+                        window.webkit.messageHandlers.setTitleStyle.postMessage(bgStylenone);
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    flag = true;
+                    return false;
+                }
+            })
+        })
+
+    </script>
+</body>
+
+</html>

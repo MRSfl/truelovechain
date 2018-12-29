@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/get-free-ins.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>免费领取真爱保险</title>
+</head>
+
+<body>
+    <div class="free-ins-cons">
+        <div class="free-ins-top">
+            <div class="free-ins-text">
+                首次完成真爱上链<br>可以免费领取一份 1314 TLC的真爱保险
+            </div>
+        </div>
+        <div class="ins-intro">
+            <div class="ins-intro-conatiner">
+                <div class="ins-title">真爱保险使用须知</div>
+                <div class="ins-detail">
+                    <p>
+                        1.真爱保险只能使用TLC兑换。<br>
+                        2.投保人双方须为经真爱链系统认证具有真爱关系的情侣。<br>
+                        3.兑换真爱保险需要经过情侣双方共同确认。<br>
+                        4.投保人可以是情侣中一方或双方，被保险人是情侣双方。<br>
+                        5.投保年龄无限制，只要双方自认存在真爱关系。<br>
+                        6.投保份数：每对情侣最多投保一份，多投无效。<br>
+                        7.真爱保险的期限与情侣双方的真爱关系保持一致。
+                    </p>
+                </div>
+                <div class="ins-title">真爱保险产品说明书</div>
+                <div class="ins-detail">
+                    <p>
+                        真爱保险是真爱链推出的一款基于智能合约技术实现的区块链应用产品，情侣双方在真爱链上完成真爱上链后，可以自愿将TLC存入真爱保险账户，真爱保险的保额等于投保人及亲友投入到真爱保险合约地址中的TLC总量，在兑换真爱保险时，情侣双方可以自行设定保险收益分配比例。用户持有真爱保险才能获得真爱链社区的生态激励，获得基础收益，见证收益和社区收益。
+                    </p>
+                </div>
+                <div class="ins-title-left">社区生态激励计算规则</div>
+                <table class="table">
+                    <tr class="first-tr">
+                        <td><span>收益计算规则</span></td>
+                        <td><span>收益率计算规则</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>基础收益=真爱保险余额*基础收益率</span></td>
+                        <td><span>基础收益率，自真爱链发布之日起，第一年为每天0.2%，然后逐年减半，减至每日0.0125%后保持不变</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>见证收益=真爱保险余额*见证收益率</span></td>
+                        <td><span>见证收益率=基础收益率*见证人数*1%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>社区收益=真爱保险余额*社区收益率</span></td>
+                        <td><span>社区收益率=社区收益奖池余额/社区保险总余额</span></td>
+                    </tr>
+                </table>
+                <div class="ins-detail-p1">用户存入真爱保险账户的TLC全部存放在真爱保险合约里，真爱保险合约由情侣使用各自的钱包密钥创建生成，合约控制权属于情侣双方，真爱链官方没有用户合约的管理权。</div>
+                <div class="ins-detail-p2">用户获得的基础收益和见证收益，每天会自动发放到情侣的真爱关系合约账户中，社区收益需要用户每天手动领取，领取后会发放到真爱关系合约账户中。</div>
+                <div class="ins-detail-p3">根据情侣双方对待真爱关系的不同处理方式，真爱保险的保障规则见下表：</div>
+                <table class="table2">
+                    <tr class="first-tr2">
+                        <td><span>真爱保险保障情形分类</span></td>
+                        <td><span>甲</span></td>
+                        <td><span>乙</span></td>
+                        <td><span>系统</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>真爱关系未到期，双方解约</span></td>
+                        <td><span>99%*分配比例</span></td>
+                        <td><span>99%*分配比例</span></td>
+                        <td class="text-center"><span>1%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>真爱关系到期，双方续签(提现)</span></td>
+                        <td><span>99%*分配比例</span></td>
+                        <td><span>99%*分配比例</span></td>
+                        <td class="text-center"><span>1%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>真爱关系到期，甲续签，乙不续签</span></td>
+                        <td class="text-center"><span>90%</span></td>
+                        <td class="text-center"><span>0</span></td>
+                        <td class="text-center"><span>10%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>真爱关系到期，甲不续签，乙续签</span></td>
+                        <td class="text-center"><span>0</span></td>
+                        <td class="text-center"><span>90%</span></td>
+                        <td class="text-center"><span>10%</span></td>
+                    </tr>
+                    <tr>
+                        <td><span>真爱关系到期，双方都不续签</span></td>
+                        <td class="text-center"><span>0</span></td>
+                        <td class="text-center"><span>0</span></td>
+                        <td class="text-center"><span>100%</span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="agree-container">
+            <div class="agree-container-child">
+                <p class="check-icon" id="check"></p>
+                <p class="check-icon-text">点击下一步即表示已阅读并同意真爱保险使用须知</p>
+            </div>
+
+        </div>
+        <div class="next-container">
+            <div class="next" id="next">下一步</div>
+        </div>
+    </div>
+    <script>
+        function steRightCorner() {
+            var obj = {
+                "colorType": 2
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('', '', '2')
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        // window.onload = function(){
+        steRightCorner()
+        var flag = true;
+        var next = document.getElementById('next');
+        var check = document.getElementById('check');
+        check.onclick = function () {
+            if (flag == true) {
+                check.className = 'check-icon check-icon-un';
+                flag = false
+            } else if (flag == false) {
+                check.className = 'check-icon';
+                flag = true
+            }
+        }
+        next.onclick = function () {
+            if (flag == true) {
+                try {
+                    window.webkit.messageHandlers.nextStep.postMessage(null)
+                } catch (e) {
+                    console.log(e)
+                }
+                try {
+                    window.android.nextStep()
+                } catch (e) {
+                    console.log(e)
+                }
+            } else if (flag == false) {
+                return false
+            }
+        }
+
+        // }
+    </script>
+</body>
+
+
+</html>

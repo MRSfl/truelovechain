@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/feedback.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/feedback/js/jquery.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>意见反馈</title>
+</head>
+
+<body>
+    <div class="feedback-container clearfix">
+        <div class="email-box">
+            <input type="text" class="email" placeholder="请填写您的邮箱地址">
+        </div>
+        <div class="text">
+            <textarea maxlength="500" class="textarea" placeholder="请输入您的反馈问题(请不要超过500字)..."></textarea>
+        </div>
+    </div>
+    <div class="submit-container">
+        <div class="submit">提交</div>
+    </div>
+    <div class="feed-warn">
+        <span class="feed-warn-text"></span>
+    </div>
+    <script>
+        var timer = null;
+        var token = getQueryString('token');
+        function get() {
+            window.location.href = '../my_feedback/index.html?token=' + token;
+        }
+        function steRightCorner() {
+            var obj = {
+                "mothed": "get()",
+                "btnType": 103,
+                "colorType": 3
+            }
+            try {
+                window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.android.SetUpperMethod('get()', '103', '3')
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        function dialog(text) {
+            $('.feed-warn-text').html(text);
+            $('.feed-warn').show();
+            clearTimeout(timer)
+            timer = setTimeout(function () {
+                $('.feed-warn').hide();
+            }, 1000)
+        }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            var q = window.location.pathname.substr(1).match(reg_rewrite);
+            if (r != null) {
+                return unescape(r[2]);
+            } else if (q != null) {
+                return unescape(q[2]);
+            } else {
+                return null;
+            }
+        }
+        $(function () {
+            steRightCorner();
+            console.log(url);
+            var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+            var getUrl = url;
+            var token = getQueryString('token');
+            $('.submit').click(function () {
+                var email = $('.email').val();
+                var textarea = $('.textarea').val()
+                if (!email || !reg.test(email)) {
+                    dialog('请输入正确的邮箱！')
+                    return;
+                }
+                if (!textarea) {
+                    dialog('请输入反馈内容！');
+                    return
+                }
+                $.ajax({
+                    url: getUrl + '/api/userFeedBack/sendUserFeedback',
+                    type: 'get',
+                    data: {
+                        token: token,
+                        feedbackContent: textarea,
+                        imageUrl: '',
+                        remarksInformation: '',
+                        remark: email
+                    },
+                    success: function (res) {
+                        if (res.status == 200) {
+                            dialog('您的意见已提交成功！')
+                        }
+                    }
+                })
+
+            })
+        })
+    </script>
+</body>
+
+</html>

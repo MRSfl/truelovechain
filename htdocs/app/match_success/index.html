@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+    <link rel="stylesheet" href="css/match_success.css?v=20181128">
+    <script src="../config/config.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/match_success/js/jquery.min.js"></script>
+    <script src="http://tlcimg.quanxiankaibo.com/h5/match_success/js/swiper-3.4.2.min.js"></script>
+    <script>
+        (function flexible(window, document) {
+            var docEl = document.documentElement
+            var dpr = window.devicePixelRatio || 1
+
+            // adjust body font size
+            function setBodyFontSize() {
+                if (document.body) {
+                    document.body.style.fontSize = (12 * dpr) + 'px'
+                }
+                else {
+                    document.addEventListener('DOMContentLoaded', setBodyFontSize)
+                }
+            }
+            setBodyFontSize();
+
+            // set 1rem = viewWidth / 10
+            function setRemUnit() {
+                var rem = docEl.clientWidth / 10
+                docEl.style.fontSize = rem + 'px'
+            }
+
+            setRemUnit()
+
+            // reset rem unit on page resize
+            window.addEventListener('resize', setRemUnit)
+            window.addEventListener('pageshow', function (e) {
+                if (e.persisted) {
+                    setRemUnit()
+                }
+            })
+
+            // detect 0.5px supports
+            if (dpr >= 2) {
+                var fakeBody = document.createElement('body')
+                var testElement = document.createElement('div')
+                testElement.style.border = '.5px solid transparent'
+                fakeBody.appendChild(testElement)
+                docEl.appendChild(fakeBody)
+                if (testElement.offsetHeight === 1) {
+                    docEl.classList.add('hairlines')
+                }
+                docEl.removeChild(fakeBody)
+            }
+        }(window, document))
+
+    </script>
+    <title>匹配成功</title>
+</head>
+
+<body>
+    <div class="match_container">
+        <div class="match_top_img">
+            <div class="match_title"></div>
+            <div class="congratulation congratulation_top">恭喜</div>
+            <div class="congratulation">你们已经绑定了真爱关系</div>
+        </div>
+
+        <div class="match_tab">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="swiper_section clearfix">
+                            <img src="http://tlcimg.quanxiankaibo.com/h5/match_success/img/match_success_img1.png" />
+                            <div class="swiper_section_text swiper_section_text_one">基于区块链的全球爱情</div>
+                            <div class="swiper_section_text">共识社区</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper_section clearfix">
+                            <img src="http://tlcimg.quanxiankaibo.com/h5/match_success/img/match_success_img2.png" />
+                            <div class="swiper_section_text swiper_section_text_one">将我们的爱情记录在区块链上</div>
+                            <div class="swiper_section_text">接受全社区的共同见证和祝福</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="swiper_section clearfix">
+                            <img src="http://tlcimg.quanxiankaibo.com/h5/match_success/img/match_success_img3.png" />
+                            <div class="swiper_section_text swiper_section_text_one">让所有的爱情都有保障</div>
+                            <div class="swiper_section_text">让所有的爱情都有价值</div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+
+                        <div class="swiper_section clearfix">
+                            <img src="http://tlcimg.quanxiankaibo.com/h5/match_success/img/match_success_img4.png" />
+                            <div class="swiper_section_text swiper_section_text_one">参与爱情“挖矿” 获得</div>
+                            <div class="swiper_section_text">社区激励</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="match_learn_more"></div>
+        <div class="match_bottom">
+            <div class="close" id="close">看看再说</div>
+            <div class="jumpUpperChain" id="jumpUpperChain">真爱上链</div>
+        </div>
+    </div>
+</body>
+<script>
+    function steRightCornerWhite() {
+        var obj = {
+            "colorType": 2
+        }
+        try {
+            window.webkit.messageHandlers.SetUpperMethod.postMessage(obj)
+        } catch (e) {
+            console.log(e)
+        }
+        try {
+            window.android.SetUpperMethod('', '', '2')
+        } catch (e) {
+            console.log(e)
+        }
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var reg_rewrite = new RegExp("(^|/)" + name + "/([^/]*)(/|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        var q = window.location.pathname.substr(1).match(reg_rewrite);
+        if (r != null) {
+            return unescape(r[2]);
+        } else if (q != null) {
+            return unescape(q[2]);
+        } else {
+            return null;
+        }
+    }
+    var mySwiper = new Swiper('.swiper-container', {
+        slidesPerView: 1.66,
+        pagination: '.swiper-pagination'
+    })
+    $(function () {
+        steRightCornerWhite()
+        var close = document.getElementById('close');
+        var jumpUpperChain = document.getElementById('jumpUpperChain');
+        close.onclick = function () {
+            try {
+                window.android.closeWebview()
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.webkit.messageHandlers.closeWebview.postMessage(null);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        jumpUpperChain.onclick = function () {
+            try {
+                window.android.jumpUpperChain()
+            } catch (e) {
+                console.log(e)
+            }
+            try {
+                window.webkit.messageHandlers.jumpUpperChain.postMessage(null);
+            } catch (e) {
+                console.log(e)
+            }
+        }
+        // var token = getQueryString('token');
+        // var getUrl = url;
+        // $.ajax({
+        //     url:getUrl+'/h5/openinfo/viewOurInfo',
+        //     type:"get",
+        //     data:{
+        //         token:token
+        //     },
+        //     success:function(res){
+        //         if(res.status == 200){
+        //             $('.match_title').html(res.relation.aname+'&'+res.relation.bname)
+        //         }
+        //     }
+        // })
+    })
+</script>
+
+</html>
